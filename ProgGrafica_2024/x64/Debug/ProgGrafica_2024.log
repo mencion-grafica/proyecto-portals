@@ -1,0 +1,12 @@
+﻿  MainPRGR_2024.cpp
+C:\Users\cueva\OneDrive\Escritorio\Clases\INSO 4C\Proyectos 4\proyecto-portals\programacion-grafica-main\ProgGrafica_2024\lib\Vector4f.h(84,18): warning C4244: 'return': conversión de 'double' a 'float'; posible pérdida de datos
+  (compilando archivo de origen "MainPRGR_2024.cpp")
+  
+C:\Users\cueva\OneDrive\Escritorio\Clases\INSO 4C\Proyectos 4\proyecto-portals\programacion-grafica-main\ProgGrafica_2024\lib\CameraFPS.h(45,16): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+  (compilando archivo de origen "MainPRGR_2024.cpp")
+  
+C:\Users\cueva\OneDrive\Escritorio\Clases\INSO 4C\Proyectos 4\proyecto-portals\programacion-grafica-main\ProgGrafica_2024\lib\CameraFPS.h(46,16): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+  (compilando archivo de origen "MainPRGR_2024.cpp")
+  
+C:\Users\cueva\OneDrive\Escritorio\Clases\INSO 4C\Proyectos 4\proyecto-portals\programacion-grafica-main\ProgGrafica_2024\MainPRGR_2024.cpp(41,89): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+  ProgGrafica_2024.vcxproj -> C:\Users\cueva\OneDrive\Escritorio\Clases\INSO 4C\Proyectos 4\proyecto-portals\programacion-grafica-main\x64\Debug\ProgGrafica_2024.exe
