@@ -15,92 +15,34 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="MainPRGR_2024.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="lib\Object3D.cpp">
+    <ClCompile Include="Main.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="lib\Render.cpp">
-      <Filter>Archivos de origen</Filter>
+      <Filter>Archivos de encabezado</Filter>
     </ClCompile>
     <ClCompile Include="lib\InputManager.cpp">
-      <Filter>Archivos de origen</Filter>
+      <Filter>Archivos de encabezado</Filter>
     </ClCompile>
-    <ClCompile Include="lib\Camera.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="lib\RenderProgram.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="lib\Light.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="lib\Texture.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="lib\CameraFPS.cpp">
-      <Filter>Archivos de origen</Filter>
+    <ClCompile Include="lib\Object.cpp">
+      <Filter>Archivos de encabezado</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="lib\Vector4f.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\Mat4x4f.h">
+    <ClInclude Include="lib\Common.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="lib\Render.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="lib\Quaternion4f.h">
+    <ClInclude Include="lib\InputManager.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="lib\vertex.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="lib\Object3D.h">
+    <ClInclude Include="lib\Object.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="lib\InputManager.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\Common.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\Camera.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\RenderProgram.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\Light.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\Texture.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\stb_image.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\collider.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\CameraFPS.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="data\shader.vert">
-      <Filter>Archivos de recursos</Filter>
-    </None>
-    <None Include="data\shader.frag">
-      <Filter>Archivos de recursos</Filter>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="data\ShaderDescriptor.txt">
-      <Filter>Archivos de recursos</Filter>
-    </Text>
   </ItemGroup>
 </Project>

@@ -19,39 +19,17 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="lib\Camera.cpp" />
-    <ClCompile Include="lib\CameraFPS.cpp" />
     <ClCompile Include="lib\InputManager.cpp" />
-    <ClCompile Include="lib\Light.cpp" />
-    <ClCompile Include="lib\Object3D.cpp" />
+    <ClCompile Include="lib\Object.cpp" />
     <ClCompile Include="lib\Render.cpp" />
-    <ClCompile Include="lib\RenderProgram.cpp" />
-    <ClCompile Include="lib\Texture.cpp" />
-    <ClCompile Include="MainPRGR_2024.cpp" />
+    <ClCompile Include="Main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="lib\Camera.h" />
-    <ClInclude Include="lib\CameraFPS.h" />
-    <ClInclude Include="lib\collider.h" />
     <ClInclude Include="lib\Common.h" />
     <ClInclude Include="lib\InputManager.h" />
-    <ClInclude Include="lib\Light.h" />
-    <ClInclude Include="lib\Mat4x4f.h" />
-    <ClInclude Include="lib\Object3D.h" />
-    <ClInclude Include="lib\Quaternion4f.h" />
+    <ClInclude Include="lib\Object.h" />
     <ClInclude Include="lib\Render.h" />
-    <ClInclude Include="lib\RenderProgram.h" />
-    <ClInclude Include="lib\stb_image.h" />
-    <ClInclude Include="lib\Texture.h" />
-    <ClInclude Include="lib\Vector4f.h" />
     <ClInclude Include="lib\vertex.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="data\shader.frag" />
-    <None Include="data\shader.vert" />
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="data\ShaderDescriptor.txt" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
