@@ -2,6 +2,7 @@
 
 #include "Common.h"
 #include "Object.h"
+#include "Camera.h"
 
 /**
  * @class Render
@@ -19,13 +20,31 @@ class Render
 
 		std::vector<Object*> objectList;
 
+		typedef struct {
+			unsigned int bufferID;
+			unsigned int vertexBufferID;
+			unsigned int edgeBufferID;
+		} bufferObject_t;
+
+		std::map<int, bufferObject_t> bufferObjectList;
+
+		Camera* camera;
+
 		Render();
 
 		void putObject(Object* object);
 
+		void putCamera(Camera* camera);
+
+		void setupObject(Object* object);
+
+		void move(float deltaTime);
+
+		void drawObjects();
+
 		void initGL(const char* windowName, int sizeX, int sizeY);
 
-		void drawGL();
+		void drawGL(int id);
 
 		void mainLoop();
 };

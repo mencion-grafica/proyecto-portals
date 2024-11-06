@@ -3,6 +3,7 @@
 #include "lib/Common.h"
 #include "lib/Render.h"
 #include "lib/Object.h"
+#include "lib/Camera.h"
 
 glm::mat4 transform(glm::vec2 const& Orientation, glm::vec3 const& Translate, glm::vec3 const& Up)
 {
@@ -29,23 +30,15 @@ int main(int argc, char** argv)
 	glm::mat4 newMat2 = computeModelViewMatrix(5.0f, glm::vec2(0.0f, 0.0f));
 	std::vector<glm::mat4> list = { newMat, newMat2 };
 
-	for (int i = 0; i < list.size(); i++)
-	{
-		for (int j = 0; j < 4; j++)
-		{
-			std::cout << "[ ";
-			for (int k = 0; k < 4; k++) std::cout << list[i][j][k] << " ";
-			std::cout << "]" << std::endl;
-		}
-		std::cout << std::endl;
-	}
-
-	Object* object = new Object();
-	object->createTriangle();
-
 	Render* render = new Render();
 	render->initGL("Proyecto Portal", 1080, 720);
 
+	Object* object = new Object("./data/cube.trs");
+	object->position = glm::vec4(0, 0, 0, 1);
+
+	Camera* camera = new Camera(glm::vec3(0.0f, 0.0f, -100.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 0.0f, 0.0f), M_PI / 4.0f, 4.0f / 3.0f, 0.01f, 1000.0f);
+
+	render->putCamera(camera);
 	render->putObject(object);
 
 	render->mainLoop();

@@ -27,6 +27,12 @@
     <ClCompile Include="lib\Object.cpp">
       <Filter>Archivos de encabezado</Filter>
     </ClCompile>
+    <ClCompile Include="lib\Camera.cpp">
+      <Filter>Archivos de encabezado</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\RenderProgram.cpp">
+      <Filter>Archivos de encabezado</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="lib\Common.h">
@@ -44,5 +50,25 @@
     <ClInclude Include="lib\Object.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
+    <ClInclude Include="lib\Camera.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\RenderProgram.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\shader.frag">
+      <Filter>Archivos de encabezado</Filter>
+    </None>
+    <None Include="data\shader.vert">
+      <Filter>Archivos de encabezado</Filter>
+    </None>
+    <None Include="data\triangle.trs">
+      <Filter>Archivos de encabezado</Filter>
+    </None>
+    <None Include="data\cube.trs">
+      <Filter>Archivos de encabezado</Filter>
+    </None>
   </ItemGroup>
 </Project>

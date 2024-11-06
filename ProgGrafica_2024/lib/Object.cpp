@@ -1,18 +1,113 @@
 #include "Object.h"
 
+void printData(Object obj) 
+{
+	std::cout << "Object3D ID: " << obj.id << std::endl;
+
+	for (int i = 0; i < obj.vertexList.size(); i++) 
+	{
+		std::cout << "Vertex " << i << ": " << obj.vertexList[i].vertexPos.x << " " << obj.vertexList[i].vertexPos.y << " " << obj.vertexList[i].vertexPos.z << std::endl;
+	}
+
+	for (int i = 0; i < obj.vertexList.size(); i++) 
+	{
+		std::cout << "Color " << i << ": " << obj.vertexList[i].vertexColor.r << " " << obj.vertexList[i].vertexColor.g << " " << obj.vertexList[i].vertexColor.b << std::endl;
+	}
+
+	for (int i = 0; i < obj.idList.size(); i++) 
+	{
+		std::cout << "ID " << i << ": " << obj.idList[i] << std::endl;
+	}
+}
+
 Object::Object()
+{
+	this->id = this->idCounter++;
+
+	this->position = glm::vec4(0.0f, 0.0f, 0.0f, 1.0f);
+	this->rotation = glm::vec4(0.0f, 0.0f, 0.0f, 1.0f);
+	this->scale = glm::vec4(1.0f);
+	this->modelMatrix = glm::mat4(1.0f);
+}
+
+Object::Object(std::string fileName) 
 {
 	this->position = glm::vec4(0.0f, 0.0f, 0.0f, 1.0f);
 	this->rotation = glm::vec4(0.0f, 0.0f, 0.0f, 1.0f);
-	this->scale = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f);
-	this->modelMatrix = glm::identity<glm::mat4>();
+	this->scale = glm::vec4(1.0f);
+	this->modelMatrix = glm::mat4(1.0f);
+
+	std::cout << "Leyendo desde fichero\n";
+
+	id = idCounter++;
+	std::string line;
+
+	std::ifstream f(fileName, std::ios_base::in);
+
+	if (!f.is_open()) 
+	{
+		std::cout << "ERROR Fichero " << fileName << " no encontrado\n";
+		return;
+	}
+
+	bool existsNormal = false;
+	while (std::getline(f, line, '\n')) 
+	{
+		std::istringstream str(line);
+		std::string key;
+
+		str >> key;
+
+		if (key[0] != '#') 
+		{
+			if (key == "vert") 
+			{
+				glm::vec4 pos;
+				str >> pos.x >> pos.y >> pos.z;
+				pos.w = 1.0f;
+				vertex_t vert;
+				vert.vertexPos = pos;
+				vertexList.push_back(vert);
+			}
+			else if (key == "color") 
+			{
+				vertex_t& v = vertexList.back();
+				str >> v.vertexColor.r >> v.vertexColor.g >> v.vertexColor.b >> v.vertexColor.a;
+			}
+			else if (key == "face") 
+			{
+				for (int i = 0; i < 3; i++) 
+				{
+					int f = 0;
+					str >> f;
+					idList.push_back(f);
+				}
+			}
+			else if (key == "svert" || key == "sfrag")
+			{
+				std::string fileName;
+				str >> fileName;
+				prg->addShader(fileName);
+			}
+			else if (key == "normal") 
+			{
+				vertex_t& v = vertexList.back();
+				str >> v.vertexNormal.x >> v.vertexNormal.y >> v.vertexNormal.z >> v.vertexNormal.w;
+				existsNormal = true;
+			}
+		}
+	}
+
+	prg->link();
+
+	printData(*this);
 }
 
 void Object::createTriangle()
 {
 	this->position = glm::vec4(0.0f, 0.0f, 0.0f, 1.0f);
 	this->rotation = glm::vec4(0.0f, 0.0f, 0.0f, 1.0f);
-	this->scale = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f);
+	this->scale = glm::vec4(1.0f);
 
 	this->vertexList = 
 	{
@@ -34,13 +129,15 @@ void Object::createTriangle()
 	};
 
 	this->idList = { 1, 0, 2 };
-	this->modelMatrix = glm::identity<glm::mat4>();
+	this->modelMatrix = glm::mat4(1.0f);
+
+	this->prg->link();
 }
 
 void Object::move(double deltaTime)
 {
-	if (InputManager::keysState[GLFW_KEY_A]) position.x -= 0.2f * deltaTime;
-	if (InputManager::keysState[GLFW_KEY_D]) position.x += 0.2f * deltaTime;
+	if (InputManager::keysState[GLFW_KEY_A]) position.x += 0.2f * deltaTime;
+	if (InputManager::keysState[GLFW_KEY_D]) position.x -= 0.2f * deltaTime;
 	if (InputManager::keysState[GLFW_KEY_W]) position.y += 0.2f * deltaTime;
 	if (InputManager::keysState[GLFW_KEY_S]) position.y -= 0.2f * deltaTime;
 
@@ -59,9 +156,9 @@ void Object::move(double deltaTime)
 
 void Object::updateModelMatrix()
 {
-	glm::mat4 translate = glm::translate(glm::identity<glm::mat4>(), glm::vec3(position));
-	glm::mat4 rotate = glm::rotate(glm::identity<glm::mat4>(), rotation.y, glm::vec3(0.0f, 1.0f, 0.0f));
-	glm::mat4 scale = glm::scale(glm::identity<glm::mat4>(), glm::vec3(this->scale));
+	glm::mat4 translate = glm::translate(glm::mat4(1.0f), glm::vec3(position));
+	glm::mat4 rotate = glm::rotate(glm::mat4(1.0f), rotation.y, glm::vec3(0.0f, 1.0f, 0.0f));
+	glm::mat4 scale = glm::scale(glm::mat4(1.0f), glm::vec3(this->scale));
 
 	this->modelMatrix = translate * rotate * scale;
 }

@@ -3,24 +3,33 @@
 #include "Common.h"
 #include "vertex.h"
 #include "InputManager.h"
+#include "RenderProgram.h"
 
 class Object
 {
-	public:
-		glm::vec4 position;
-		glm::vec4 rotation;
-		glm::vec4 scale;
+private:
+	static inline int idCounter = 0;
+public:
+	int id = 0;
 
-		std::vector<vertex_t> vertexList;
-		std::vector<int> idList;
+	glm::vec4 position;
+	glm::vec4 rotation;
+	glm::vec4 scale;
 
-		glm::mat4 modelMatrix;
+	std::vector<vertex_t> vertexList;
+	std::vector<int> idList;
 
-		Object();
+	glm::mat4 modelMatrix;
 
-		void createTriangle();
+	Program* prg = new Program();
 
-		void move(double deltaTime);
+	Object();
 
-		void updateModelMatrix();
+	Object(std::string fileName);
+
+	void createTriangle();
+
+	void move(double deltaTime);
+
+	void updateModelMatrix();
 };
