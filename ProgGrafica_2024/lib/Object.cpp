@@ -2,7 +2,7 @@
 
 void printData(Object obj) 
 {
-	std::cout << "Object3D ID: " << obj.id << std::endl;
+	std::cout << "Object ID: " << obj.id << std::endl;
 
 	for (int i = 0; i < obj.vertexList.size(); i++) 
 	{
@@ -136,21 +136,6 @@ void Object::createTriangle()
 
 void Object::move(double deltaTime)
 {
-	if (InputManager::keysState[GLFW_KEY_A]) position.x += 0.2f * deltaTime;
-	if (InputManager::keysState[GLFW_KEY_D]) position.x -= 0.2f * deltaTime;
-	if (InputManager::keysState[GLFW_KEY_W]) position.y += 0.2f * deltaTime;
-	if (InputManager::keysState[GLFW_KEY_S]) position.y -= 0.2f * deltaTime;
-
-	if (InputManager::keysState[GLFW_KEY_Q]) rotation.y += 0.8f * deltaTime;
-	if (InputManager::keysState[GLFW_KEY_E]) rotation.y -= 0.8f * deltaTime;
-
-	if (InputManager::keysState[GLFW_KEY_Z]) scale.x -= 0.1f * deltaTime;
-	if (InputManager::keysState[GLFW_KEY_Z]) scale.y -= 0.1f * deltaTime;
-	if (InputManager::keysState[GLFW_KEY_Z]) scale.z -= 0.1f * deltaTime;
-	if (InputManager::keysState[GLFW_KEY_X]) scale.x += 0.1f * deltaTime;
-	if (InputManager::keysState[GLFW_KEY_X]) scale.y += 0.1f * deltaTime;
-	if (InputManager::keysState[GLFW_KEY_X]) scale.z += 0.1f * deltaTime;
-
 	updateModelMatrix();
 }
 

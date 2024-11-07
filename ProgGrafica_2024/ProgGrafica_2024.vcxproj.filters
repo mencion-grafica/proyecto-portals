@@ -70,5 +70,8 @@
     <None Include="data\cube.trs">
       <Filter>Archivos de encabezado</Filter>
     </None>
+    <None Include="data\ground.trs">
+      <Filter>Archivos de encabezado</Filter>
+    </None>
   </ItemGroup>
 </Project>

@@ -3,64 +3,48 @@
   "WorkspaceRootPath": "C:\\Users\\cueva\\Desktop\\U-tad\\proyecto-portals\\proyecto-portals\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{7A041F2C-DE93-458A-8308-8137B2BF8AE2}|ProgGrafica_2024\\ProgGrafica_2024.vcxproj|C:\\Users\\cueva\\Desktop\\U-tad\\proyecto-portals\\proyecto-portals\\ProgGrafica_2024\\lib\\Camera.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{7A041F2C-DE93-458A-8308-8137B2BF8AE2}|ProgGrafica_2024\\ProgGrafica_2024.vcxproj|solutionrelative:ProgGrafica_2024\\lib\\Camera.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{7A041F2C-DE93-458A-8308-8137B2BF8AE2}|ProgGrafica_2024\\ProgGrafica_2024.vcxproj|C:\\Users\\cueva\\Desktop\\U-tad\\proyecto-portals\\proyecto-portals\\ProgGrafica_2024\\lib\\Object.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{7A041F2C-DE93-458A-8308-8137B2BF8AE2}|ProgGrafica_2024\\ProgGrafica_2024.vcxproj|solutionrelative:ProgGrafica_2024\\lib\\Object.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7A041F2C-DE93-458A-8308-8137B2BF8AE2}|ProgGrafica_2024\\ProgGrafica_2024.vcxproj|C:\\Users\\cueva\\Desktop\\U-tad\\proyecto-portals\\proyecto-portals\\ProgGrafica_2024\\Main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{7A041F2C-DE93-458A-8308-8137B2BF8AE2}|ProgGrafica_2024\\ProgGrafica_2024.vcxproj|solutionrelative:ProgGrafica_2024\\Main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7A041F2C-DE93-458A-8308-8137B2BF8AE2}|ProgGrafica_2024\\ProgGrafica_2024.vcxproj|C:\\Users\\cueva\\Desktop\\U-tad\\proyecto-portals\\proyecto-portals\\ProgGrafica_2024\\lib\\Camera.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{7A041F2C-DE93-458A-8308-8137B2BF8AE2}|ProgGrafica_2024\\ProgGrafica_2024.vcxproj|solutionrelative:ProgGrafica_2024\\lib\\Camera.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{7A041F2C-DE93-458A-8308-8137B2BF8AE2}|ProgGrafica_2024\\ProgGrafica_2024.vcxproj|C:\\Users\\cueva\\Desktop\\U-tad\\proyecto-portals\\proyecto-portals\\ProgGrafica_2024\\lib\\Render.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{7A041F2C-DE93-458A-8308-8137B2BF8AE2}|ProgGrafica_2024\\ProgGrafica_2024.vcxproj|solutionrelative:ProgGrafica_2024\\lib\\Render.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7A041F2C-DE93-458A-8308-8137B2BF8AE2}|ProgGrafica_2024\\ProgGrafica_2024.vcxproj|C:\\Users\\cueva\\Desktop\\U-tad\\proyecto-portals\\proyecto-portals\\ProgGrafica_2024\\lib\\Object.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{7A041F2C-DE93-458A-8308-8137B2BF8AE2}|ProgGrafica_2024\\ProgGrafica_2024.vcxproj|solutionrelative:ProgGrafica_2024\\lib\\Object.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7A041F2C-DE93-458A-8308-8137B2BF8AE2}|ProgGrafica_2024\\ProgGrafica_2024.vcxproj|C:\\Users\\cueva\\Desktop\\U-tad\\proyecto-portals\\proyecto-portals\\ProgGrafica_2024\\lib\\Object.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{7A041F2C-DE93-458A-8308-8137B2BF8AE2}|ProgGrafica_2024\\ProgGrafica_2024.vcxproj|solutionrelative:ProgGrafica_2024\\lib\\Object.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7A041F2C-DE93-458A-8308-8137B2BF8AE2}|ProgGrafica_2024\\ProgGrafica_2024.vcxproj|C:\\Users\\cueva\\Desktop\\U-tad\\proyecto-portals\\proyecto-portals\\ProgGrafica_2024\\data\\cube.trs||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{7A041F2C-DE93-458A-8308-8137B2BF8AE2}|ProgGrafica_2024\\ProgGrafica_2024.vcxproj|solutionrelative:ProgGrafica_2024\\data\\cube.trs||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7A041F2C-DE93-458A-8308-8137B2BF8AE2}|ProgGrafica_2024\\ProgGrafica_2024.vcxproj|C:\\Users\\cueva\\Desktop\\U-tad\\proyecto-portals\\proyecto-portals\\ProgGrafica_2024\\data\\triangle.trs||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{7A041F2C-DE93-458A-8308-8137B2BF8AE2}|ProgGrafica_2024\\ProgGrafica_2024.vcxproj|solutionrelative:ProgGrafica_2024\\data\\triangle.trs||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7A041F2C-DE93-458A-8308-8137B2BF8AE2}|ProgGrafica_2024\\ProgGrafica_2024.vcxproj|C:\\Users\\cueva\\Desktop\\U-tad\\proyecto-portals\\proyecto-portals\\ProgGrafica_2024\\lib\\RenderProgram.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{7A041F2C-DE93-458A-8308-8137B2BF8AE2}|ProgGrafica_2024\\ProgGrafica_2024.vcxproj|solutionrelative:ProgGrafica_2024\\lib\\RenderProgram.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{7A041F2C-DE93-458A-8308-8137B2BF8AE2}|ProgGrafica_2024\\ProgGrafica_2024.vcxproj|C:\\Users\\cueva\\Desktop\\U-tad\\proyecto-portals\\proyecto-portals\\ProgGrafica_2024\\data\\shader.vert||{8B382828-6202-11D1-8870-0000F87579D2}",
       "RelativeMoniker": "D:0:0:{7A041F2C-DE93-458A-8308-8137B2BF8AE2}|ProgGrafica_2024\\ProgGrafica_2024.vcxproj|solutionrelative:ProgGrafica_2024\\data\\shader.vert||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7A041F2C-DE93-458A-8308-8137B2BF8AE2}|ProgGrafica_2024\\ProgGrafica_2024.vcxproj|C:\\Users\\cueva\\Desktop\\U-tad\\proyecto-portals\\proyecto-portals\\ProgGrafica_2024\\data\\shader.frag||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{7A041F2C-DE93-458A-8308-8137B2BF8AE2}|ProgGrafica_2024\\ProgGrafica_2024.vcxproj|solutionrelative:ProgGrafica_2024\\data\\shader.frag||{8B382828-6202-11D1-8870-0000F87579D2}"
+      "AbsoluteMoniker": "D:0:0:{7A041F2C-DE93-458A-8308-8137B2BF8AE2}|ProgGrafica_2024\\ProgGrafica_2024.vcxproj|C:\\Users\\cueva\\Desktop\\U-tad\\proyecto-portals\\proyecto-portals\\ProgGrafica_2024\\data\\ground.trs||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{7A041F2C-DE93-458A-8308-8137B2BF8AE2}|ProgGrafica_2024\\ProgGrafica_2024.vcxproj|solutionrelative:ProgGrafica_2024\\data\\ground.trs||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7A041F2C-DE93-458A-8308-8137B2BF8AE2}|ProgGrafica_2024\\ProgGrafica_2024.vcxproj|C:\\Users\\cueva\\Desktop\\U-tad\\proyecto-portals\\proyecto-portals\\ProgGrafica_2024\\lib\\Common.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{7A041F2C-DE93-458A-8308-8137B2BF8AE2}|ProgGrafica_2024\\ProgGrafica_2024.vcxproj|solutionrelative:ProgGrafica_2024\\lib\\Common.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{7A041F2C-DE93-458A-8308-8137B2BF8AE2}|ProgGrafica_2024\\ProgGrafica_2024.vcxproj|C:\\Users\\cueva\\Desktop\\U-tad\\proyecto-portals\\proyecto-portals\\ProgGrafica_2024\\lib\\Camera.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{7A041F2C-DE93-458A-8308-8137B2BF8AE2}|ProgGrafica_2024\\ProgGrafica_2024.vcxproj|solutionrelative:ProgGrafica_2024\\lib\\Camera.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7A041F2C-DE93-458A-8308-8137B2BF8AE2}|ProgGrafica_2024\\ProgGrafica_2024.vcxproj|C:\\Users\\cueva\\Desktop\\U-tad\\proyecto-portals\\proyecto-portals\\ProgGrafica_2024\\lib\\Render.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{7A041F2C-DE93-458A-8308-8137B2BF8AE2}|ProgGrafica_2024\\ProgGrafica_2024.vcxproj|solutionrelative:ProgGrafica_2024\\lib\\Render.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{7A041F2C-DE93-458A-8308-8137B2BF8AE2}|ProgGrafica_2024\\ProgGrafica_2024.vcxproj|C:\\Users\\cueva\\Desktop\\U-tad\\proyecto-portals\\proyecto-portals\\ProgGrafica_2024\\lib\\InputManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{7A041F2C-DE93-458A-8308-8137B2BF8AE2}|ProgGrafica_2024\\ProgGrafica_2024.vcxproj|solutionrelative:ProgGrafica_2024\\lib\\InputManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{7A041F2C-DE93-458A-8308-8137B2BF8AE2}|ProgGrafica_2024\\ProgGrafica_2024.vcxproj|C:\\Users\\cueva\\Desktop\\U-tad\\proyecto-portals\\proyecto-portals\\ProgGrafica_2024\\lib\\InputManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{7A041F2C-DE93-458A-8308-8137B2BF8AE2}|ProgGrafica_2024\\ProgGrafica_2024.vcxproj|solutionrelative:ProgGrafica_2024\\lib\\InputManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7A041F2C-DE93-458A-8308-8137B2BF8AE2}|ProgGrafica_2024\\ProgGrafica_2024.vcxproj|C:\\Users\\cueva\\Desktop\\U-tad\\proyecto-portals\\proyecto-portals\\ProgGrafica_2024\\lib\\vertex.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{7A041F2C-DE93-458A-8308-8137B2BF8AE2}|ProgGrafica_2024\\ProgGrafica_2024.vcxproj|solutionrelative:ProgGrafica_2024\\lib\\vertex.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{7A041F2C-DE93-458A-8308-8137B2BF8AE2}|ProgGrafica_2024\\ProgGrafica_2024.vcxproj|C:\\Users\\cueva\\Desktop\\U-tad\\proyecto-portals\\proyecto-portals\\ProgGrafica_2024\\lib\\Camera.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{7A041F2C-DE93-458A-8308-8137B2BF8AE2}|ProgGrafica_2024\\ProgGrafica_2024.vcxproj|solutionrelative:ProgGrafica_2024\\lib\\Camera.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -70,7 +54,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 10,
           "Children": [
             {
               "$type": "Bookmark",
@@ -78,141 +62,104 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "cube.trs",
-              "DocumentMoniker": "C:\\Users\\cueva\\Desktop\\U-tad\\proyecto-portals\\proyecto-portals\\ProgGrafica_2024\\data\\cube.trs",
-              "RelativeDocumentMoniker": "ProgGrafica_2024\\data\\cube.trs",
-              "ToolTip": "C:\\Users\\cueva\\Desktop\\U-tad\\proyecto-portals\\proyecto-portals\\ProgGrafica_2024\\data\\cube.trs",
-              "RelativeToolTip": "ProgGrafica_2024\\data\\cube.trs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADIAAAAWAAAAAAAAAA==",
+              "DocumentIndex": 5,
+              "Title": "ground.trs",
+              "DocumentMoniker": "C:\\Users\\cueva\\Desktop\\U-tad\\proyecto-portals\\proyecto-portals\\ProgGrafica_2024\\data\\ground.trs",
+              "RelativeDocumentMoniker": "ProgGrafica_2024\\data\\ground.trs",
+              "ToolTip": "C:\\Users\\cueva\\Desktop\\U-tad\\proyecto-portals\\proyecto-portals\\ProgGrafica_2024\\data\\ground.trs",
+              "RelativeToolTip": "ProgGrafica_2024\\data\\ground.trs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2024-11-06T11:37:00.398Z",
+              "WhenOpened": "2024-11-07T00:37:38.693Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "shader.frag",
-              "DocumentMoniker": "C:\\Users\\cueva\\Desktop\\U-tad\\proyecto-portals\\proyecto-portals\\ProgGrafica_2024\\data\\shader.frag",
-              "RelativeDocumentMoniker": "ProgGrafica_2024\\data\\shader.frag",
-              "ToolTip": "C:\\Users\\cueva\\Desktop\\U-tad\\proyecto-portals\\proyecto-portals\\ProgGrafica_2024\\data\\shader.frag",
-              "RelativeToolTip": "ProgGrafica_2024\\data\\shader.frag",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAWAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2024-11-06T11:20:55.199Z",
+              "DocumentIndex": 8,
+              "Title": "InputManager.cpp",
+              "DocumentMoniker": "C:\\Users\\cueva\\Desktop\\U-tad\\proyecto-portals\\proyecto-portals\\ProgGrafica_2024\\lib\\InputManager.cpp",
+              "RelativeDocumentMoniker": "ProgGrafica_2024\\lib\\InputManager.cpp",
+              "ToolTip": "C:\\Users\\cueva\\Desktop\\U-tad\\proyecto-portals\\proyecto-portals\\ProgGrafica_2024\\lib\\InputManager.cpp",
+              "RelativeToolTip": "ProgGrafica_2024\\lib\\InputManager.cpp",
+              "ViewState": "AgIAABEAAAAAAAAAAAAQwCUAAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-11-07T00:21:12.705Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "triangle.trs",
-              "DocumentMoniker": "C:\\Users\\cueva\\Desktop\\U-tad\\proyecto-portals\\proyecto-portals\\ProgGrafica_2024\\data\\triangle.trs",
-              "RelativeDocumentMoniker": "ProgGrafica_2024\\data\\triangle.trs",
-              "ToolTip": "C:\\Users\\cueva\\Desktop\\U-tad\\proyecto-portals\\proyecto-portals\\ProgGrafica_2024\\data\\triangle.trs",
-              "RelativeToolTip": "ProgGrafica_2024\\data\\triangle.trs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2024-11-05T10:53:12.219Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 4,
               "Title": "shader.vert",
               "DocumentMoniker": "C:\\Users\\cueva\\Desktop\\U-tad\\proyecto-portals\\proyecto-portals\\ProgGrafica_2024\\data\\shader.vert",
               "RelativeDocumentMoniker": "ProgGrafica_2024\\data\\shader.vert",
               "ToolTip": "C:\\Users\\cueva\\Desktop\\U-tad\\proyecto-portals\\proyecto-portals\\ProgGrafica_2024\\data\\shader.vert",
               "RelativeToolTip": "ProgGrafica_2024\\data\\shader.vert",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
               "WhenOpened": "2024-11-05T02:21:14.676Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 7,
               "Title": "Render.h",
               "DocumentMoniker": "C:\\Users\\cueva\\Desktop\\U-tad\\proyecto-portals\\proyecto-portals\\ProgGrafica_2024\\lib\\Render.h",
               "RelativeDocumentMoniker": "ProgGrafica_2024\\lib\\Render.h",
               "ToolTip": "C:\\Users\\cueva\\Desktop\\U-tad\\proyecto-portals\\proyecto-portals\\ProgGrafica_2024\\lib\\Render.h",
               "RelativeToolTip": "ProgGrafica_2024\\lib\\Render.h",
-              "ViewState": "AgIAABcAAAAAAAAAAAAhwCsAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAxwA0AAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-11-05T00:03:07.818Z"
+              "WhenOpened": "2024-11-05T00:03:07.818Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 3,
               "Title": "Object.h",
               "DocumentMoniker": "C:\\Users\\cueva\\Desktop\\U-tad\\proyecto-portals\\proyecto-portals\\ProgGrafica_2024\\lib\\Object.h",
               "RelativeDocumentMoniker": "ProgGrafica_2024\\lib\\Object.h",
               "ToolTip": "C:\\Users\\cueva\\Desktop\\U-tad\\proyecto-portals\\proyecto-portals\\ProgGrafica_2024\\lib\\Object.h",
               "RelativeToolTip": "ProgGrafica_2024\\lib\\Object.h",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAwwB8AAAAKAAAAAAAAAA==",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAAACEAAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-11-04T22:06:20.83Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 6,
               "Title": "Camera.cpp",
               "DocumentMoniker": "C:\\Users\\cueva\\Desktop\\U-tad\\proyecto-portals\\proyecto-portals\\ProgGrafica_2024\\lib\\Camera.cpp",
               "RelativeDocumentMoniker": "ProgGrafica_2024\\lib\\Camera.cpp",
               "ToolTip": "C:\\Users\\cueva\\Desktop\\U-tad\\proyecto-portals\\proyecto-portals\\ProgGrafica_2024\\lib\\Camera.cpp",
               "RelativeToolTip": "ProgGrafica_2024\\lib\\Camera.cpp",
-              "ViewState": "AgIAAAIAAAAAAAAAAAAQwBoAAAAQAAAAAAAAAA==",
+              "ViewState": "AgIAABQAAAAAAAAAAAAQwCwAAABNAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-11-04T21:50:14.804Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 10,
               "Title": "Camera.h",
               "DocumentMoniker": "C:\\Users\\cueva\\Desktop\\U-tad\\proyecto-portals\\proyecto-portals\\ProgGrafica_2024\\lib\\Camera.h",
               "RelativeDocumentMoniker": "ProgGrafica_2024\\lib\\Camera.h",
               "ToolTip": "C:\\Users\\cueva\\Desktop\\U-tad\\proyecto-portals\\proyecto-portals\\ProgGrafica_2024\\lib\\Camera.h",
               "RelativeToolTip": "ProgGrafica_2024\\lib\\Camera.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAgwBQAAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-11-04T21:40:13.813Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "Common.h",
-              "DocumentMoniker": "C:\\Users\\cueva\\Desktop\\U-tad\\proyecto-portals\\proyecto-portals\\ProgGrafica_2024\\lib\\Common.h",
-              "RelativeDocumentMoniker": "ProgGrafica_2024\\lib\\Common.h",
-              "ToolTip": "C:\\Users\\cueva\\Desktop\\U-tad\\proyecto-portals\\proyecto-portals\\ProgGrafica_2024\\lib\\Common.h",
-              "RelativeToolTip": "ProgGrafica_2024\\lib\\Common.h",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABIAAAAUAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-11-04T21:41:48.379Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "vertex.h",
-              "DocumentMoniker": "C:\\Users\\cueva\\Desktop\\U-tad\\proyecto-portals\\proyecto-portals\\ProgGrafica_2024\\lib\\vertex.h",
-              "RelativeDocumentMoniker": "ProgGrafica_2024\\lib\\vertex.h",
-              "ToolTip": "C:\\Users\\cueva\\Desktop\\U-tad\\proyecto-portals\\proyecto-portals\\ProgGrafica_2024\\lib\\vertex.h",
-              "RelativeToolTip": "ProgGrafica_2024\\lib\\vertex.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAALAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-11-03T21:41:01.403Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "Render.cpp",
               "DocumentMoniker": "C:\\Users\\cueva\\Desktop\\U-tad\\proyecto-portals\\proyecto-portals\\ProgGrafica_2024\\lib\\Render.cpp",
               "RelativeDocumentMoniker": "ProgGrafica_2024\\lib\\Render.cpp",
               "ToolTip": "C:\\Users\\cueva\\Desktop\\U-tad\\proyecto-portals\\proyecto-portals\\ProgGrafica_2024\\lib\\Render.cpp",
               "RelativeToolTip": "ProgGrafica_2024\\lib\\Render.cpp",
-              "ViewState": "AgIAAGYAAAAAAAAAAAAAAIEAAAAQAAAAAAAAAA==",
+              "ViewState": "AgIAAIwAAAAAAAAAAAAAwKgAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-11-03T19:03:46.753Z",
               "EditorCaption": ""
@@ -225,48 +172,36 @@
               "RelativeDocumentMoniker": "ProgGrafica_2024\\Main.cpp",
               "ToolTip": "C:\\Users\\cueva\\Desktop\\U-tad\\proyecto-portals\\proyecto-portals\\ProgGrafica_2024\\Main.cpp",
               "RelativeToolTip": "ProgGrafica_2024\\Main.cpp",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAwwCYAAABrAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-11-03T18:29:32.827Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
               "Title": "Object.cpp",
               "DocumentMoniker": "C:\\Users\\cueva\\Desktop\\U-tad\\proyecto-portals\\proyecto-portals\\ProgGrafica_2024\\lib\\Object.cpp",
               "RelativeDocumentMoniker": "ProgGrafica_2024\\lib\\Object.cpp",
               "ToolTip": "C:\\Users\\cueva\\Desktop\\U-tad\\proyecto-portals\\proyecto-portals\\ProgGrafica_2024\\lib\\Object.cpp",
               "RelativeToolTip": "ProgGrafica_2024\\lib\\Object.cpp",
-              "ViewState": "AgIAAIkAAAAAAAAAAAAAAIsAAAA2AAAAAAAAAA==",
+              "ViewState": "AgIAAH0AAAAAAAAAAAAQwIoAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-11-03T18:42:37.17Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "RenderProgram.cpp",
-              "DocumentMoniker": "C:\\Users\\cueva\\Desktop\\U-tad\\proyecto-portals\\proyecto-portals\\ProgGrafica_2024\\lib\\RenderProgram.cpp",
-              "RelativeDocumentMoniker": "ProgGrafica_2024\\lib\\RenderProgram.cpp",
-              "ToolTip": "C:\\Users\\cueva\\Desktop\\U-tad\\proyecto-portals\\proyecto-portals\\ProgGrafica_2024\\lib\\RenderProgram.cpp",
-              "RelativeToolTip": "ProgGrafica_2024\\lib\\RenderProgram.cpp",
-              "ViewState": "AgIAAIkAAAAAAAAAAAAQwJwAAAAEAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-11-05T01:53:51.03Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 9,
               "Title": "InputManager.h",
               "DocumentMoniker": "C:\\Users\\cueva\\Desktop\\U-tad\\proyecto-portals\\proyecto-portals\\ProgGrafica_2024\\lib\\InputManager.h",
               "RelativeDocumentMoniker": "ProgGrafica_2024\\lib\\InputManager.h",
               "ToolTip": "C:\\Users\\cueva\\Desktop\\U-tad\\proyecto-portals\\proyecto-portals\\ProgGrafica_2024\\lib\\InputManager.h",
               "RelativeToolTip": "ProgGrafica_2024\\lib\\InputManager.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-11-03T18:42:32.766Z"
+              "WhenOpened": "2024-11-03T18:42:32.766Z",
+              "EditorCaption": ""
             }
           ]
         }

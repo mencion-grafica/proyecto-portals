@@ -20,8 +20,6 @@ class InputManager
 
 		static void mouseButtonManager(GLFWwindow* window, int button, int action, int mods);
 
-		static void mousePosManager(GLFWwindow* window, double x, double y);
-
 		static void keyboardManager(GLFWwindow* window, int key, int scancode, int action, int mods);
 
 		static void initInputManager(GLFWwindow* window);

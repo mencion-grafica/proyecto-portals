@@ -16,12 +16,6 @@ void InputManager::mouseButtonManager(GLFWwindow* window, int button, int action
 	}
 }
 
-void InputManager::mousePosManager(GLFWwindow* window, double x, double y)
-{
-	mouseState.posX = x;
-	mouseState.posY = y;
-}
-
 void InputManager::keyboardManager(GLFWwindow* window, int key, int scancode, int action, int mods)
 {
 	switch (action)
@@ -41,6 +35,5 @@ void InputManager::keyboardManager(GLFWwindow* window, int key, int scancode, in
 void InputManager::initInputManager(GLFWwindow* window)
 {
 	glfwSetKeyCallback(window, keyboardManager);
-	glfwSetCursorPosCallback(window, mousePosManager);
 	glfwSetMouseButtonCallback(window, mouseButtonManager);
 }

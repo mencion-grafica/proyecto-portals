@@ -7,6 +7,56 @@ Render::Render()
 	this->objectList = std::vector<Object*>();
 }
 
+void framebuffer_size_callback(GLFWwindow* window, int width, int height)
+{
+	Render::r->camera->aspectRatio = (float) width / (float) height;
+	glViewport(0, 0, width, height);
+}
+
+void mouse_callback(GLFWwindow* window, double xPosIn, double yPosIn)
+{
+	float xPos = static_cast<float>(xPosIn);
+	float yPos = static_cast<float>(yPosIn);
+
+	Camera* cam = Render::r->camera;
+
+	if (cam->firstMouse)
+	{
+		cam->lastX = xPos;
+		cam->lastY = yPos;
+		cam->firstMouse = false;
+	}
+
+	float xOffset = xPos - cam->lastX;
+	float yOffset = cam->lastY - yPos;
+	cam->lastX = xPos;
+	cam->lastY = yPos;
+
+	float sensitivity = 0.2f;
+	xOffset *= sensitivity;
+	yOffset *= sensitivity;
+
+	cam->yaw += xOffset;
+	cam->pitch += yOffset;
+
+	if (cam->pitch > 89.0f) cam->pitch = 89.0f;
+	if (cam->pitch < -89.0f) cam->pitch = -89.0f;
+
+	glm::vec3 front = glm::vec3(
+		cos(glm::radians(cam->yaw)) * cos(glm::radians(cam->pitch)),
+		sin(glm::radians(cam->pitch)),
+		sin(glm::radians(cam->yaw)) * cos(glm::radians(cam->pitch))
+	);
+	cam->front = glm::normalize(front);
+}
+
+void scroll_callback(GLFWwindow* window, double xOffset, double yOffset)
+{
+	Render::r->camera->fov -= (float) yOffset;
+	if (Render::r->camera->fov < 1.0f) Render::r->camera->fov = 1.0f;
+	if (Render::r->camera->fov > 45.0f) Render::r->camera->fov = 45.0f;
+}
+
 void Render::initGL(const char* windowName, int sizeX, int sizeY)
 {
 	if (glfwInit() != GLFW_TRUE)
@@ -15,24 +65,24 @@ void Render::initGL(const char* windowName, int sizeX, int sizeY)
 		exit(0);
 	}
 
-	#ifdef __APPLE__
-		glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
-		glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 1);
-		glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
-		glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-	#endif
-
 	this->window = glfwCreateWindow(sizeX, sizeY, windowName, NULL, NULL);
+	this->width = sizeX;
+	this->height = sizeY;
 
-	//glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 	glfwMakeContextCurrent(window);
+
+	glfwSetCursorPosCallback(window, mouse_callback);
+	glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+
+	glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
+	glfwSetScrollCallback(window, scroll_callback);
+
 	int version = gladLoadGL(glfwGetProcAddress);
 	if (version == 0)
 	{
 		std::cout << "Failed to initialize OpenGL context" << std::endl;
 		exit(-1);
 	}
-	glfwSetCursorPos(window, sizeX / 2, sizeY / 2);
 
 	InputManager::initInputManager(window);
 
@@ -122,13 +172,12 @@ void Render::mainLoop()
 		glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-        glfwPollEvents();
-
 		this->camera->move(deltaTime);
-		//move(deltaTime);
+		move(deltaTime);
 
 		drawObjects();
-
+		
+        glfwPollEvents();
         glfwSwapBuffers(window);
     }
 

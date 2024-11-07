@@ -37,6 +37,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="data\cube.trs" />
+    <None Include="data\ground.trs" />
     <None Include="data\shader.frag" />
     <None Include="data\shader.vert" />
     <None Include="data\triangle.trs" />

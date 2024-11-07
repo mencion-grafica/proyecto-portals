@@ -17,6 +17,8 @@ class Render
 		static inline Render* r;
 
 		GLFWwindow* window;
+		int width;
+		int height;
 
 		std::vector<Object*> objectList;
 
