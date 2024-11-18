@@ -33,10 +33,10 @@
     <ClCompile Include="lib\RenderProgram.cpp">
       <Filter>Archivos de encabezado</Filter>
     </ClCompile>
-    <ClCompile Include="Map.cpp">
+    <ClCompile Include="lib\tinyxml2.cpp">
       <Filter>Archivos de encabezado</Filter>
     </ClCompile>
-    <ClCompile Include="lib\tinyxml2.cpp">
+    <ClCompile Include="lib\Map.cpp">
       <Filter>Archivos de encabezado</Filter>
     </ClCompile>
   </ItemGroup>
@@ -62,10 +62,10 @@
     <ClInclude Include="lib\RenderProgram.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="Map.h">
+    <ClInclude Include="lib\tinyxml2.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="lib\tinyxml2.h">
+    <ClInclude Include="lib\Map.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>
@@ -83,6 +83,9 @@
       <Filter>Archivos de encabezado</Filter>
     </None>
     <None Include="data\ground.trs">
+      <Filter>Archivos de encabezado</Filter>
+    </None>
+    <None Include="data\triangulated.dae">
       <Filter>Archivos de encabezado</Filter>
     </None>
   </ItemGroup>

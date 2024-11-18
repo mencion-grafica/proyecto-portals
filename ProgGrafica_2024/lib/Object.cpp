@@ -149,10 +149,10 @@ void Object::updateModelMatrix()
 }
 
 Player::Player(std::string fileName, glm::vec4 pos) {
-	position = pos;
-	rotation = { 0, 0, 0, 1 };
-	scale = { 1, 1, 1, 1 };
-	modelMatrix = glm::mat4(1.0f);
+	this->position = pos;
+	this->rotation = glm::vec4(0.0f, 0.0f, 0.0f, 1.0f);
+	this->scale = glm::vec4(1.0f);
+	this->modelMatrix = glm::mat4(1.0f);
 
 	this->loadDaeFile(fileName.c_str());
 
@@ -160,7 +160,7 @@ Player::Player(std::string fileName, glm::vec4 pos) {
 }
 
 void Player::loadDaeFile(const char* fileName) {
-	id = idCounter++;
+	this->id = this->idCounter++;
 
 	XMLDocument doc;
 
@@ -178,7 +178,10 @@ void Player::loadDaeFile(const char* fileName) {
 
 	std::stringstream ss(title);
 	std::vector<std::string> stringPositions;
+	std::vector<std::string> stringColors;
 	std::vector<float> floatPositions;
+	std::vector<float> floatColors;
+
 	std::string auxString;
 	vertex_t vert;
 
@@ -191,8 +194,22 @@ void Player::loadDaeFile(const char* fileName) {
 		floatPositions.push_back(stof(str));
 	}
 
+	const char* colors;
+	colors = doc.FirstChildElement("COLLADA")->FirstChildElement("library_geometries")->FirstChildElement("geometry")->FirstChildElement("mesh")->FirstChildElement("source")->NextSibling()->NextSibling()->NextSibling()->FirstChildElement("float_array")->GetText();
+
+	std::stringstream ss3(colors);
+	while (getline(ss3, auxString, ' ')) {
+		stringColors.push_back(auxString);
+	}
+
+	for (std::string str : stringColors) {
+		//cout << str << endl;
+		floatColors.push_back(stof(str));
+	}
+
 	const XMLAttribute* count = doc.FirstChildElement("COLLADA")->FirstChildElement("library_geometries")->FirstChildElement("geometry")->FirstChildElement("mesh")->FirstChildElement("source")->FirstChildElement("technique_common")->FirstChildElement("accessor")->FindAttribute("count");
 	glm::vec4 pos;
+	glm::vec4 color;
 	int numVertex = count->IntValue();
 
 	//Por cada vértice en el .dae, que eso lo sacamos del count del accesor
@@ -206,7 +223,19 @@ void Player::loadDaeFile(const char* fileName) {
 		pos.w = 1.0f;
 
 		vert.vertexPos = pos;
-		//cout << pos.x << " " << pos.y << " " << pos.z << endl;
+
+		color.r = floatColors.at(0);
+		floatColors.erase(floatColors.begin());
+		color.g = floatColors.at(0);
+		floatColors.erase(floatColors.begin());
+		color.b = floatColors.at(0);
+		floatColors.erase(floatColors.begin());
+		color.a = 1.0f;
+
+		vert.vertexColor = color;
+
+		std::cout << pos.x << " " << pos.y << " " << pos.z << std::endl;
+		std::cout << color.r << " " << color.g << " " << color.b << std::endl;
 		vertexList.push_back(vert);
 	}
 
@@ -230,5 +259,6 @@ void Player::loadDaeFile(const char* fileName) {
 	prg->addShader("data/shader.frag");
 
 	prg->link();
+	//printData(*this);
 	//this->tex = nullptr;
 }

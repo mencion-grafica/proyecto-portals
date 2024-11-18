@@ -1,15 +1,2 @@
-﻿  Camera.cpp
-  InputManager.cpp
-  Object.cpp
-  Render.cpp
-C:\Users\samce\Desktop\Uni 4\Proyectos4Grafica\proyecto-portals\ProgGrafica_2024\lib\Render.cpp(138,64): warning C4267: 'argumento': conversión de 'size_t' a 'GLsizei'; posible pérdida de datos
-C:\Users\samce\Desktop\Uni 4\Proyectos4Grafica\proyecto-portals\ProgGrafica_2024\lib\Render.cpp(170,14): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
-  RenderProgram.cpp
-C:\Users\samce\Desktop\Uni 4\Proyectos4Grafica\proyecto-portals\ProgGrafica_2024\lib\RenderProgram.cpp(47,7): warning C4101: 'errorLog': variable local sin referencia
-C:\Users\samce\Desktop\Uni 4\Proyectos4Grafica\proyecto-portals\ProgGrafica_2024\lib\RenderProgram.cpp(46,8): warning C4101: 'retCode': variable local sin referencia
-C:\Users\samce\Desktop\Uni 4\Proyectos4Grafica\proyecto-portals\ProgGrafica_2024\lib\RenderProgram.cpp(153,58): warning C4267: 'argumento': conversión de 'size_t' a 'GLsizei'; posible pérdida de datos
-  tinyxml2.cpp
-  Main.cpp
-  Map.cpp
-c1xx : fatal  error C1083: No se puede abrir el archivo origen: 'Map.cpp': No such file or directory
-  Generando código...
+﻿  Object.cpp
+  ProgGrafica_2024.vcxproj -> C:\Users\samce\Desktop\Uni 4\Proyectos4Grafica\proyecto-portals\x64\Debug\ProgGrafica_2024.exe

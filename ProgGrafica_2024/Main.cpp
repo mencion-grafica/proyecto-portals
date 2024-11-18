@@ -18,6 +18,9 @@ int main(int argc, char** argv)
 	object->position = glm::vec4(0, 0, 0, 1);
 	render->putObject(object);
 
+	Player* player = new Player("./data/triangulated.dae", glm::vec4(0, 0, 0, 1));
+	render->putObject(player);
+
 	Camera* camera = new Camera();
 	render->putCamera(camera);
 	
