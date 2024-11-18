@@ -147,3 +147,88 @@ void Object::updateModelMatrix()
 
 	this->modelMatrix = translate * rotate * scale;
 }
+
+Player::Player(std::string fileName, glm::vec4 pos) {
+	position = pos;
+	rotation = { 0, 0, 0, 1 };
+	scale = { 1, 1, 1, 1 };
+	modelMatrix = glm::mat4(1.0f);
+
+	this->loadDaeFile(fileName.c_str());
+
+	updateModelMatrix();
+}
+
+void Player::loadDaeFile(const char* fileName) {
+	id = idCounter++;
+
+	XMLDocument doc;
+
+	doc.LoadFile(fileName);
+	const char* title;
+	const XMLAttribute* id = doc.FirstChildElement("COLLADA")->FirstChildElement("library_geometries")->FirstChildElement("geometry")->FindAttribute("id");
+
+	title = id->Value();
+
+	printf("Mesh: %s \n", title);
+
+	title = doc.FirstChildElement("COLLADA")->FirstChildElement("library_geometries")->FirstChildElement("geometry")->FirstChildElement("mesh")->FirstChildElement("source")->FirstChildElement("float_array")->GetText();
+
+	//printf("Vertex positions: %s", title);
+
+	std::stringstream ss(title);
+	std::vector<std::string> stringPositions;
+	std::vector<float> floatPositions;
+	std::string auxString;
+	vertex_t vert;
+
+	while (getline(ss, auxString, ' ')) {
+		stringPositions.push_back(auxString);
+	}
+
+	for (std::string str : stringPositions) {
+		//cout << str << endl;
+		floatPositions.push_back(stof(str));
+	}
+
+	const XMLAttribute* count = doc.FirstChildElement("COLLADA")->FirstChildElement("library_geometries")->FirstChildElement("geometry")->FirstChildElement("mesh")->FirstChildElement("source")->FirstChildElement("technique_common")->FirstChildElement("accessor")->FindAttribute("count");
+	glm::vec4 pos;
+	int numVertex = count->IntValue();
+
+	//Por cada vértice en el .dae, que eso lo sacamos del count del accesor
+	for (int i = 0; i < numVertex; i++) {
+		pos.x = floatPositions.at(0);
+		floatPositions.erase(floatPositions.begin());
+		pos.y = floatPositions.at(0);
+		floatPositions.erase(floatPositions.begin());
+		pos.z = floatPositions.at(0);
+		floatPositions.erase(floatPositions.begin());
+		pos.w = 1.0f;
+
+		vert.vertexPos = pos;
+		//cout << pos.x << " " << pos.y << " " << pos.z << endl;
+		vertexList.push_back(vert);
+	}
+
+	const char* trianglesData = doc.FirstChildElement("COLLADA")->FirstChildElement("library_geometries")->FirstChildElement("geometry")->FirstChildElement("mesh")->FirstChildElement("triangles")->FirstChildElement("p")->GetText();
+	std::stringstream ss2(trianglesData);
+	std::vector<std::string> stringVertex;
+	while (getline(ss2, auxString, ' ')) {
+		stringVertex.push_back(auxString);
+	}
+
+	const XMLAttribute* numTrianglesAtr = doc.FirstChildElement("COLLADA")->FirstChildElement("library_geometries")->FirstChildElement("geometry")->FirstChildElement("mesh")->FirstChildElement("triangles")->FindAttribute("count");
+	int numTriangles = numTrianglesAtr->IntValue();
+
+	for (int i = 0; i < numTriangles * 3; i++) {
+		int id = stoi(stringVertex[i * 4]);
+		//cout << id << endl;
+		idList.push_back(id);
+	}
+
+	prg->addShader("data/shader.vert");
+	prg->addShader("data/shader.frag");
+
+	prg->link();
+	//this->tex = nullptr;
+}
