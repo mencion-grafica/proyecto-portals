@@ -149,17 +149,6 @@ void Object::updateModelMatrix()
 }
 
 Player::Player(std::string fileName, glm::vec4 pos) {
-	/*this->position = pos;
-	this->rotation = glm::vec4(0.0f, 0.0f, 0.0f, 1.0f);
-	this->scale = glm::vec4(1.0f);
-	this->modelMatrix = glm::mat4(1.0f);
-
-	id = idCounter;*/
-
-	//std::cout << id;
-
-	//Object();
-
 	this->loadDaeFile(fileName.c_str());
 
 	updateModelMatrix();
@@ -177,8 +166,6 @@ void Player::loadDaeFile(const char* fileName) {
 	printf("Mesh: %s \n", title);
 
 	title = doc.FirstChildElement("COLLADA")->FirstChildElement("library_geometries")->FirstChildElement("geometry")->FirstChildElement("mesh")->FirstChildElement("source")->FirstChildElement("float_array")->GetText();
-
-	//printf("Vertex positions: %s", title);
 
 	std::stringstream ss(title);
 	std::vector<std::string> stringPositions;
@@ -228,6 +215,7 @@ void Player::loadDaeFile(const char* fileName) {
 
 		vert.vertexPos = pos;
 
+		//TODO: Revisar para que coja los colores de las caras y repetir vertices que tengan varios colores
 		color.r = floatColors.at(0);
 		floatColors.erase(floatColors.begin());
 		color.g = floatColors.at(0);

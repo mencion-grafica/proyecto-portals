@@ -5,6 +5,7 @@
 #include "InputManager.h"
 #include "RenderProgram.h"
 #include "tinyxml2.h"
+#include "Joint.h"
 
 using namespace tinyxml2;
 
@@ -40,6 +41,8 @@ public:
 class Player : public Object
 {
 private:
+	Joint rootJoint;
+	int jointCount;
 
 public:
 	Player(std::string fileName, glm::vec4 pos);
