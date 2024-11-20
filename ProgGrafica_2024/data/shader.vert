@@ -18,8 +18,8 @@ void main() {
 	fNormal = (inverse(transpose(M)) * vNormal).xyz;
 	fNormal = normalize(fNormal);
 	
-	gl_Position = MVP * vPos;
-
 	fColor = vColor;
 	fUv = vUv.xy;
+
+	gl_Position = MVP * vPos;
 }

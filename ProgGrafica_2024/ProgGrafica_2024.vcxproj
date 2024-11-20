@@ -26,7 +26,6 @@
     <ClCompile Include="lib\RenderProgram.cpp" />
     <ClCompile Include="lib\Texture.cpp" />
     <ClCompile Include="Main.cpp" />
-    <ClCompile Include="Map.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="lib\Camera.h" />
@@ -37,7 +36,6 @@
     <ClInclude Include="lib\RenderProgram.h" />
     <ClInclude Include="lib\Texture.h" />
     <ClInclude Include="lib\vertex.h" />
-    <ClInclude Include="Map.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="data\cube.trs" />

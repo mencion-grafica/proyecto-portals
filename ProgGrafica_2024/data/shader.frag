@@ -1,5 +1,12 @@
 #version 330
 
+struct material_t {
+	float Ka, Kd, Ks;
+	int shiny;
+	int textureEnable;
+};
+
+uniform material_t material;
 uniform sampler2D textureColor;
 
 in vec4 fColor;
@@ -9,6 +16,12 @@ in vec2 fUv;
 
 void main() {
 	vec4 finalColor = fColor;
+
+	if (material.textureEnable == 1)
+	{
+		//finalColor = fColor * texture(textureColor, fUv);
+		finalColor = vec4(1.0f, 1.0f, 1.0f, 1.0f);
+	}
 
 	gl_FragColor = finalColor;
 }
