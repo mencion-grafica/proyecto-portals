@@ -149,10 +149,16 @@ void Object::updateModelMatrix()
 }
 
 Player::Player(std::string fileName, glm::vec4 pos) {
-	this->position = pos;
+	/*this->position = pos;
 	this->rotation = glm::vec4(0.0f, 0.0f, 0.0f, 1.0f);
 	this->scale = glm::vec4(1.0f);
 	this->modelMatrix = glm::mat4(1.0f);
+
+	id = idCounter;*/
+
+	//std::cout << id;
+
+	//Object();
 
 	this->loadDaeFile(fileName.c_str());
 
@@ -160,15 +166,13 @@ Player::Player(std::string fileName, glm::vec4 pos) {
 }
 
 void Player::loadDaeFile(const char* fileName) {
-	this->id = this->idCounter++;
-
 	XMLDocument doc;
 
 	doc.LoadFile(fileName);
 	const char* title;
-	const XMLAttribute* id = doc.FirstChildElement("COLLADA")->FirstChildElement("library_geometries")->FirstChildElement("geometry")->FindAttribute("id");
+	const XMLAttribute* idText = doc.FirstChildElement("COLLADA")->FirstChildElement("library_geometries")->FirstChildElement("geometry")->FindAttribute("id");
 
-	title = id->Value();
+	title = idText->Value();
 
 	printf("Mesh: %s \n", title);
 
@@ -234,8 +238,8 @@ void Player::loadDaeFile(const char* fileName) {
 
 		vert.vertexColor = color;
 
-		std::cout << pos.x << " " << pos.y << " " << pos.z << std::endl;
-		std::cout << color.r << " " << color.g << " " << color.b << std::endl;
+		//std::cout << pos.x << " " << pos.y << " " << pos.z << std::endl;
+		//std::cout << color.r << " " << color.g << " " << color.b << std::endl;
 		vertexList.push_back(vert);
 	}
 
