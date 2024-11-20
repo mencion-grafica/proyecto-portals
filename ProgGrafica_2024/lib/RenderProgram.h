@@ -30,6 +30,7 @@ public:
 	void readVarList();
 
 	void setMVP(glm::mat4 mvp);
+	void setMatrix(std::string name, glm::mat4 m);
 	void setVertexAttribute(std::string name, int ncomp, int type, size_t stride, void* offset);
 	void use();
 };

@@ -144,6 +144,16 @@ void Program::setMVP(glm::mat4 mvp)
 	}
 }
 
+void Program::setMatrix(std::string name, glm::mat4 m)
+{
+	if (varList.find(name) != varList.end()) {
+		glUniformMatrix4fv(varList[name], 1, GL_FALSE, &m.data1D[0]);
+	}
+	else {
+		std::cout << "ERROR: " << __FILE__ << ":" << __LINE__ << " " << __FUNCTION__ << std::endl;
+	}
+}
+
 void Program::setVertexAttribute(std::string name, int ncomp, int type, size_t stride, void* offset) 
 {
 	if (varList.find(name) != varList.end()) 

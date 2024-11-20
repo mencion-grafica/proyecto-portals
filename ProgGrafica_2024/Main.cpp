@@ -16,6 +16,7 @@ int main(int argc, char** argv)
 
 	Object* object = new Object("./data/cube.trs");
 	object->position = glm::vec4(0, 0, 0, 1);
+	object->texture = new Texture("./data/front.png");
 	render->putObject(object);
 
 	Camera* camera = new Camera();

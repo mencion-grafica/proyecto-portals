@@ -87,6 +87,7 @@ void Render::initGL(const char* windowName, int sizeX, int sizeY)
 	InputManager::initInputManager(window);
 
 	glEnable(GL_DEPTH_TEST);
+	glEnable(GL_CULL_FACE);
 }
 
 void Render::drawObjects()
@@ -131,6 +132,7 @@ void Render::drawGL(int id)
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, bo.edgeBufferID);
 
 	this->objectList[id]->prg->setMVP(MVP);
+	this->objectList[id]->prg->setMatrix("M", M);
 	this->objectList[id]->prg->setVertexAttribute("vPos", 4, GL_FLOAT, sizeof(vertex_t), (void*)offsetof(vertex_t, vertexPos));
 	this->objectList[id]->prg->setVertexAttribute("vColor", 4, GL_FLOAT, sizeof(vertex_t), (void*)offsetof(vertex_t, vertexColor));
 	this->objectList[id]->prg->setVertexAttribute("vNormal", 4, GL_FLOAT, sizeof(vertex_t), (void*)offsetof(vertex_t, vertexNormal));
