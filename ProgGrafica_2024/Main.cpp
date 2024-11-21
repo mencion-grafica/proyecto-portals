@@ -19,6 +19,9 @@ int main(int argc, char** argv)
 	object->texture = new Texture("data/front.png");
 	render->putObject(object);
 
+	Player* player = new Player("./data/player.dae", glm::vec4(0, 0, 0, 1));
+	render->putObject(player);
+
 	Camera* camera = new Camera();
 	render->putCamera(camera);
 	

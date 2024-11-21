@@ -4,11 +4,15 @@
 #include "vertex.h"
 #include "InputManager.h"
 #include "RenderProgram.h"
+#include "tinyxml2.h"
+#include "Joint.h"
+
+using namespace tinyxml2;
 #include "Texture.h"
 
 class Object
 {
-private:
+protected:
 	static inline int idCounter = 0;
 public:
 	int id = 0;
@@ -35,4 +39,17 @@ public:
 	void move(double deltaTime);
 
 	void updateModelMatrix();
+};
+
+class Player : public Object
+{
+private:
+	Joint rootJoint;
+	int jointCount;
+
+public:
+	Player(std::string fileName, glm::vec4 pos);
+
+	void loadDaeFile(const char* fileName);
+
 };
