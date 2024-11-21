@@ -35,6 +35,7 @@ glm::mat4 Camera::computeProjectionMatrix()
 void Camera::move(float deltaTime)
 {
 	float speed = 1.5f * deltaTime;
+	const float gravity = 9.8f;
 
 	if (InputManager::keysState[GLFW_KEY_W]) this->position += speed * this->front;
 	if (InputManager::keysState[GLFW_KEY_S]) this->position -= speed * this->front;
@@ -43,4 +44,14 @@ void Camera::move(float deltaTime)
 
 	if (InputManager::keysState[GLFW_KEY_E]) this->position += speed * this->up;
 	if (InputManager::keysState[GLFW_KEY_Q]) this->position -= speed * this->up;
+	if (InputManager::keysState[GLFW_KEY_R]) this->position += 3 * speed * this->up;
+
+	//this->velocity.y += gravity * deltaTime;
+	//if (this->position.y <= 0)
+		//if (this->activeGravity) 
+		//this->position += this->up;
+	//else
+		//this->position += gravity * this->up;
+	if (this->position.y >= 0)
+		this->position -= speed * this->up;
 }

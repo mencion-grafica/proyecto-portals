@@ -30,12 +30,13 @@ Object::Object()
 	this->modelMatrix = glm::mat4(1.0f);
 }
 
-Object::Object(std::string fileName) 
+Object::Object(std::string fileName, bool activeGravity)
 {
 	this->position = glm::vec4(0.0f, 0.0f, 0.0f, 1.0f);
 	this->rotation = glm::vec4(0.0f, 0.0f, 0.0f, 1.0f);
 	this->scale = glm::vec4(1.0f);
 	this->modelMatrix = glm::mat4(1.0f);
+	this->activeGravity = activeGravity;
 
 	std::cout << "Leyendo desde fichero\n";
 
@@ -150,6 +151,15 @@ void Object::createTriangle()
 
 void Object::move(double deltaTime)
 {
+	const float gravity = -9.8f;
+	if (this->activeGravity) {
+		this->velocity.y += gravity * deltaTime;
+		if (this->position.y <= 0.5)
+			//if (this->activeGravity) 
+			this->position.y += 0 * deltaTime;
+		else
+			this->position.y += this->velocity.y * deltaTime;
+	}
 	updateModelMatrix();
 }
 
