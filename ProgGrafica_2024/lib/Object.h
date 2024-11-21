@@ -8,6 +8,7 @@
 #include "Joint.h"
 
 using namespace tinyxml2;
+#include "Texture.h"
 
 class Object
 {
@@ -20,12 +21,14 @@ public:
 	glm::vec4 rotation;
 	glm::vec4 scale;
 
+	Program* prg = new Program();
+	material_t material = { 1.0f, 1.0f, 1.0f, 70 };
+	Texture* texture = nullptr;
+
 	std::vector<vertex_t> vertexList;
 	std::vector<int> idList;
 
 	glm::mat4 modelMatrix;
-
-	Program* prg = new Program();
 
 	Object();
 
