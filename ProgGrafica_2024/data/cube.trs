@@ -47,5 +47,8 @@ face 6 2 7
 
 face 4 5 1
 face 0 4 1
+
 svert data/shader.vert
 sfrag data/shader.frag
+
+texture data/front.png

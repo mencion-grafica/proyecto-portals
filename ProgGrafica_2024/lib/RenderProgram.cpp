@@ -153,7 +153,7 @@ void Program::setMatrix(std::string name, glm::mat4 m)
 	}
 	else 
 	{
-		std::cout << "ERROR: " << __FILE__ << ":" << __LINE__ << " " << __FUNCTION__ << ". Trying to set " << name << std::endl;
+		//std::cout << "ERROR: " << __FILE__ << ":" << __LINE__ << " " << __FUNCTION__ << ". Trying to set " << name << std::endl;
 	}
 }
 
