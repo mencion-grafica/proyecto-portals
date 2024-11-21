@@ -176,6 +176,7 @@ void Player::loadDaeFile(const char* fileName) {
 	std::string auxString;
 	vertex_t vert;
 
+	//Posiciones de los vertices
 	while (getline(ss, auxString, ' ')) {
 		stringPositions.push_back(auxString);
 	}
@@ -188,6 +189,7 @@ void Player::loadDaeFile(const char* fileName) {
 	const char* colors;
 	colors = doc.FirstChildElement("COLLADA")->FirstChildElement("library_geometries")->FirstChildElement("geometry")->FirstChildElement("mesh")->FirstChildElement("source")->NextSibling()->NextSibling()->NextSibling()->FirstChildElement("float_array")->GetText();
 
+	//Color de cada vertice
 	std::stringstream ss3(colors);
 	while (getline(ss3, auxString, ' ')) {
 		stringColors.push_back(auxString);
@@ -238,6 +240,7 @@ void Player::loadDaeFile(const char* fileName) {
 		stringVertex.push_back(auxString);
 	}
 
+	//Vertices por cara
 	const XMLAttribute* numTrianglesAtr = doc.FirstChildElement("COLLADA")->FirstChildElement("library_geometries")->FirstChildElement("geometry")->FirstChildElement("mesh")->FirstChildElement("triangles")->FindAttribute("count");
 	int numTriangles = numTrianglesAtr->IntValue();
 
@@ -247,6 +250,10 @@ void Player::loadDaeFile(const char* fileName) {
 		idList.push_back(id);
 	}
 
+	//Joints
+	rootJoint = Joint(fileName);
+
+	//Aplicar shader
 	prg->addShader("data/shader.vert");
 	prg->addShader("data/shader.frag");
 
