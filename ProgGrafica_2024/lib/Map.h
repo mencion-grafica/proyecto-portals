@@ -1,15 +1,16 @@
 #pragma once
 
 #include "Common.h"
+#include "vertex.h"
 
 class Map
 {
 public:
-	Map map();
-	Map map(string filename);
+	Map();
+	Map(std::string filename);
 
 private:
-	void leerArchivo(string filename);
+	void leerArchivo(std::string filename);
 	void printData();
 
 	std::vector<vertex_t> vertexList;
