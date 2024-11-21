@@ -4,6 +4,7 @@
 #include "lib/Render.h"
 #include "lib/Object.h"
 #include "lib/Camera.h"
+#include "lib/Map.h"
 
 int main(int argc, char** argv)
 {
@@ -21,6 +22,9 @@ int main(int argc, char** argv)
 	Camera* camera = new Camera();
 	render->putCamera(camera);
 	
+	Map* map = new Map("./data/Map/Prueba.cvmf");
+	map->getPlane(map->id);
+
 	render->mainLoop();
 
 	return 0;
