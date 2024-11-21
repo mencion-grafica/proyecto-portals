@@ -171,3 +171,9 @@ void Object::updateModelMatrix()
 
 	this->modelMatrix = translate * rotate * scale;
 }
+
+void Object::createCamera()
+{
+	this->camera = new Camera();
+
+}

@@ -36,6 +36,9 @@ void Camera::move(float deltaTime)
 {
 	float speed = 1.5f * deltaTime;
 	const float gravity = 9.8f;
+	int x;
+	if (x == NULL)
+		x = 0;
 
 	if (InputManager::keysState[GLFW_KEY_W]) this->position += speed * this->front;
 	if (InputManager::keysState[GLFW_KEY_S]) this->position -= speed * this->front;
@@ -44,7 +47,13 @@ void Camera::move(float deltaTime)
 
 	if (InputManager::keysState[GLFW_KEY_E]) this->position += speed * this->up;
 	if (InputManager::keysState[GLFW_KEY_Q]) this->position -= speed * this->up;
-	if (InputManager::keysState[GLFW_KEY_R]) this->position += 3 * speed * this->up;
+	if (this->position.y <= 0)
+		if (InputManager::keysState[GLFW_KEY_R])
+			x = 1;
+	if(x > 0)
+		this->position += 2 * speed * this->up;
+	if (x == 100)
+		x = 0;
 
 	//this->velocity.y += gravity * deltaTime;
 	//if (this->position.y <= 0)

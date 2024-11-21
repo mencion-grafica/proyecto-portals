@@ -5,6 +5,7 @@
 #include "InputManager.h"
 #include "RenderProgram.h"
 #include "Texture.h"
+#include "Camera.h"
 
 class Object
 {
@@ -22,6 +23,7 @@ public:
 	Program* prg = new Program();
 	material_t material = { 1.0f, 1.0f, 1.0f, 70 };
 	Texture* texture = nullptr;
+	Camera* camera = nullptr;
 
 	std::vector<vertex_t> vertexList;
 	std::vector<int> idList;
@@ -37,4 +39,6 @@ public:
 	void move(double deltaTime);
 
 	void updateModelMatrix();
+
+	void createCamera();
 };
