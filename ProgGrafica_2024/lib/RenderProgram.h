@@ -24,6 +24,7 @@ public:
 	std::map<std::string, unsigned int> varList;
 
 	Program() {};
+
 	void addShader(std::string fileName);
 	void link();
 	void getErrors();
@@ -31,6 +32,11 @@ public:
 
 	void setMVP(glm::mat4 mvp);
 	void setMatrix(std::string name, glm::mat4 m);
+
+	void setInteger(std::string name, int data);
+	void setFloat(std::string name, float data);
+	void setVec4(std::string name, glm::vec4 data);
+
 	void setVertexAttribute(std::string name, int ncomp, int type, size_t stride, void* offset);
 	void use();
 };

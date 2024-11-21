@@ -95,6 +95,18 @@ Object::Object(std::string fileName)
 				str >> v.vertexNormal.x >> v.vertexNormal.y >> v.vertexNormal.z >> v.vertexNormal.w;
 				existsNormal = true;
 			}
+			else if (key == "uv")
+			{
+				vertex_t& v = vertexList.back();
+				str >> v.vertexUv.x >> v.vertexUv.y;
+			}
+			else if (key == "texture")
+			{
+				std::string fileName;
+				str >> fileName;
+				std::cout << "Reading texture: " << fileName << std::endl;
+				this->texture = new Texture(fileName);
+			}
 		}
 	}
 

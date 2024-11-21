@@ -157,6 +157,21 @@ void Program::setMatrix(std::string name, glm::mat4 m)
 	}
 }
 
+void Program::setInteger(std::string name, int data) 
+{
+	if (varList.find(name) != varList.end()) glUniform1i(varList[name], data);
+}
+
+void Program::setFloat(std::string name, float data) 
+{
+	if (varList.find(name) != varList.end()) glUniform1f(varList[name], data);
+}
+
+void Program::setVec4(std::string name, glm::vec4 data)
+{
+	if (varList.find(name) != varList.end()) glUniform4f(varList[name], data.x, data.y, data.z, data.w);
+}
+
 void Program::setVertexAttribute(std::string name, int ncomp, int type, size_t stride, void* offset) 
 {
 	if (varList.find(name) != varList.end()) 

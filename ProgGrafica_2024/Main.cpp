@@ -14,9 +14,9 @@ int main(int argc, char** argv)
 	ground->scale = glm::vec4(100.0f, 1.0f, 100.0f, 0.0f);
 	render->putObject(ground);
 
-	Object* object = new Object("./data/cube.trs");
+	Object* object = new Object("./data/rubikCube.trs");
 	object->position = glm::vec4(0, 0, 0, 1);
-	object->texture = new Texture("./data/front.png");
+	//object->texture = new Texture("./data/front.png");
 	render->putObject(object);
 
 	Camera* camera = new Camera();
