@@ -20,6 +20,9 @@ public:
 	float zFar = 100.0f;
 	float aspectRatio = 800.0f / 600.0f;
 	bool firstMouse = true;
+	int x = 800;
+	float aire = 1;
+	int iteraciones = 0;
 
 	Camera();
 
