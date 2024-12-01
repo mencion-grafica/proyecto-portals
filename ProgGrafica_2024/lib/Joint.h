@@ -19,5 +19,8 @@ public:
 	Joint(const char* fileName);
 
 	Joint(int id, XMLElement* joint);
+
+	//Buscar por id en arbol (por comodidad desde el rootJoint)
+	Joint* SearchById(int id);
 };
 

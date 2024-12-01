@@ -93,3 +93,11 @@ Joint::Joint(int id, XMLElement* joint) {
 		}
 	}
 }
+
+//Buscar por id en arbol (por comodidad desde el rootJoint)
+Joint* Joint::SearchById(int id)
+{
+	return NULL;
+}
+
+

@@ -100,7 +100,6 @@ Object::Object(std::string fileName)
 				vertex_t& v = vertexList.back();
 				str >> v.vertexUv.x >> v.vertexUv.y;
 			}
-			/*
 			else if (key == "texture")
 			{
 				std::string fileName;
@@ -108,7 +107,6 @@ Object::Object(std::string fileName)
 				std::cout << "Reading texture: " << fileName << std::endl;
 				this->texture = new Texture(fileName);
 			}
-			*/
 		}
 	}
 
@@ -219,6 +217,41 @@ void Player::loadDaeFile(const char* fileName) {
 	glm::vec4 color;
 	int numVertex = count->IntValue();
 
+	//Joints
+	rootJoint = Joint(fileName);
+
+	const char* numJointsList;
+	std::stringstream ss(numJointsList);
+	std::vector<std::string> stringNumJoints;
+	std::vector<float> intNumJoints;
+
+	numJointsList = doc.FirstChildElement("COLLADA")->FirstChildElement("library_controllers")->FirstChildElement("controller")->FirstChildElement("skin")->FirstChildElement("vertex_weights")->FirstChildElement("vcount")->GetText();
+
+	while (getline(ss, auxString, ' ')) {
+		stringNumJoints.push_back(auxString);
+	}
+
+	for (std::string str : stringNumJoints) {
+		intNumJoints.push_back(stoi(str));
+	}
+
+	const char* listIdJointsWeights;
+	std::stringstream ss(listIdJointsWeights);
+	std::vector<std::string> stringlistIdJointsWeights;
+	std::vector<float> intlistIdJointsWeights;
+
+	doc.FirstChildElement("COLLADA")->FirstChildElement("library_controllers")->FirstChildElement("controller")->FirstChildElement("skin")->FirstChildElement("vertex_weights")->FirstChildElement("v")->GetText();
+
+	while (getline(ss, auxString, ' ')) {
+		stringlistIdJointsWeights.push_back(auxString);
+	}
+
+	for (std::string str : stringlistIdJointsWeights) {
+		intlistIdJointsWeights.push_back(stoi(str));
+	}
+
+	int counterNum = 0;
+
 	//Por cada vértice en el .dae, que eso lo sacamos del count del accesor
 	for (int i = 0; i < numVertex; i++) {
 		pos.x = floatPositions.at(0);
@@ -242,8 +275,18 @@ void Player::loadDaeFile(const char* fileName) {
 
 		vert.vertexColor = color;
 
-		//std::cout << pos.x << " " << pos.y << " " << pos.z << std::endl;
-		//std::cout << color.r << " " << color.g << " " << color.b << std::endl;
+		//Asignar pesos y joints por vértice
+
+		glm::ivec4 joints;
+
+		//joints[0]
+		for (int j = 0; j < intNumJoints.at(i); j++) {
+			vert.idJoints[j] = intlistIdJointsWeights[j];
+		}
+		//Por cada joint que afecte al vertice
+			//vert.idJoints[j] = valorQueSea
+			//vert.weightJoints[j] = buscar el peso en la lista de pesos
+
 		vertexList.push_back(vert);
 	}
 
@@ -264,8 +307,12 @@ void Player::loadDaeFile(const char* fileName) {
 		idList.push_back(id);
 	}
 
-	//Joints
-	rootJoint = Joint(fileName);
+	//Textura
+	//TODO: Faltan las UVs
+	/*const char* textureName = doc.FirstChildElement("COLLADA")->FirstChildElement("library_images")->FirstChildElement("image")->FirstChildElement("init_from")->GetText();
+	std::string stringTexture = textureName;
+	std::string route = "data/" + stringTexture;
+	this->texture = new Texture(route);*/
 
 	//Aplicar shader
 	prg->addShader("data/shader.vert");
