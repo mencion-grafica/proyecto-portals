@@ -2,9 +2,7 @@
  * @file Common.h
  * @brief This file contains common includes and definitions used throughout the project.
  */
-
-#ifndef COMMON_H
-#define COMMON_H
+#pragma once
 
 #define _USE_MATH_DEFINES
 #include <math.h>
@@ -21,5 +19,3 @@
 
 #include <glm/glm.hpp>
 #include <glm/ext.hpp>
-
-#endif

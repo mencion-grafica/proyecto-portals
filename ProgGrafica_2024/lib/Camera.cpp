@@ -2,7 +2,7 @@
 
 Camera::Camera()
 {
-
+	
 }
 
 Camera::Camera(glm::vec3 position, glm::vec3 front, glm::vec3 up, float fov, float aspectRatio)
@@ -13,6 +13,17 @@ Camera::Camera(glm::vec3 position, glm::vec3 front, glm::vec3 up, float fov, flo
 
 	this->fov = fov;
 	this->aspectRatio = aspectRatio;
+	this->fbt = new FrameBufferTexture(1024, 768);
+}
+Camera::Camera(glm::vec3 position, glm::vec3 front, glm::vec3 up, float fov, float aspectRatio, Texture *tex)
+{
+	this->position = position;
+	this->front = front;
+	this->up = up;
+
+	this->fov = fov;
+	this->aspectRatio = aspectRatio;
+	this->fbt = new FrameBufferTexture(1024, 768);
 }
 
 Camera::Camera(glm::vec3 position, glm::vec3 front, glm::vec3 up)
@@ -43,4 +54,10 @@ void Camera::move(float deltaTime)
 
 	if (InputManager::keysState[GLFW_KEY_E]) this->position += speed * this->up;
 	if (InputManager::keysState[GLFW_KEY_Q]) this->position -= speed * this->up;
+	if(this->fbt == nullptr)
+	{
+		glBindFramebuffer(GL_FRAMEBUFFER, 0);
+	}
+	else
+		fbt->Bind();
 }

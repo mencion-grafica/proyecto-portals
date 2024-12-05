@@ -128,7 +128,6 @@ void Program::readVarList()
 		glGetActiveUniform(programID, (GLuint) idx, buffSize, &length, &size, &type, name);
 		location = glGetUniformLocation(programID, name);
 
-		std::cout << "Uniform: " << name << " Location: " << location << std::endl;
 		varList[name] = location;
 	}
 }
@@ -143,33 +142,6 @@ void Program::setMVP(glm::mat4 mvp)
 	{
 		std::cout << "ERROR: " << __FILE__ << ":" << __LINE__ << " " << __FUNCTION__ << std::endl;
 	}
-}
-
-void Program::setMatrix(std::string name, glm::mat4 m)
-{
-	if (varList.find(name) != varList.end()) 
-	{
-		glUniformMatrix4fv(varList[name], 1, GL_FALSE, &m[0][0]);
-	}
-	else 
-	{
-		//std::cout << "ERROR: " << __FILE__ << ":" << __LINE__ << " " << __FUNCTION__ << ". Trying to set " << name << std::endl;
-	}
-}
-
-void Program::setInteger(std::string name, int data) 
-{
-	if (varList.find(name) != varList.end()) glUniform1i(varList[name], data);
-}
-
-void Program::setFloat(std::string name, float data) 
-{
-	if (varList.find(name) != varList.end()) glUniform1f(varList[name], data);
-}
-
-void Program::setVec4(std::string name, glm::vec4 data)
-{
-	if (varList.find(name) != varList.end()) glUniform4f(varList[name], data.x, data.y, data.z, data.w);
 }
 
 void Program::setVertexAttribute(std::string name, int ncomp, int type, size_t stride, void* offset) 

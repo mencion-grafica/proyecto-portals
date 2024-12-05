@@ -2,6 +2,7 @@
 
 #include "Common.h"
 #include "InputManager.h"
+#include "FrameBufferTexture.h"
 
 class Camera
 {
@@ -20,9 +21,12 @@ public:
 	float aspectRatio = 800.0f / 600.0f;
 	bool firstMouse = true;
 
+	FrameBufferTexture *fbt;
+	
 	Camera();
 
 	Camera(glm::vec3 position, glm::vec3 front, glm::vec3 up, float fov, float aspectRatio);
+	Camera(glm::vec3 position, glm::vec3 front, glm::vec3 up, float fov, float aspectRatio, Texture *tex = nullptr);
 	
 	Camera(glm::vec3 position, glm::vec3 front, glm::vec3 up);
 

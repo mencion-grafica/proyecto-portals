@@ -1,5 +1,7 @@
 #pragma once
 
+#include <list>
+
 #include "Common.h"
 #include "Object.h"
 #include "Camera.h"
@@ -20,8 +22,10 @@ class Render
 		int width;
 		int height;
 
-		std::vector<Object*> objectList;
+		
 
+		std::vector<Object*> objectList;
+		Camera* activeCamera=NULL;
 		typedef struct {
 			unsigned int bufferID;
 			unsigned int vertexBufferID;
@@ -30,7 +34,7 @@ class Render
 
 		std::map<int, bufferObject_t> bufferObjectList;
 
-		Camera* camera;
+		std::list<Camera*> cameraList;
 
 		Render();
 
