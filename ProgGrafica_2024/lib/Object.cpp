@@ -100,7 +100,6 @@ Object::Object(std::string fileName)
 				vertex_t& v = vertexList.back();
 				str >> v.vertexUv.x >> v.vertexUv.y;
 			}
-			/*
 			else if (key == "texture")
 			{
 				std::string fileName;
@@ -108,13 +107,34 @@ Object::Object(std::string fileName)
 				std::cout << "Reading texture: " << fileName << std::endl;
 				this->texture = new Texture(fileName);
 			}
-			*/
 		}
 	}
 
 	prg->link();
 
 	printData(*this);
+}
+
+void Object::initializeCollider(int levels)
+{
+	//Calculate minimum and maximum bounds of the object based on the position, rotation and scale
+	glm::vec3 minBounds = glm::vec3(FLT_MAX);
+	glm::vec3 maxBounds = glm::vec3(-FLT_MAX);
+
+	for (auto& vertex : this->vertexList)
+	{
+		minBounds.x = std::min(minBounds.x, vertex.vertexPos.x);
+		minBounds.y = std::min(minBounds.y, vertex.vertexPos.y);
+		minBounds.z = std::min(minBounds.z, vertex.vertexPos.z);
+		maxBounds.x = std::max(maxBounds.x, vertex.vertexPos.x);
+		maxBounds.y = std::max(maxBounds.y, vertex.vertexPos.y);
+		maxBounds.z = std::max(maxBounds.z, vertex.vertexPos.z);
+	}
+	
+	if (this->collider == nullptr) this->collider = new Collider(minBounds, maxBounds);
+	else this->collider->updateBounds(this->modelMatrix);
+	
+	this->collider->subdivide(levels);
 }
 
 void Object::createTriangle()
@@ -160,11 +180,12 @@ void Object::updateModelMatrix()
 	glm::mat4 scale = glm::scale(glm::mat4(1.0f), glm::vec3(this->scale));
 
 	this->modelMatrix = translate * rotate * scale;
+	if (this->collider != nullptr) this->collider->updateBounds(this->modelMatrix);
 }
 
 Player::Player(std::string fileName, glm::vec4 pos) {
 	this->loadDaeFile(fileName.c_str());
-
+	this->position = pos;
 	updateModelMatrix();
 }
 
@@ -219,7 +240,7 @@ void Player::loadDaeFile(const char* fileName) {
 	glm::vec4 color;
 	int numVertex = count->IntValue();
 
-	//Por cada vértice en el .dae, que eso lo sacamos del count del accesor
+	//Por cada vï¿½rtice en el .dae, que eso lo sacamos del count del accesor
 	for (int i = 0; i < numVertex; i++) {
 		pos.x = floatPositions.at(0);
 		floatPositions.erase(floatPositions.begin());
@@ -258,7 +279,8 @@ void Player::loadDaeFile(const char* fileName) {
 	const XMLAttribute* numTrianglesAtr = doc.FirstChildElement("COLLADA")->FirstChildElement("library_geometries")->FirstChildElement("geometry")->FirstChildElement("mesh")->FirstChildElement("triangles")->FindAttribute("count");
 	int numTriangles = numTrianglesAtr->IntValue();
 
-	for (int i = 0; i < numTriangles * 3; i++) {
+	for (int i = 0; i < numTriangles * 3; i++) 
+	{
 		int id = stoi(stringVertex[i * 4]);
 		//cout << id << endl;
 		idList.push_back(id);

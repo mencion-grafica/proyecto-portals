@@ -6,6 +6,7 @@
 #include "RenderProgram.h"
 #include "tinyxml2.h"
 #include "Joint.h"
+#include "Collider.h"
 
 using namespace tinyxml2;
 #include "Texture.h"
@@ -24,6 +25,7 @@ public:
 	Program* prg = new Program();
 	material_t material = { 1.0f, 1.0f, 1.0f, 70 };
 	Texture* texture = nullptr;
+	Collider* collider = nullptr;
 
 	std::vector<vertex_t> vertexList;
 	std::vector<int> idList;
@@ -34,6 +36,8 @@ public:
 
 	Object(std::string fileName);
 
+	void initializeCollider(int levels);
+	
 	void createTriangle();
 
 	void move(double deltaTime);
@@ -51,5 +55,4 @@ public:
 	Player(std::string fileName, glm::vec4 pos);
 
 	void loadDaeFile(const char* fileName);
-
 };

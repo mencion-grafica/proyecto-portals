@@ -87,7 +87,7 @@ void Render::initGL(const char* windowName, int sizeX, int sizeY)
 	InputManager::initInputManager(window);
 
 	glEnable(GL_DEPTH_TEST);
-	//glEnable(GL_CULL_FACE);
+	glEnable(GL_CULL_FACE);
 }
 
 void Render::drawObjects()
@@ -190,6 +190,19 @@ void Render::mainLoop()
 		move(deltaTime);
 
 		drawObjects();
+
+		glPolygonMode(GL_FRONT_AND_BACK, GL_LINE); // Enable wireframe mode
+		//glDisable(GL_CULL_FACE);                  // Optional: Disable face culling to see inside
+		glColor3f(1.0f, 0.0f, 0.0f);              // Red color for debugging
+		//object.debugDrawCollider();
+		for (auto& obj : this->objectList)
+		{
+			if (obj->collider != nullptr)
+			{
+				obj->collider->draw(obj->position);
+			}
+		}
+		glPolygonMode(GL_FRONT_AND_BACK, GL_FILL); // Reset to fill mode
 		
         glfwPollEvents();
         glfwSwapBuffers(window);
