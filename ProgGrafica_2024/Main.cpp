@@ -23,7 +23,7 @@ int main(int argc, char** argv)
 	render->putCamera(camera);
 	
 	Map* map = new Map("./data/Map/Prueba.cvmf");
-	map->getPlane(map->id);
+	//map->getPlane(map->id);
 
 	render->mainLoop();
 

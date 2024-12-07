@@ -21,21 +21,21 @@
   <ItemGroup>
     <ClCompile Include="lib\Camera.cpp" />
     <ClCompile Include="lib\InputManager.cpp" />
+    <ClCompile Include="lib\Map.cpp" />
     <ClCompile Include="lib\Object.cpp" />
     <ClCompile Include="lib\Render.cpp" />
     <ClCompile Include="lib\RenderProgram.cpp" />
     <ClCompile Include="Main.cpp" />
-    <ClCompile Include="Map.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="lib\Camera.h" />
     <ClInclude Include="lib\Common.h" />
     <ClInclude Include="lib\InputManager.h" />
+    <ClInclude Include="lib\Map.h" />
     <ClInclude Include="lib\Object.h" />
     <ClInclude Include="lib\Render.h" />
     <ClInclude Include="lib\RenderProgram.h" />
     <ClInclude Include="lib\vertex.h" />
-    <ClInclude Include="Map.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="data\cube.trs" />

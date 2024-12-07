@@ -38,13 +38,12 @@ public:
 	void getPlane(int x1, int y1, int z1, int x2, int y2, int z2, int x3, int y3, int z3);
 private:
 	void leerArchivo(std::string filename);
-	void leerSolid(std::ifstream f, std::string line);
-	void leerSide(std::ifstream f, std::string lin);
-	void printData();
+	Solid_t leerSolid(std::ifstream &f, std::string line);
+	Side_t leerSide(std::ifstream &f, std::string line);
+	Plane_t leerPlane(std::ifstream &f, std::string line);
 
 	std::vector<vertex_t> vertexList;
 	std::vector<int> idList;
-	std::vector<Plane_t> planeList;
 	std::vector<Solid_t> solidList;
 
 };
