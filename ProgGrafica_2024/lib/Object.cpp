@@ -221,13 +221,13 @@ void Player::loadDaeFile(const char* fileName) {
 	rootJoint = Joint(fileName);
 
 	const char* numJointsList;
-	std::stringstream ss(numJointsList);
 	std::vector<std::string> stringNumJoints;
 	std::vector<float> intNumJoints;
 
 	numJointsList = doc.FirstChildElement("COLLADA")->FirstChildElement("library_controllers")->FirstChildElement("controller")->FirstChildElement("skin")->FirstChildElement("vertex_weights")->FirstChildElement("vcount")->GetText();
+	std::stringstream ss4(numJointsList);
 
-	while (getline(ss, auxString, ' ')) {
+	while (getline(ss4, auxString, ' ')) {
 		stringNumJoints.push_back(auxString);
 	}
 
@@ -236,13 +236,13 @@ void Player::loadDaeFile(const char* fileName) {
 	}
 
 	const char* listIdJointsWeights;
-	std::stringstream ss(listIdJointsWeights);
 	std::vector<std::string> stringlistIdJointsWeights;
 	std::vector<float> intlistIdJointsWeights;
 
-	doc.FirstChildElement("COLLADA")->FirstChildElement("library_controllers")->FirstChildElement("controller")->FirstChildElement("skin")->FirstChildElement("vertex_weights")->FirstChildElement("v")->GetText();
+	listIdJointsWeights = doc.FirstChildElement("COLLADA")->FirstChildElement("library_controllers")->FirstChildElement("controller")->FirstChildElement("skin")->FirstChildElement("vertex_weights")->FirstChildElement("v")->GetText();
+	std::stringstream ss5(listIdJointsWeights);
 
-	while (getline(ss, auxString, ' ')) {
+	while (getline(ss5, auxString, ' ')) {
 		stringlistIdJointsWeights.push_back(auxString);
 	}
 
@@ -277,11 +277,25 @@ void Player::loadDaeFile(const char* fileName) {
 
 		//Asignar pesos y joints por vértice
 
-		glm::ivec4 joints;
+		glm::ivec4 joints = glm::ivec4{-1, -1, -1, -1};
+		vert.idJoints = joints;
+		glm::vec4 weights = glm::vec4{-1.0f, -1.0f, -1.0f, -1.0f};
+		vert.weightJoints = weights;
+
+		int savedJoints = 0;
+		if (intNumJoints.at(i) > 3) {
+			savedJoints = 4;
+		}
+		else {
+			savedJoints = intNumJoints.at(i);
+		}
 
 		//joints[0]
-		for (int j = 0; j < intNumJoints.at(i); j++) {
-			vert.idJoints[j] = intlistIdJointsWeights[j];
+		for (int j = 0; j < savedJoints; j++) {
+			vert.idJoints[j] = intlistIdJointsWeights[counterNum];
+			counterNum++;
+			vert.weightJoints[j] = intlistIdJointsWeights[counterNum];
+			counterNum++;
 		}
 		//Por cada joint que afecte al vertice
 			//vert.idJoints[j] = valorQueSea
@@ -307,6 +321,7 @@ void Player::loadDaeFile(const char* fileName) {
 		idList.push_back(id);
 	}
 
+	jointCount = rootJoint.GetIdCounter();
 	//Textura
 	//TODO: Faltan las UVs
 	/*const char* textureName = doc.FirstChildElement("COLLADA")->FirstChildElement("library_images")->FirstChildElement("image")->FirstChildElement("init_from")->GetText();
@@ -315,7 +330,7 @@ void Player::loadDaeFile(const char* fileName) {
 	this->texture = new Texture(route);*/
 
 	//Aplicar shader
-	prg->addShader("data/shader.vert");
+	prg->addShader("data/playerShader.vert");
 	prg->addShader("data/shader.frag");
 
 	prg->link();

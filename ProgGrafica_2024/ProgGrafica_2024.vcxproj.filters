@@ -1,100 +1,37 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Archivos de origen">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Archivos de encabezado">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
-    </Filter>
-    <Filter Include="Archivos de recursos">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
+    <ClCompile Include="lib\Camera.cpp" />
+    <ClCompile Include="lib\InputManager.cpp" />
+    <ClCompile Include="lib\Joint.cpp" />
+    <ClCompile Include="lib\Map.cpp" />
+    <ClCompile Include="lib\Object.cpp" />
+    <ClCompile Include="lib\Render.cpp" />
+    <ClCompile Include="lib\RenderProgram.cpp" />
+    <ClCompile Include="lib\tinyxml2.cpp" />
+    <ClCompile Include="lib\Texture.cpp" />
+    <ClCompile Include="Main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Main.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="lib\Render.cpp">
-      <Filter>Archivos de encabezado</Filter>
-    </ClCompile>
-    <ClCompile Include="lib\InputManager.cpp">
-      <Filter>Archivos de encabezado</Filter>
-    </ClCompile>
-    <ClCompile Include="lib\Object.cpp">
-      <Filter>Archivos de encabezado</Filter>
-    </ClCompile>
-    <ClCompile Include="lib\Camera.cpp">
-      <Filter>Archivos de encabezado</Filter>
-    </ClCompile>
-    <ClCompile Include="lib\RenderProgram.cpp">
-      <Filter>Archivos de encabezado</Filter>
-    </ClCompile>
-    <ClCompile Include="lib\tinyxml2.cpp">
-      <Filter>Archivos de encabezado</Filter>
-    </ClCompile>
-    <ClCompile Include="lib\Map.cpp">
-      <Filter>Archivos de encabezado</Filter>
-    </ClCompile>
-    <ClCompile Include="lib\Joint.cpp">
-    <ClCompile Include="lib\Texture.cpp">
-      <Filter>Archivos de encabezado</Filter>
-    </ClCompile>
+    <ClInclude Include="lib\Camera.h" />
+    <ClInclude Include="lib\Common.h" />
+    <ClInclude Include="lib\InputManager.h" />
+    <ClInclude Include="lib\Joint.h" />
+    <ClInclude Include="lib\Map.h" />
+    <ClInclude Include="lib\Object.h" />
+    <ClInclude Include="lib\Render.h" />
+    <ClInclude Include="lib\RenderProgram.h" />
+    <ClInclude Include="lib\tinyxml2.h" />
+    <ClInclude Include="lib\Texture.h" />
+    <ClInclude Include="lib\vertex.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="lib\Common.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\Render.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\InputManager.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\vertex.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\Object.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\Camera.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\RenderProgram.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\tinyxml2.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\Map.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\Joint.h">
-    <ClInclude Include="lib\Texture.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="data\shader.frag">
-      <Filter>Archivos de encabezado</Filter>
-    </None>
-    <None Include="data\shader.vert">
-      <Filter>Archivos de encabezado</Filter>
-    </None>
-    <None Include="data\triangle.trs">
-      <Filter>Archivos de encabezado</Filter>
-    </None>
-    <None Include="data\cube.trs">
-      <Filter>Archivos de encabezado</Filter>
-    </None>
-    <None Include="data\ground.trs">
-      <Filter>Archivos de encabezado</Filter>
-    </None>
-    <None Include="data\triangulated.dae">
-      <Filter>Archivos de encabezado</Filter>
-    </None>
+    <None Include="data\cube.trs" />
+    <None Include="data\ground.trs" />
+    <None Include="data\shader.frag" />
+    <None Include="data\shader.vert" />
+    <None Include="data\triangle.trs" />
+    <None Include="data\triangulated.dae" />
+    <None Include="data\playerShader.vert" />
   </ItemGroup>
 </Project>
