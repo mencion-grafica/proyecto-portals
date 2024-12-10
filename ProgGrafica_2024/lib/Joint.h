@@ -12,7 +12,11 @@ public:
 
 	std::vector<Joint> children;
 	int id;
+	//Matriz de transformación global
 	glm::mat4 transformationMatrix;
+	//Matriz de transformación respecto al padre
+	glm::mat4 localBindTransform;
+	glm::mat4 inverseBindTransform;
 
 	Joint();
 

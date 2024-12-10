@@ -30,7 +30,7 @@ Joint::Joint(const char* fileName) {
 		floatElements.push_back(stof(str));
 	}
 
-	transformationMatrix = glm::mat4(floatElements[0], floatElements[1], floatElements[2], floatElements[3]
+	localBindTransform = glm::mat4(floatElements[0], floatElements[1], floatElements[2], floatElements[3]
 									, floatElements[4], floatElements[5], floatElements[6], floatElements[7]
 									, floatElements[8], floatElements[9], floatElements[10], floatElements[11]
 									, floatElements[12], floatElements[13], floatElements[14], floatElements[15]);
