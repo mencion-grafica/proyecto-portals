@@ -41,48 +41,15 @@ void Map::leerArchivo(std::string filename) {
 		std::cout << "Estas en el solid con ID:" << currentSolid.id << std::endl;
 		solidList.push_back(currentSolid);
 	}
-	/*for(auto &s : solidList){
-		getPlane(s.id);
-	}*/
+	for (auto& s : solidList) {
+		getPlane(s);
+	}
 }
 
 Solid_t Map::leerSolid(std::ifstream& f, std::string line) {
 
-	Solid_t currentSolid = {0};
-	Side_t currentSide = {0};
-
+	Solid_t currentSolid = { 0 };
 	std::string key;
-	do {
-		std::string lineIn="";
-		for(auto &c:line)
-			if(c!='\"')
-				lineIn += c;
-
-		std::istringstream str(lineIn);
-		std::string key;
-
-		str >> key;
-
-		if (key == "id") {
-			std::cout << "Leyendo ID del solid..." << std::endl;
-			str >> currentSolid.id;
-		}
-		else if (key == "side") {
-			currentSide = leerSide(f, lineIn); 
-			currentSolid.sideList.push_back(currentSide);
-		}
-	} while (std::getline(f, line, '\n'));
-
-	return currentSolid;
-
-}
-
-Side_t Map::leerSide(std::ifstream& f, std::string line) {
-	
-	Side_t currentSide = {0};
-	char lastChar;
-
-
 	do {
 		std::string lineIn = "";
 		for (auto& c : line)
@@ -95,62 +62,85 @@ Side_t Map::leerSide(std::ifstream& f, std::string line) {
 		str >> key;
 
 		if (key == "id") {
+			std::cout << "Leyendo ID del solid..." << std::endl;
+			str >> currentSolid.id;
+		}
+		else if (key == "side") {
+			currentSolid.sideList.push_back(leerSide(f, lineIn));
+
+		}
+	} while (std::getline(f, line, '\n'));
+
+	return currentSolid;
+
+}
+
+Side_t Map::leerSide(std::ifstream& f, std::string line) {
+
+	Side_t currentSide = { 0 };
+	std::string key = "";
+
+	do {
+		std::getline(f, line, '\n');
+
+		std::string lineIn = "";
+		for (auto& c : line)
+			if (c != '\"')
+				lineIn += c;
+
+		std::istringstream str(lineIn);
+
+		str >> key;
+
+		if (key == "id") {
 			std::cout << "Leyendo ID del side..." << std::endl;
 			str >> currentSide.id;
 		}
 		else if (key == "plane") {
-			currentSide.plane = leerPlane(f, line);
+			currentSide.plane = leerPlane(line);
 		}
-		
-		lastChar = line[line.length()];
-		std::getline(f, line, '\n');
-	} while (lastChar != '}');
-	//while (lastChar != '}');
+	} while (key != "}");
 
 	return currentSide;
 }
 
-Plane_t Map::leerPlane(std::ifstream& f, std::string line) {
+Plane_t Map::leerPlane(std::string line) {
 
-	Plane_t res = {0};
+	Plane_t res = { 0 };
 
-	do {
-		std::string lineIn = "";
-		for (auto& c : line)
-			if (c != '\"' && c != '(' && c != ')')
-				lineIn += c;
-				
+	std::string lineIn = "";
+	for (auto& c : line)
+		if (c != '\"' && c != '(' && c != ')')
+			lineIn += c;
 
-		std::istringstream str(lineIn);
-		std::string key;
 
-		str >> key;
+	std::istringstream str(lineIn);
+	std::string key;
 
-		if (key == "plane") {
-			str >> res.point1.x;
-			str >> res.point1.y;
-			str >> res.point1.z;
+	str >> key;
 
-			std::cout << "Punto 1: " << res.point1.x <<"x "<< res.point1.y << "y " << res.point1.z << "z " << std::endl;
+	if (key == "plane") {
+		str >> res.point1.x;
+		str >> res.point1.y;
+		str >> res.point1.z;
 
-			str >> res.point2.x;
-			str >> res.point2.y;
-			str >> res.point2.z;
+		std::cout << "Punto 1: " << res.point1.x << "x " << res.point1.y << "y " << res.point1.z << "z " << std::endl;
 
-			std::cout << "Punto 2: " << res.point2.x << "x " <<res.point2.y << "y " << res.point2.z << "z " << std::endl;
+		str >> res.point2.x;
+		str >> res.point2.y;
+		str >> res.point2.z;
 
-			str >> res.point3.x;
-			str >> res.point3.y;
-			str >> res.point3.z;
+		std::cout << "Punto 2: " << res.point2.x << "x " << res.point2.y << "y " << res.point2.z << "z " << std::endl;
 
-			std::cout << "Punto 3: " << res.point3.x << "x " << res.point3.y << "y " << res.point3.z << "z " << std::endl;
-		}
+		str >> res.point3.x;
+		str >> res.point3.y;
+		str >> res.point3.z;
 
-	} while (std::getline(f, line, '\n'));
+		std::cout << "Punto 3: " << res.point3.x << "x " << res.point3.y << "y " << res.point3.z << "z " << std::endl;
+	}
 
 	return res;
 }
-
 
 void Map::getPlane(int x1, int y1, int z1, int x2, int y2, int z2, int x3, int y3, int z3) {
 	float v1x = x2 - x1;
@@ -175,8 +165,8 @@ void Map::getPlane(int x1, int y1, int z1, int x2, int y2, int z2, int x3, int y
 
 }
 
-void Map::getPlane(int id) {
-	for (auto& s : solidList[id].sideList) {
+void Map::getPlane(Solid_t &solid) {
+	for (auto& s : solid.sideList) {
 		float v1x = s.plane.point2.x - s.plane.point1.x;
 		float v1y = s.plane.point2.y - s.plane.point1.y;
 		float v1z = s.plane.point2.z - s.plane.point1.z;
@@ -192,7 +182,12 @@ void Map::getPlane(int id) {
 			+ s.plane.b * s.plane.point1.y
 			+ s.plane.c * s.plane.point1.z);
 
-		std::cout << "Plano: " << s.plane.a << "X " << s.plane.b << "X " << s.plane.c << "X " << s.plane.d << std::endl;
+		std::cout << "Plano: " << s.plane.a << "X " << s.plane.b << "Y " << s.plane.c << "Z " << s.plane.d << std::endl;
 	}
+}
 
+void Map::getPuntos(Solid_t& solid) {
+	for (auto& s : solid.sideList) {
+
+	}
 }

@@ -34,13 +34,14 @@ public:
 	Map();
 	Map(std::string filename);
 
-	void getPlane(int id);
+	void getPlane(Solid_t & solid);
+	void getPuntos(Solid_t& solid);
 	void getPlane(int x1, int y1, int z1, int x2, int y2, int z2, int x3, int y3, int z3);
 private:
 	void leerArchivo(std::string filename);
 	Solid_t leerSolid(std::ifstream &f, std::string line);
 	Side_t leerSide(std::ifstream &f, std::string line);
-	Plane_t leerPlane(std::ifstream &f, std::string line);
+	Plane_t leerPlane(std::string line);
 
 	std::vector<vertex_t> vertexList;
 	std::vector<int> idList;
