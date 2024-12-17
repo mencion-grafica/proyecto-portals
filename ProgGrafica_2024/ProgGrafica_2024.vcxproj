@@ -19,13 +19,13 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Keyframe.cpp" />
     <ClCompile Include="lib\Animation.cpp" />
     <ClCompile Include="lib\Animator.cpp" />
     <ClCompile Include="lib\Camera.cpp" />
     <ClCompile Include="lib\InputManager.cpp" />
     <ClCompile Include="lib\Joint.cpp" />
     <ClCompile Include="lib\JointTransform.cpp" />
+    <ClCompile Include="lib\Keyframe.cpp" />
     <ClCompile Include="lib\Map.cpp" />
     <ClCompile Include="lib\Object.cpp" />
     <ClCompile Include="lib\Render.cpp" />

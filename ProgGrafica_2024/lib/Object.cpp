@@ -337,3 +337,14 @@ void Player::loadDaeFile(const char* fileName) {
 	//printData(*this);
 	//this->tex = nullptr;
 }
+
+void Player::move(double deltaTime)
+{
+	Object::move(deltaTime);
+	animator.Update(deltaTime);
+}
+
+void Player::StartNewAnimation(Animation animation)
+{
+	animator.StartNewAnimation(animation);
+}

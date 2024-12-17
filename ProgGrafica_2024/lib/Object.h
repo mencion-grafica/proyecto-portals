@@ -6,9 +6,10 @@
 #include "RenderProgram.h"
 #include "tinyxml2.h"
 #include "Joint.h"
+#include "Texture.h"
+#include "Animator.h"
 
 using namespace tinyxml2;
-#include "Texture.h"
 
 class Object
 {
@@ -36,7 +37,7 @@ public:
 
 	void createTriangle();
 
-	void move(double deltaTime);
+	virtual void move(double deltaTime);
 
 	void updateModelMatrix();
 };
@@ -47,9 +48,13 @@ private:
 	Joint rootJoint;
 	int jointCount;
 
+	Animator animator;
 public:
 	Player(std::string fileName, glm::vec4 pos);
 
 	void loadDaeFile(const char* fileName);
 
+	void move(double deltaTime) override;
+
+	void StartNewAnimation(Animation animation);
 };

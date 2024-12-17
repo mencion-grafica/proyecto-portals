@@ -12,9 +12,9 @@
     <ClCompile Include="lib\Texture.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="lib\Animation.cpp" />
-    <ClCompile Include="Keyframe.cpp" />
     <ClCompile Include="lib\Animator.cpp" />
     <ClCompile Include="lib\JointTransform.cpp" />
+    <ClCompile Include="lib\Keyframe.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="lib\Camera.h" />
@@ -29,9 +29,9 @@
     <ClInclude Include="lib\Texture.h" />
     <ClInclude Include="lib\vertex.h" />
     <ClInclude Include="lib\Animation.h" />
-    <ClInclude Include="lib\Keyframe.h" />
     <ClInclude Include="lib\Animator.h" />
     <ClInclude Include="lib\JointTransform.h" />
+    <ClInclude Include="lib\Keyframe.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="data\cube.trs" />
