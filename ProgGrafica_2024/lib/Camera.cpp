@@ -2,19 +2,9 @@
 
 Camera::Camera()
 {
-	
-}
-
-Camera::Camera(glm::vec3 position, glm::vec3 front, glm::vec3 up, float fov, float aspectRatio)
-{
-	this->position = position;
-	this->front = front;
-	this->up = up;
-
-	this->fov = fov;
-	this->aspectRatio = aspectRatio;
 	this->fbt = new FrameBufferTexture(1024, 768);
 }
+
 Camera::Camera(glm::vec3 position, glm::vec3 front, glm::vec3 up, float fov, float aspectRatio, Texture *tex)
 {
 	this->position = position;

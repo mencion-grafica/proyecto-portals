@@ -22,8 +22,6 @@ class Render
 		int width;
 		int height;
 
-		
-
 		std::vector<Object*> objectList;
 		Camera* activeCamera=NULL;
 		typedef struct {
@@ -34,7 +32,7 @@ class Render
 
 		std::map<int, bufferObject_t> bufferObjectList;
 
-		std::list<Camera*> cameraList;
+		std::vector<Camera*> cameraList;
 
 		Render();
 

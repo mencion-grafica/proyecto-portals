@@ -5,8 +5,7 @@ Render::Render()
 {
 	Render::r = this;
 	this->objectList = std::vector<Object*>();
-	this->cameraList = std::list<Camera*>();
-	this->cameraList.push_back(new Camera());
+	this->cameraList = std::vector<Camera*>();
 }
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height)
@@ -20,7 +19,7 @@ void mouse_callback(GLFWwindow* window, double xPosIn, double yPosIn)
 	float xPos = static_cast<float>(xPosIn);
 	float yPos = static_cast<float>(yPosIn);
 
-	Camera* cam = (*Render::r->cameraList.begin());
+	Camera* cam = Render::r->cameraList[1];
 
 	if (cam->firstMouse)
 	{
@@ -54,9 +53,10 @@ void mouse_callback(GLFWwindow* window, double xPosIn, double yPosIn)
 
 void scroll_callback(GLFWwindow* window, double xOffset, double yOffset)
 {
-	(*Render::r->cameraList.begin())->fov -= (float) yOffset;
-	if ((*Render::r->cameraList.begin())->fov < 1.0f) (*Render::r->cameraList.begin())->fov = 1.0f;
-	if ((*Render::r->cameraList.begin())->fov > 45.0f) (*Render::r->cameraList.begin())->fov = 45.0f;
+	Camera* cam = Render::r->cameraList[1];
+	cam->fov -= (float) yOffset;
+	if (cam->fov < 1.0f) cam->fov = 1.0f;
+	if (cam->fov > 45.0f) cam->fov = 45.0f;
 }
 
 void Render::initGL(const char* windowName, int sizeX, int sizeY)
@@ -121,8 +121,8 @@ void Render::setupObject(Object* object)
 void Render::drawGL(int id)
 {
 	glm::mat4 M = this->objectList[id]->modelMatrix;
-	glm::mat4 V = (*Render::r->cameraList.begin())->computeViewMatrix();
-	glm::mat4 P = (*Render::r->cameraList.begin())->computeProjectionMatrix();
+	glm::mat4 V = activeCamera->computeViewMatrix();
+	glm::mat4 P = activeCamera->computeProjectionMatrix();
 
 	glm::mat4 MVP = P * V * M;
 
@@ -136,7 +136,19 @@ void Render::drawGL(int id)
 	this->objectList[id]->prg->setVertexAttribute("vPos", 4, GL_FLOAT, sizeof(vertex_t), (void*)offsetof(vertex_t, vertexPos));
 	this->objectList[id]->prg->setVertexAttribute("vColor", 4, GL_FLOAT, sizeof(vertex_t), (void*)offsetof(vertex_t, vertexColor));
 	this->objectList[id]->prg->setVertexAttribute("vNormal", 4, GL_FLOAT, sizeof(vertex_t), (void*)offsetof(vertex_t, vertexNormal));
+	this->objectList[id]->prg->setVertexAttribute("vUv", 4, GL_FLOAT, sizeof(vertex_t), (void*) offsetof(vertex_t, vertexUv));
 
+	this->objectList[id]->prg->setInteger("textureColor", 0);
+	if (this->objectList[id]->texture != nullptr) 
+	{
+		this->objectList[id]->prg->setInteger("material.textureEnabled", 1);
+		this->objectList[id]->texture->bind(0);
+	}
+	else 
+	{
+		this->objectList[id]->prg->setInteger("material.textureEnabled", 0);
+	}
+	
 	glDrawElements(GL_TRIANGLES, this->objectList[id]->idList.size(), GL_UNSIGNED_INT, nullptr);
 }
 
@@ -148,8 +160,10 @@ void Render::putObject(Object* object)
 
 void Render::putCamera(Camera* camera)
 {
-	(*Render::r->cameraList.begin()) = camera;
+	cameraList.push_back(camera);
 }
+
+
 
 void Render::move(float deltaTime)
 {
@@ -175,17 +189,29 @@ void Render::mainLoop()
 
     	move(deltaTime);
 
-    	for(int i=cameraList.size()-1;i>=0;i--)
+    	//for(int i=cameraList.size()-1;i>=0;i--)
+    	activeCamera=cameraList[0];
+    	activeCamera->fbt->Bind();
     	{
-    		auto cam=(*Render::r->cameraList.begin()+i);
+    		//auto cam=(*Render::r->cameraList.begin()+i);
     	
-    		cam->move(deltaTime);
+    		//cam->move(deltaTime);
 
     		glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
     		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     		
     		drawObjects();
     	}
+    	objectList[3]->texture->GLId = cameraList[0]->fbt->GLId; 
+    	activeCamera=cameraList[1];
+    	activeCamera->move(deltaTime);
+    	glBindFramebuffer(GL_FRAMEBUFFER, 0);
+
+
+    	glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+    	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    		
+    	drawObjects();
         glfwPollEvents();
         glfwSwapBuffers(window);
     }

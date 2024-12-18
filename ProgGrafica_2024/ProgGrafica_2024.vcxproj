@@ -55,6 +55,10 @@
     <None Include="data\triangle.trs" />
     <None Include="data\triangulated.dae" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="data\cubeBL.trs" />
+    <Content Include="data\plane.trs" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>

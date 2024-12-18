@@ -24,8 +24,7 @@ public:
 	FrameBufferTexture *fbt;
 	
 	Camera();
-
-	Camera(glm::vec3 position, glm::vec3 front, glm::vec3 up, float fov, float aspectRatio);
+	
 	Camera(glm::vec3 position, glm::vec3 front, glm::vec3 up, float fov, float aspectRatio, Texture *tex = nullptr);
 	
 	Camera(glm::vec3 position, glm::vec3 front, glm::vec3 up);

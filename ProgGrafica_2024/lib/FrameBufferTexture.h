@@ -1,11 +1,11 @@
 #pragma once
 #include "Texture.h"
 
-class FrameBufferTexture 
+class FrameBufferTexture : public Texture
 {
 public:
     GLuint FramebufferName;
-    GLuint renderedTexture;
+    
     GLuint depthrenderbuffer;
     
     FrameBufferTexture(int width, int height);

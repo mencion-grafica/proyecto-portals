@@ -8,11 +8,34 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c6f49f4b-fbee-49b4-80c7-07f2e17b50ef" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.ProgGrafica_2024/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProgGrafica_2024/data/plane.trs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ProgGrafica_2024/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProgGrafica_2024/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProgGrafica_2024/Main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/ProgGrafica_2024/Main.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProgGrafica_2024/ProgGrafica_2024.vcxproj" beforeDir="false" afterPath="$PROJECT_DIR$/ProgGrafica_2024/ProgGrafica_2024.vcxproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProgGrafica_2024/lib/Camera.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProgGrafica_2024/lib/Camera.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProgGrafica_2024/lib/Render.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProgGrafica_2024/lib/Render.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProgGrafica_2024/lib/Camera.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/ProgGrafica_2024/lib/Camera.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProgGrafica_2024/lib/Camera.h" beforeDir="false" afterPath="$PROJECT_DIR$/ProgGrafica_2024/lib/Camera.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProgGrafica_2024/lib/FrameBufferTexture.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/ProgGrafica_2024/lib/FrameBufferTexture.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProgGrafica_2024/lib/FrameBufferTexture.h" beforeDir="false" afterPath="$PROJECT_DIR$/ProgGrafica_2024/lib/FrameBufferTexture.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProgGrafica_2024/lib/Render.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/ProgGrafica_2024/lib/Render.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProgGrafica_2024/lib/Render.h" beforeDir="false" afterPath="$PROJECT_DIR$/ProgGrafica_2024/lib/Render.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProgGrafica_2024/lib/RenderProgram.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/ProgGrafica_2024/lib/RenderProgram.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProgGrafica_2024/lib/RenderProgram.h" beforeDir="false" afterPath="$PROJECT_DIR$/ProgGrafica_2024/lib/RenderProgram.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProgGrafica_2024/x64/Debug/Camera.obj" beforeDir="false" afterPath="$PROJECT_DIR$/ProgGrafica_2024/x64/Debug/Camera.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProgGrafica_2024/x64/Debug/FrameBufferTexture.obj" beforeDir="false" afterPath="$PROJECT_DIR$/ProgGrafica_2024/x64/Debug/FrameBufferTexture.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProgGrafica_2024/x64/Debug/Main.obj" beforeDir="false" afterPath="$PROJECT_DIR$/ProgGrafica_2024/x64/Debug/Main.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProgGrafica_2024/x64/Debug/Object.obj" beforeDir="false" afterPath="$PROJECT_DIR$/ProgGrafica_2024/x64/Debug/Object.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProgGrafica_2024/x64/Debug/ProgGrafica_2024.ilk" beforeDir="false" afterPath="$PROJECT_DIR$/ProgGrafica_2024/x64/Debug/ProgGrafica_2024.ilk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProgGrafica_2024/x64/Debug/ProgGrafica_2024.tlog/CL.command.1.tlog" beforeDir="false" afterPath="$PROJECT_DIR$/ProgGrafica_2024/x64/Debug/ProgGrafica_2024.tlog/CL.command.1.tlog" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProgGrafica_2024/x64/Debug/ProgGrafica_2024.tlog/CL.read.1.tlog" beforeDir="false" afterPath="$PROJECT_DIR$/ProgGrafica_2024/x64/Debug/ProgGrafica_2024.tlog/CL.read.1.tlog" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProgGrafica_2024/x64/Debug/ProgGrafica_2024.tlog/CL.write.1.tlog" beforeDir="false" afterPath="$PROJECT_DIR$/ProgGrafica_2024/x64/Debug/ProgGrafica_2024.tlog/CL.write.1.tlog" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProgGrafica_2024/x64/Debug/ProgGrafica_2024.tlog/link.read.1.tlog" beforeDir="false" afterPath="$PROJECT_DIR$/ProgGrafica_2024/x64/Debug/ProgGrafica_2024.tlog/link.read.1.tlog" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProgGrafica_2024/x64/Debug/Render.obj" beforeDir="false" afterPath="$PROJECT_DIR$/ProgGrafica_2024/x64/Debug/Render.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProgGrafica_2024/x64/Debug/RenderProgram.obj" beforeDir="false" afterPath="$PROJECT_DIR$/ProgGrafica_2024/x64/Debug/RenderProgram.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProgGrafica_2024/x64/Debug/vc143.idb" beforeDir="false" afterPath="$PROJECT_DIR$/ProgGrafica_2024/x64/Debug/vc143.idb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProgGrafica_2024/x64/Debug/vc143.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/ProgGrafica_2024/x64/Debug/vc143.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/x64/Debug/ProgGrafica_2024.exe" beforeDir="false" afterPath="$PROJECT_DIR$/x64/Debug/ProgGrafica_2024.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/x64/Debug/ProgGrafica_2024.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/x64/Debug/ProgGrafica_2024.pdb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,7 +49,10 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="cidr-memory-view://0" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.41.34120/include/vector" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/externalLibs/glad/inc/glad/gl.h" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
@@ -37,20 +63,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "C++ Project.ProgGrafica_2024.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/ghioj/Desktop/GitHub/proyecto-portals/ProgGrafica_2024.sln",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;C++ Project.ProgGrafica_2024.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;agustin&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/ghioj/Desktop/GitHub/proyecto-portals/ProgGrafica_2024.sln&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="ProgGrafica_2024" type="CppProject" factoryName="C++ Project">
       <configuration_1>
@@ -117,7 +144,11 @@
       <option name="presentableId" value="Default" />
       <updated>1733416003415</updated>
       <workItem from="1733416004494" duration="80000" />
-      <workItem from="1733416089922" duration="4301000" />
+      <workItem from="1733416089922" duration="6920000" />
+      <workItem from="1734019795094" duration="6531000" />
+      <workItem from="1734366834843" duration="2140000" />
+      <workItem from="1734453871074" duration="1751000" />
+      <workItem from="1734547246048" duration="5856000" />
     </task>
     <servers />
   </component>
@@ -127,16 +158,5 @@
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/ProgGrafica_2024/lib/Common.h</url>
-          <line>7</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
