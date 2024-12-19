@@ -17,7 +17,6 @@ int main(int argc, char** argv)
 	Object* object = new Object("data/cubeBL.trs");
 	object->position = glm::vec4(0, 20, 0, 1);
 	object->texture = new Texture("data/front.png");
-	object->createCamera();
 	render->putObject(object);
 
 	Player* player = new Player("./data/player.dae", glm::vec4(0, 0, 0, 1));
@@ -25,7 +24,7 @@ int main(int argc, char** argv)
 
 	Camera* camera = new Camera();
 	render->putCamera(camera);
-	
+
 	render->mainLoop();
 
 	return 0;

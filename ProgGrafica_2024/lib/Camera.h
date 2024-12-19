@@ -34,7 +34,7 @@ public:
 
 	glm::mat4 computeProjectionMatrix();
 
-	void Camera::portal();
+	void portal();
 
 	virtual void move(float deltaTime);
 };

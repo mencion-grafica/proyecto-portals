@@ -36,7 +36,7 @@ Object::Object(std::string fileName)
 	this->rotation = glm::vec4(0.0f, 0.0f, 0.0f, 1.0f);
 	this->scale = glm::vec4(1.0f);
 	this->modelMatrix = glm::mat4(1.0f);
-	this->gravity = true;
+	this->activeGravity = true;
 
 	std::cout << "Leyendo desde fichero\n";
 
@@ -118,13 +118,13 @@ Object::Object(std::string fileName)
 	printData(*this);
 }
 
-Object::Object(std::string fileName, bool gravity) 
+Object::Object(std::string fileName, bool activeGravity)
 {
 	this->position = glm::vec4(0.0f, 0.0f, 0.0f, 10.0f);
 	this->rotation = glm::vec4(0.0f, 0.0f, 0.0f, 1.0f);
 	this->scale = glm::vec4(1.0f);
 	this->modelMatrix = glm::mat4(1.0f);
-	this->gravity = gravity;
+	this->activeGravity = activeGravity;
 
 	std::cout << "Leyendo desde fichero\n";
 
@@ -240,11 +240,10 @@ void Object::createTriangle()
 void Object::move(double deltaTime)
 {
 
-	if (gravity == true) {
-		this->velocity.y += gravityForce * deltaTime;  // Integra la gravedad
+	if (activeGravity == true) {
+		this->velocity.y += gravityForce * deltaTime;
 		this->position += this->velocity * glm::vec4(deltaTime, deltaTime, deltaTime, deltaTime);
 
-		// Comprobar si la c�mara ha "golpeado el suelo"
 		if (this->position.y < 0) {
 			this->position.y = 0;
 			this->velocity.y = 0;

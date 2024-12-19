@@ -34,22 +34,19 @@ glm::mat4 Camera::computeProjectionMatrix()
 
 void Camera::jump()
 {
-	if (this->position.y <= 0.1f) {  // Asegura que solo puede saltar si está cerca del suelo
-		this->velocity.y = 5.0f;  // Velocidad inicial del salto
+	if (this->position.y <= 0.1f) {
+		this->velocity.y = 5.0f;
 	}
 }
 
 void Camera::portal()
 {
-
+	return;
 }
 
 void Camera::move(float deltaTime)
 {
 	float speed = 1.5f * deltaTime;
-	const float gravity = 9.8f;
-	if (x == NULL)
-		x = 800;
 
 	if (InputManager::keysState[GLFW_KEY_Q]) {
 		portal();
@@ -59,7 +56,7 @@ void Camera::move(float deltaTime)
 		jump();
 	}
 
-	this->velocity.y += gravity * deltaTime;  // Integra la gravedad
+	this->velocity.y += gravity * deltaTime;
 	this->position += this->velocity * deltaTime;  // Mueve la cámara basándose en la velocidad actual
 
 	// Comprobar si la cámara ha "golpeado el suelo"
@@ -79,34 +76,5 @@ void Camera::move(float deltaTime)
 
 	if (InputManager::keysState[GLFW_KEY_E]) this->position += speed * this->up;
 	if (InputManager::keysState[GLFW_KEY_Q]) this->position -= speed * this->up;
-	if (this->position.y <= 0)
-		if (InputManager::keysState[GLFW_KEY_R])
-			x = 799;
-	if(x != 800){
-		x--;
-		this->position += x * 0.01f * speed * this->up;
-	}
-		
-	if (x == 0)
-		x = 800;
 	
-
-
-	//this->velocity.y += gravity * deltaTime;
-	//if (this->position.y <= 0)
-		//if (this->activeGravity) 
-		//this->position += this->up;
-	//else
-		//this->position += gravity * this->up;
-	if (this->position.y >= 0) {
-		this->position -= speed * aire * this->up;
-		if (iteraciones >= 130) {
-			aire = aire * 1.2f;
-			iteraciones = 0;
-		}
-			
-	}
-	else
-		aire = 1;
-	iteraciones++;
 }
