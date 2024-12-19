@@ -8,30 +8,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c6f49f4b-fbee-49b4-80c7-07f2e17b50ef" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.ProgGrafica_2024/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ProgGrafica_2024/data/plane.trs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ProgGrafica_2024/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProgGrafica_2024/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProgGrafica_2024/Main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/ProgGrafica_2024/Main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProgGrafica_2024/ProgGrafica_2024.vcxproj" beforeDir="false" afterPath="$PROJECT_DIR$/ProgGrafica_2024/ProgGrafica_2024.vcxproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProgGrafica_2024/lib/Camera.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/ProgGrafica_2024/lib/Camera.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProgGrafica_2024/lib/Camera.h" beforeDir="false" afterPath="$PROJECT_DIR$/ProgGrafica_2024/lib/Camera.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProgGrafica_2024/lib/FrameBufferTexture.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/ProgGrafica_2024/lib/FrameBufferTexture.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProgGrafica_2024/lib/FrameBufferTexture.h" beforeDir="false" afterPath="$PROJECT_DIR$/ProgGrafica_2024/lib/FrameBufferTexture.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProgGrafica_2024/lib/Render.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/ProgGrafica_2024/lib/Render.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProgGrafica_2024/lib/Render.h" beforeDir="false" afterPath="$PROJECT_DIR$/ProgGrafica_2024/lib/Render.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProgGrafica_2024/lib/RenderProgram.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/ProgGrafica_2024/lib/RenderProgram.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProgGrafica_2024/lib/RenderProgram.h" beforeDir="false" afterPath="$PROJECT_DIR$/ProgGrafica_2024/lib/RenderProgram.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProgGrafica_2024/x64/Debug/Camera.obj" beforeDir="false" afterPath="$PROJECT_DIR$/ProgGrafica_2024/x64/Debug/Camera.obj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProgGrafica_2024/x64/Debug/FrameBufferTexture.obj" beforeDir="false" afterPath="$PROJECT_DIR$/ProgGrafica_2024/x64/Debug/FrameBufferTexture.obj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProgGrafica_2024/x64/Debug/Main.obj" beforeDir="false" afterPath="$PROJECT_DIR$/ProgGrafica_2024/x64/Debug/Main.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProgGrafica_2024/x64/Debug/Object.obj" beforeDir="false" afterPath="$PROJECT_DIR$/ProgGrafica_2024/x64/Debug/Object.obj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProgGrafica_2024/x64/Debug/ProgGrafica_2024.ilk" beforeDir="false" afterPath="$PROJECT_DIR$/ProgGrafica_2024/x64/Debug/ProgGrafica_2024.ilk" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProgGrafica_2024/x64/Debug/ProgGrafica_2024.tlog/CL.command.1.tlog" beforeDir="false" afterPath="$PROJECT_DIR$/ProgGrafica_2024/x64/Debug/ProgGrafica_2024.tlog/CL.command.1.tlog" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProgGrafica_2024/x64/Debug/ProgGrafica_2024.tlog/CL.read.1.tlog" beforeDir="false" afterPath="$PROJECT_DIR$/ProgGrafica_2024/x64/Debug/ProgGrafica_2024.tlog/CL.read.1.tlog" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProgGrafica_2024/x64/Debug/ProgGrafica_2024.tlog/CL.write.1.tlog" beforeDir="false" afterPath="$PROJECT_DIR$/ProgGrafica_2024/x64/Debug/ProgGrafica_2024.tlog/CL.write.1.tlog" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProgGrafica_2024/x64/Debug/ProgGrafica_2024.tlog/link.read.1.tlog" beforeDir="false" afterPath="$PROJECT_DIR$/ProgGrafica_2024/x64/Debug/ProgGrafica_2024.tlog/link.read.1.tlog" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProgGrafica_2024/x64/Debug/Render.obj" beforeDir="false" afterPath="$PROJECT_DIR$/ProgGrafica_2024/x64/Debug/Render.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProgGrafica_2024/x64/Debug/RenderProgram.obj" beforeDir="false" afterPath="$PROJECT_DIR$/ProgGrafica_2024/x64/Debug/RenderProgram.obj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProgGrafica_2024/x64/Debug/vc143.idb" beforeDir="false" afterPath="$PROJECT_DIR$/ProgGrafica_2024/x64/Debug/vc143.idb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProgGrafica_2024/x64/Debug/vc143.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/ProgGrafica_2024/x64/Debug/vc143.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/x64/Debug/ProgGrafica_2024.exe" beforeDir="false" afterPath="$PROJECT_DIR$/x64/Debug/ProgGrafica_2024.exe" afterDir="false" />
@@ -148,7 +132,7 @@
       <workItem from="1734019795094" duration="6531000" />
       <workItem from="1734366834843" duration="2140000" />
       <workItem from="1734453871074" duration="1751000" />
-      <workItem from="1734547246048" duration="5856000" />
+      <workItem from="1734547246048" duration="10327000" />
     </task>
     <servers />
   </component>
