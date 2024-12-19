@@ -50,6 +50,8 @@ private:
 
 	Animator animator;
 public:
+	Player();
+
 	Player(std::string fileName, glm::vec4 pos);
 
 	void loadDaeFile(const char* fileName);

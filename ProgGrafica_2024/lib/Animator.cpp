@@ -4,6 +4,11 @@ Animator::Animator()
 {
 }
 
+Animator::Animator(Player model)
+{
+	this->model = model;
+}
+
 Animator::Animator(Animation animation) {
 	currentAnimation = animation;
 }

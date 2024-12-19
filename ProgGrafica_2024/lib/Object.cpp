@@ -160,6 +160,10 @@ void Object::updateModelMatrix()
 	this->modelMatrix = translate * rotate * scale;
 }
 
+Player::Player()
+{
+}
+
 Player::Player(std::string fileName, glm::vec4 pos) {
 	this->loadDaeFile(fileName.c_str());
 
