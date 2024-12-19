@@ -8,26 +8,32 @@
 vert 0 1 0
 color 1 0 0 1
 normal 0 0 1 0
+uv 0 1
 
 vert 1 0 0
 color 1 0 0 1
 normal 0 0 1 0
+uv 1 0
 
 vert 0 0 0
 color 1 0 0 1
 normal 0 0 1 0
+uv 0 0
 
 vert 0 1 0
 color 1 0 0 1
 normal 0 0 1 0
+uv 0 1
 
 vert 1 1 0
 color 1 0 0 1
 normal 0 0 1 0
+uv 1 1
 
 vert 1 0 0
 color 1 0 0 1
 normal 0 0 1 0
+uv 1 0
 
 face 0 1 2
 face 3 4 5
