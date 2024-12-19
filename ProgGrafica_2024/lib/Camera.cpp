@@ -32,6 +32,18 @@ glm::mat4 Camera::computeProjectionMatrix()
 	return glm::perspective(glm::radians(this->fov), this->aspectRatio, this->zNear, this->zFar);
 }
 
+void Camera::jump()
+{
+	if (this->position.y <= 0.1f) {  // Asegura que solo puede saltar si está cerca del suelo
+		this->velocity.y = 5.0f;  // Velocidad inicial del salto
+	}
+}
+
+void Camera::portal()
+{
+
+}
+
 void Camera::move(float deltaTime)
 {
 	float speed = 1.5f * deltaTime;
@@ -39,8 +51,29 @@ void Camera::move(float deltaTime)
 	if (x == NULL)
 		x = 800;
 
-	if (InputManager::keysState[GLFW_KEY_W]) this->position += speed * this->front;
+	if (InputManager::keysState[GLFW_KEY_Q]) {
+		portal();
+	}
+
+	if (InputManager::keysState[GLFW_KEY_SPACE]) {
+		jump();
+	}
+
+	this->velocity.y += gravity * deltaTime;  // Integra la gravedad
+	this->position += this->velocity * deltaTime;  // Mueve la cámara basándose en la velocidad actual
+
+	// Comprobar si la cámara ha "golpeado el suelo"
+	if (this->position.y < 0) {
+		this->position.y = 0;
+		this->velocity.y = 0;
+	}
+
+	/*if (InputManager::keysState[GLFW_KEY_W]) this->position += speed * this->front;
 	if (InputManager::keysState[GLFW_KEY_S]) this->position -= speed * this->front;
+	if (InputManager::keysState[GLFW_KEY_A]) this->position -= glm::normalize(glm::cross(this->front, this->up)) * speed;
+	if (InputManager::keysState[GLFW_KEY_D]) this->position += glm::normalize(glm::cross(this->front, this->up)) * speed;*/
+	if (InputManager::keysState[GLFW_KEY_W]) this->position += glm::vec3(this->front.x, 0, this->front.z) * speed;
+	if (InputManager::keysState[GLFW_KEY_S]) this->position -= glm::vec3(this->front.x, 0, this->front.z) * speed;
 	if (InputManager::keysState[GLFW_KEY_A]) this->position -= glm::normalize(glm::cross(this->front, this->up)) * speed;
 	if (InputManager::keysState[GLFW_KEY_D]) this->position += glm::normalize(glm::cross(this->front, this->up)) * speed;
 
