@@ -9,8 +9,9 @@ public:
 	glm::vec3 position = glm::vec3(0.0f, 1.0f, 3.0f);
 	glm::vec3 front = glm::vec3(0.0f, 0.0f, -1.0f);
 	glm::vec3 up = glm::vec3(0.0f, 1.0f, 0.0f);
-	glm::vec3 velocity;
+	glm::vec3 velocity = glm::vec3(0.0f);
 
+	float gravity = -9.8f;
 	float yaw = -90.0f;
 	float pitch = 0.0f;
 	float lastX = 800.0f / 2.0;
@@ -20,9 +21,8 @@ public:
 	float zFar = 100.0f;
 	float aspectRatio = 800.0f / 600.0f;
 	bool firstMouse = true;
-	int x = 800;
-	float aire = 1;
-	int iteraciones = 0;
+	
+	void jump();
 
 	Camera();
 
@@ -33,6 +33,8 @@ public:
 	glm::mat4 computeViewMatrix();
 
 	glm::mat4 computeProjectionMatrix();
+
+	void portal();
 
 	virtual void move(float deltaTime);
 };

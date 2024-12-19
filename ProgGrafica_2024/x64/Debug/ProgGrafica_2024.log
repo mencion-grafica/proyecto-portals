@@ -1,2 +1,14 @@
-﻿  Camera.cpp
-C:\Users\oscar\OneDrive\Escritorio\carpeta rapida\proyecto-portals-main-v2\proyecto-portals\ProgGrafica_2024\lib\Camera.cpp(40,1): error C4700: se utilizó la variable local 'x' sin inicializar
+﻿  Map.cpp
+  Object.cpp
+  Render.cpp
+C:\Users\samce\Desktop\Uni 4\Proyectos4Grafica\proyecto-portals\ProgGrafica_2024\lib\Render.cpp(152,64): warning C4267: 'argumento': conversión de 'size_t' a 'GLsizei'; posible pérdida de datos
+C:\Users\samce\Desktop\Uni 4\Proyectos4Grafica\proyecto-portals\ProgGrafica_2024\lib\Render.cpp(184,14): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+  RenderProgram.cpp
+C:\Users\samce\Desktop\Uni 4\Proyectos4Grafica\proyecto-portals\ProgGrafica_2024\lib\RenderProgram.cpp(47,7): warning C4101: 'errorLog': variable local sin referencia
+C:\Users\samce\Desktop\Uni 4\Proyectos4Grafica\proyecto-portals\ProgGrafica_2024\lib\RenderProgram.cpp(46,8): warning C4101: 'retCode': variable local sin referencia
+C:\Users\samce\Desktop\Uni 4\Proyectos4Grafica\proyecto-portals\ProgGrafica_2024\lib\RenderProgram.cpp(181,58): warning C4267: 'argumento': conversión de 'size_t' a 'GLsizei'; posible pérdida de datos
+  Texture.cpp
+  Main.cpp
+  Generando código...
+LINK : warning LNK4098: la biblioteca predeterminada'MSVCRT' entra en conflicto con otras bibliotecas; use la biblioteca /NODEFAULTLIB:biblioteca
+  ProgGrafica_2024.vcxproj -> C:\Users\samce\Desktop\Uni 4\Proyectos4Grafica\proyecto-portals\x64\Debug\ProgGrafica_2024.exe
