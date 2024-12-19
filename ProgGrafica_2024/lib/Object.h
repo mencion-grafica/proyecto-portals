@@ -16,10 +16,14 @@ protected:
 	static inline int idCounter = 0;
 public:
 	int id = 0;
+	bool activeGravity;
 
 	glm::vec4 position;
 	glm::vec4 rotation;
 	glm::vec4 scale;
+	glm::vec4 velocity = glm::vec4(0.0f);
+	float gravityForce = -9.8f;
+	bool gravity;
 
 	Program* prg = new Program();
 	material_t material = { 1.0f, 1.0f, 1.0f, 70 };
@@ -31,6 +35,8 @@ public:
 	glm::mat4 modelMatrix;
 
 	Object();
+
+	Object(std::string fileName, bool gravity);
 
 	Object(std::string fileName);
 

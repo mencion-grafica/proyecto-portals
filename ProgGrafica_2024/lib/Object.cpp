@@ -30,12 +30,101 @@ Object::Object()
 	this->modelMatrix = glm::mat4(1.0f);
 }
 
-Object::Object(std::string fileName) 
+Object::Object(std::string fileName)
 {
 	this->position = glm::vec4(0.0f, 0.0f, 0.0f, 1.0f);
 	this->rotation = glm::vec4(0.0f, 0.0f, 0.0f, 1.0f);
 	this->scale = glm::vec4(1.0f);
 	this->modelMatrix = glm::mat4(1.0f);
+	this->gravity = true;
+
+	std::cout << "Leyendo desde fichero\n";
+
+	id = idCounter++;
+	std::string line;
+
+	std::ifstream f(fileName, std::ios_base::in);
+
+	if (!f.is_open())
+	{
+		std::cout << "ERROR Fichero " << fileName << " no encontrado\n";
+		return;
+	}
+
+	bool existsNormal = false;
+	while (std::getline(f, line, '\n'))
+	{
+		std::istringstream str(line);
+		std::string key;
+
+		str >> key;
+
+		if (key[0] != '#')
+		{
+			if (key == "vert")
+			{
+				glm::vec4 pos;
+				str >> pos.x >> pos.y >> pos.z;
+				pos.w = 1.0f;
+				vertex_t vert;
+				vert.vertexPos = pos;
+				vertexList.push_back(vert);
+			}
+			else if (key == "color")
+			{
+				vertex_t& v = vertexList.back();
+				str >> v.vertexColor.r >> v.vertexColor.g >> v.vertexColor.b >> v.vertexColor.a;
+			}
+			else if (key == "face")
+			{
+				for (int i = 0; i < 3; i++)
+				{
+					int f = 0;
+					str >> f;
+					idList.push_back(f);
+				}
+			}
+			else if (key == "svert" || key == "sfrag")
+			{
+				std::string fileName;
+				str >> fileName;
+				prg->addShader(fileName);
+			}
+			else if (key == "normal")
+			{
+				vertex_t& v = vertexList.back();
+				str >> v.vertexNormal.x >> v.vertexNormal.y >> v.vertexNormal.z >> v.vertexNormal.w;
+				existsNormal = true;
+			}
+			else if (key == "uv")
+			{
+				vertex_t& v = vertexList.back();
+				str >> v.vertexUv.x >> v.vertexUv.y;
+			}
+			/*
+			else if (key == "texture")
+			{
+				std::string fileName;
+				str >> fileName;
+				std::cout << "Reading texture: " << fileName << std::endl;
+				this->texture = new Texture(fileName);
+			}
+			*/
+		}
+	}
+
+	prg->link();
+
+	printData(*this);
+}
+
+Object::Object(std::string fileName, bool gravity) 
+{
+	this->position = glm::vec4(0.0f, 0.0f, 0.0f, 10.0f);
+	this->rotation = glm::vec4(0.0f, 0.0f, 0.0f, 1.0f);
+	this->scale = glm::vec4(1.0f);
+	this->modelMatrix = glm::mat4(1.0f);
+	this->gravity = gravity;
 
 	std::cout << "Leyendo desde fichero\n";
 
@@ -150,6 +239,18 @@ void Object::createTriangle()
 
 void Object::move(double deltaTime)
 {
+
+	if (gravity == true) {
+		this->velocity.y += gravityForce * deltaTime;  // Integra la gravedad
+		this->position += this->velocity * glm::vec4(deltaTime, deltaTime, deltaTime, deltaTime);
+
+		// Comprobar si la cámara ha "golpeado el suelo"
+		if (this->position.y < 0) {
+			this->position.y = 0;
+			this->velocity.y = 0;
+		}
+	}
+
 	updateModelMatrix();
 }
 
