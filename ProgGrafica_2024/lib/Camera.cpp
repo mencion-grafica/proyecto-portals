@@ -39,9 +39,18 @@ void Camera::jump()
 	}
 }
 
+void Camera::portal()
+{
+
+}
+
 void Camera::move(float deltaTime)
 {
 	float speed = 1.5f * deltaTime;
+
+	if (InputManager::keysState[GLFW_KEY_Q]) {
+		portal();
+	}
 
 	if (InputManager::keysState[GLFW_KEY_SPACE]) {
 		jump();
