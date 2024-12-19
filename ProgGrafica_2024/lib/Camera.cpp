@@ -33,9 +33,9 @@ glm::mat4 Camera::computeProjectionMatrix()
 	return glm::perspective(glm::radians(this->fov), this->aspectRatio, this->zNear, this->zFar);
 }
 
-void Camera::move(float deltaTime)
+void Camera::move(double deltaTime)
 {
-	float speed = 1.5f * deltaTime;
+	float speed = deltaTime * 1.5f;
 
 	if (InputManager::keysState[GLFW_KEY_W]) this->position += speed * this->front;
 	if (InputManager::keysState[GLFW_KEY_S]) this->position -= speed * this->front;
@@ -44,10 +44,14 @@ void Camera::move(float deltaTime)
 
 	if (InputManager::keysState[GLFW_KEY_E]) this->position += speed * this->up;
 	if (InputManager::keysState[GLFW_KEY_Q]) this->position -= speed * this->up;
-	if(this->fbt == nullptr)
-	{
-		glBindFramebuffer(GL_FRAMEBUFFER, 0);
+
+	if (this->followCamera != nullptr) {
+		glm::vec3 diff = this->followCamera->position - this->position;
+		this->position = this->followCamera->position - glm::normalize(diff) * 3.0f;
+		this->front = this->followCamera->front;
+		this->up = this->followCamera->up;
 	}
-	else
-		fbt->Bind();
+
+	if (this->fbt == nullptr) glBindFramebuffer(GL_FRAMEBUFFER, 0);
+	else fbt->Bind();
 }

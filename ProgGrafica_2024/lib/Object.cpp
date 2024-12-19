@@ -219,7 +219,7 @@ void Player::loadDaeFile(const char* fileName) {
 	glm::vec4 color;
 	int numVertex = count->IntValue();
 
-	//Por cada vértice en el .dae, que eso lo sacamos del count del accesor
+	//Por cada vï¿½rtice en el .dae, que eso lo sacamos del count del accesor
 	for (int i = 0; i < numVertex; i++) {
 		pos.x = floatPositions.at(0);
 		floatPositions.erase(floatPositions.begin());

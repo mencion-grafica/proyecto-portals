@@ -42,7 +42,7 @@ class Render
 
 		void setupObject(Object* object);
 
-		void move(float deltaTime);
+		void move(double deltaTime);
 
 		void drawObjects();
 

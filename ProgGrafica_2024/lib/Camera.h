@@ -22,6 +22,7 @@ public:
 	bool firstMouse = true;
 
 	FrameBufferTexture *fbt;
+	Camera* followCamera = nullptr;
 	
 	Camera();
 	
@@ -32,6 +33,6 @@ public:
 	glm::mat4 computeViewMatrix();
 
 	glm::mat4 computeProjectionMatrix();
-
-	virtual void move(float deltaTime);
+	
+	virtual void move(double deltaTime);
 };

@@ -165,7 +165,7 @@ void Render::putCamera(Camera* camera)
 
 
 
-void Render::move(float deltaTime)
+void Render::move(double deltaTime)
 {
 	for (auto& obj : this->objectList)
 	{
@@ -176,22 +176,21 @@ void Render::move(float deltaTime)
 void Render::mainLoop() 
 {
 	double currentTime = 0.0f;
-	float lastTime = 0.0f;
-	float deltaTime = 0.0f;
+	double lastTime = 0.0f;
+	double deltaTime = 0.0f;
 
     while (!glfwWindowShouldClose(this->window) && !InputManager::keysState[GLFW_KEY_ESCAPE])
 	{
 		currentTime = glfwGetTime();
-		deltaTime = float(currentTime - lastTime);
+		deltaTime = currentTime - lastTime;
 		lastTime = currentTime;
-
-		
 
     	move(deltaTime);
 
     	//for(int i=cameraList.size()-1;i>=0;i--)
     	activeCamera=cameraList[0];
     	activeCamera->fbt->Bind();
+    	activeCamera->move(deltaTime);
     	{
     		//auto cam=(*Render::r->cameraList.begin()+i);
     	
@@ -206,7 +205,6 @@ void Render::mainLoop()
     	activeCamera=cameraList[1];
     	activeCamera->move(deltaTime);
     	glBindFramebuffer(GL_FRAMEBUFFER, 0);
-
 
     	glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
     	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);

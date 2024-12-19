@@ -24,7 +24,8 @@ int main(int argc, char** argv)
 
 	Object* portal = new Object("data/plane.trs");
 	portal->position = glm::vec4(3, 0, 0, 1);
-	portal->texture = new FrameBufferTexture(1000, 1000);
+	portal->scale = glm::vec4(1, 2, 1, 0);
+	portal->texture = new FrameBufferTexture(800, 600);
 	render->putObject(portal);
 
 	Camera* camera = new Camera(glm::vec3(-6.5f, 0.02f, 0.7f), glm::vec3(1.0f,0.0f,0.0f), glm::vec3(0,1,0), 45, 800.0f/600.0f, portal->texture);
@@ -33,6 +34,8 @@ int main(int argc, char** argv)
 
 	Camera* camera2 = new Camera();
 	render->putCamera(camera2);
+
+	camera->followCamera = camera2;
 	
 	render->mainLoop();
 
