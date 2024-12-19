@@ -47,8 +47,8 @@ class Player : public Object
 private:
 	Joint rootJoint;
 	int jointCount;
-
 	Animator animator;
+
 public:
 	Player();
 

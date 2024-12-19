@@ -10,6 +10,7 @@ private:
 
 public:
 	Animation();
+	Animation(std::string fileName);
 	float GetDuration();
 };
 

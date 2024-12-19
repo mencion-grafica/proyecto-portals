@@ -20,6 +20,13 @@ out vec3 fNormal;
 out vec2 fUv;
 
 void main() {
+	for(int i = 0; i < MAX_WEIGHTS; i++){
+		if(jointIndex[i] != -1){
+			mat4 jointTransform = jointTransforms[jointIndex[i]];
+			vec4 posePosition = jointTransform * vPos;
+		}
+	}
+
 	fPos = (M * vPos).xyz;
 	fNormal = (inverse(transpose(M)) * vNormal).xyz;
 	fNormal = normalize(fNormal);

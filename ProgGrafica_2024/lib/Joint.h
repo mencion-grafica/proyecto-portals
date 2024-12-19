@@ -25,5 +25,9 @@ public:
 	Joint(int id, XMLElement* joint);
 
 	int GetIdCounter();
+
+	void CalcInverseBindTransform(glm::mat4 parentBindTransform);
+
+	void SetTransformMatrix(glm::mat4 matrix);
 };
 

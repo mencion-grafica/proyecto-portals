@@ -325,6 +325,10 @@ void Player::loadDaeFile(const char* fileName) {
 		idList.push_back(id);
 	}
 
+	glm::mat4 empty(1.0f);
+
+	rootJoint.CalcInverseBindTransform(empty);
+
 	jointCount = rootJoint.GetIdCounter();
 	//Textura
 	//TODO: Faltan las UVs

@@ -99,5 +99,21 @@ int Joint::GetIdCounter()
 	return idCounter;
 }
 
+void Joint::CalcInverseBindTransform(glm::mat4 parentBindTransform)
+{
+	glm::mat4 bindTransform = parentBindTransform * localBindTransform;
+
+	this->inverseBindTransform = glm::inverse(bindTransform);
+
+	for (Joint child : children) {
+		child.CalcInverseBindTransform(bindTransform);
+	}
+}
+
+void Joint::SetTransformMatrix(glm::mat4 matrix)
+{
+	transformationMatrix = matrix;
+}
+
 
 

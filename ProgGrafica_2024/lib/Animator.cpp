@@ -4,11 +4,6 @@ Animator::Animator()
 {
 }
 
-Animator::Animator(Player model)
-{
-	this->model = model;
-}
-
 Animator::Animator(Animation animation) {
 	currentAnimation = animation;
 }
@@ -21,7 +16,7 @@ void Animator::StartNewAnimation(Animation animation)
 
 void Animator::Update(float deltaTime)
 {
-	//IncreaseAnimationTime();
+	IncreaseAnimationTime(deltaTime);
 	//std::cout << deltaTime << std::endl;
 }
 
@@ -29,7 +24,7 @@ void Animator::IncreaseAnimationTime(float deltaTime)
 {
 	//Sumarle deltaTime
 	currentTime += deltaTime;
-	/*if (currentTime > currentAnimation.GetDuration()) {
-		currentTime = currentTime % currentAnimation.GetDuration();
-	}*/
+	if (currentTime > currentAnimation.GetDuration()) {
+		currentTime = currentTime - currentAnimation.GetDuration();
+	}
 }
