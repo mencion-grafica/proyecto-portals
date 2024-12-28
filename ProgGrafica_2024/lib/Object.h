@@ -27,6 +27,8 @@ public:
 
 	Object(std::string fileName);
 
+	//Object();
+
 	void createTriangle();
 
 	void move(double deltaTime);

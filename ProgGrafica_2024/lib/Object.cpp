@@ -95,6 +95,10 @@ Object::Object(std::string fileName)
 				str >> v.vertexNormal.x >> v.vertexNormal.y >> v.vertexNormal.z >> v.vertexNormal.w;
 				existsNormal = true;
 			}
+			else if (key == "position")
+			{
+				str >> position.x >> position.y >> position.z >> position.w;
+			}
 		}
 	}
 

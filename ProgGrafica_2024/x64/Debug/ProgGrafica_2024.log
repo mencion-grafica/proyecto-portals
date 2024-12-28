@@ -1,11 +1,2 @@
-﻿  Main.cpp
-  Map.cpp
-C:\Users\juanl\Desktop\proyecto-portals\ProgGrafica_2024\lib\Map.cpp(146,12): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\juanl\Desktop\proyecto-portals\ProgGrafica_2024\lib\Map.cpp(147,12): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\juanl\Desktop\proyecto-portals\ProgGrafica_2024\lib\Map.cpp(148,12): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\juanl\Desktop\proyecto-portals\ProgGrafica_2024\lib\Map.cpp(153,12): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\juanl\Desktop\proyecto-portals\ProgGrafica_2024\lib\Map.cpp(154,12): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\juanl\Desktop\proyecto-portals\ProgGrafica_2024\lib\Map.cpp(155,12): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
-  Generando código...
-LINK : warning LNK4098: la biblioteca predeterminada'MSVCRT' entra en conflicto con otras bibliotecas; use la biblioteca /NODEFAULTLIB:biblioteca
+﻿  Map.cpp
   ProgGrafica_2024.vcxproj -> C:\Users\juanl\Desktop\proyecto-portals\x64\Debug\ProgGrafica_2024.exe

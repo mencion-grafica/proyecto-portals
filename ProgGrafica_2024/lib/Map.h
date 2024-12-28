@@ -24,28 +24,40 @@ typedef struct {
 
 typedef struct {
 	int id;
+	glm::vec3 center;
 	std::vector<Side_t> sideList;
+	std::vector<glm::vec3> vertexList;
 } Solid_t;
+
+typedef struct {
+	int id;
+	std::vector<Solid_t> solidList;
+}World_t;
 
 class Map
 {
 public:
-	int id = 0;
+	int id;
 	Map();
 	Map(std::string filename);
+	World_t worldMap;
 
-	void getPlane(Solid_t & solid);
-	void getPuntos(Solid_t& solid);
-	void getPlane(int x1, int y1, int z1, int x2, int y2, int z2, int x3, int y3, int z3);
 private:
+
 	void leerArchivo(std::string filename);
+	World_t leerWorld(std::ifstream &f, std::string line);
 	Solid_t leerSolid(std::ifstream &f, std::string line);
 	Side_t leerSide(std::ifstream &f, std::string line);
 	Plane_t leerPlane(std::string line);
+	void getPlane(Solid_t& solidList);
+	void pushVertices(Solid_t& solidList);
+	glm::vec3 getVertices(Plane_t p1, Plane_t p2, Plane_t p3);
+	glm::vec3 getCenter(Solid_t& solid);
+
+
+	void writeTRSFile(std::string filenam);
 
 	std::vector<vertex_t> vertexList;
 	std::vector<int> idList;
-	std::vector<Solid_t> solidList;
-
 };
 
