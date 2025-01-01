@@ -4,6 +4,7 @@
 #include "lib/Render.h"
 #include "lib/Object.h"
 #include "lib/Camera.h"
+#include "lib/Player.h"
 
 int main(int argc, char** argv)
 {
@@ -19,7 +20,8 @@ int main(int argc, char** argv)
 	object->texture = new Texture("data/front.png");
 	render->putObject(object);
 
-	Player* player = new Player("./data/player.dae", glm::vec4(0, 0, 0, 1));
+	Player* player = new Player("./data/model.dae");
+	player->position = glm::vec4(0, 0, 0, 1);
 	render->putObject(player);
 
 	Camera* camera = new Camera();

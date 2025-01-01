@@ -115,5 +115,20 @@ void Joint::SetTransformMatrix(glm::mat4 matrix)
 	transformationMatrix = matrix;
 }
 
+Joint Joint::GetJointById(int id)
+{
+	if (children.size() != 0) {
+		for (int i = 0; i < children.size(); i++) {
+			if (children[i].id == id) {
+				return children[i];
+			}
+			else {
+				children[i].GetJointById(id);
+			}
+		}
+	}
+	else return NULL;
+}
+
 
 

@@ -29,5 +29,7 @@ public:
 	void CalcInverseBindTransform(glm::mat4 parentBindTransform);
 
 	void SetTransformMatrix(glm::mat4 matrix);
+
+	Joint GetJointById(int id);
 };
 

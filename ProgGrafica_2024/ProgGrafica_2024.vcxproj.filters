@@ -15,6 +15,7 @@
     <ClCompile Include="lib\Animator.cpp" />
     <ClCompile Include="lib\JointTransform.cpp" />
     <ClCompile Include="lib\Keyframe.cpp" />
+    <ClCompile Include="lib\Player.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="lib\Camera.h" />
@@ -32,6 +33,7 @@
     <ClInclude Include="lib\Animator.h" />
     <ClInclude Include="lib\JointTransform.h" />
     <ClInclude Include="lib\Keyframe.h" />
+    <ClInclude Include="lib\Player.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="data\cube.trs" />

@@ -4,6 +4,13 @@ Player::Player()
 {
 }
 
+Player::Player(std::string fileName)
+{
+	this->loadDaeFile(fileName.c_str());
+
+	updateModelMatrix();
+}
+
 Player::Player(std::string fileName, glm::vec4 pos) {
 	this->loadDaeFile(fileName.c_str());
 
@@ -148,7 +155,7 @@ void Player::loadDaeFile(const char* fileName) {
 		vertexList.push_back(vert);
 	}
 
-	const char* trianglesData = doc.FirstChildElement("COLLADA")->FirstChildElement("library_geometries")->FirstChildElement("geometry")->FirstChildElement("mesh")->FirstChildElement("triangles")->FirstChildElement("p")->GetText();
+	const char* trianglesData = doc.FirstChildElement("COLLADA")->FirstChildElement("library_geometries")->FirstChildElement("geometry")->FirstChildElement("mesh")->FirstChildElement("polylist")->FirstChildElement("p")->GetText();
 	std::stringstream ss2(trianglesData);
 	std::vector<std::string> stringVertex;
 	while (getline(ss2, auxString, ' ')) {
@@ -156,7 +163,7 @@ void Player::loadDaeFile(const char* fileName) {
 	}
 
 	//Vertices por cara
-	const XMLAttribute* numTrianglesAtr = doc.FirstChildElement("COLLADA")->FirstChildElement("library_geometries")->FirstChildElement("geometry")->FirstChildElement("mesh")->FirstChildElement("triangles")->FindAttribute("count");
+	const XMLAttribute* numTrianglesAtr = doc.FirstChildElement("COLLADA")->FirstChildElement("library_geometries")->FirstChildElement("geometry")->FirstChildElement("mesh")->FirstChildElement("polylist")->FindAttribute("count");
 	int numTriangles = numTrianglesAtr->IntValue();
 
 	for (int i = 0; i < numTriangles * 3; i++) {
@@ -170,6 +177,7 @@ void Player::loadDaeFile(const char* fileName) {
 	rootJoint.CalcInverseBindTransform(empty);
 
 	jointCount = rootJoint.GetIdCounter();
+
 	//Textura
 	//TODO: Faltan las UVs
 	/*const char* textureName = doc.FirstChildElement("COLLADA")->FirstChildElement("library_images")->FirstChildElement("image")->FirstChildElement("init_from")->GetText();
@@ -180,6 +188,8 @@ void Player::loadDaeFile(const char* fileName) {
 	//Aplicar shader
 	prg->addShader("data/playerShader.vert");
 	prg->addShader("data/shader.frag");
+
+	Animation animation = Animation(fileName, rootJoint);
 
 	prg->link();
 	//printData(*this);

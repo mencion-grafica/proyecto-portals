@@ -41,22 +41,3 @@ public:
 
 	void updateModelMatrix();
 };
-
-class Player : public Object
-{
-private:
-	Joint rootJoint;
-	int jointCount;
-	Animator animator;
-
-public:
-	Player();
-
-	Player(std::string fileName, glm::vec4 pos);
-
-	void loadDaeFile(const char* fileName);
-
-	void move(double deltaTime) override;
-
-	void StartNewAnimation(Animation animation);
-};
