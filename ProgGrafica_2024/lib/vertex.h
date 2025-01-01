@@ -7,8 +7,8 @@ typedef struct
 	glm::vec4 vertexPos;
 	glm::vec4 vertexNormal;
 	glm::vec4 vertexColor;
-	glm::ivec3 idJoints;
-	glm::vec3 weightJoints;
+	glm::ivec4 idJoints; //default -1
+	glm::vec4 weightJoints; //default -1
 	glm::vec4 vertexUv;
 } vertex_t;
 
