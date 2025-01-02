@@ -31,6 +31,7 @@
     <ClCompile Include="lib\Player.cpp" />
     <ClCompile Include="lib\Render.cpp" />
     <ClCompile Include="lib\RenderProgram.cpp" />
+    <ClCompile Include="lib\tinyxml2.cpp" />
     <ClCompile Include="Main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -47,6 +48,7 @@
     <ClInclude Include="lib\Player.h" />
     <ClInclude Include="lib\Render.h" />
     <ClInclude Include="lib\RenderProgram.h" />
+    <ClInclude Include="lib\tinyxml2.h" />
     <ClInclude Include="lib\vertex.h" />
   </ItemGroup>
   <ItemGroup>
