@@ -45,9 +45,9 @@ int main(int argc, char** argv)
 		render->putObject(object);
 	}
 	
-	Player* player = new Player("./data/model.dae");
+	/*Player* player = new Player("./data/model.dae");
 	player->position = glm::vec4(0, 0, 0, 1);
-	render->putObject(player);
+	render->putObject(player);*/
 
 	Camera* camera = new Camera();
 	camera->position = glm::vec3(0, 0, 0);
