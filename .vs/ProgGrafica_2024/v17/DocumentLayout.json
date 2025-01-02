@@ -3,19 +3,23 @@
   "WorkspaceRootPath": "C:\\Users\\juanl\\Desktop\\proyecto-portals\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{7A041F2C-DE93-458A-8308-8137B2BF8AE2}|ProgGrafica_2024\\ProgGrafica_2024.vcxproj|C:\\Users\\juanl\\Desktop\\proyecto-portals\\ProgGrafica_2024\\lib\\Map.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{7A041F2C-DE93-458A-8308-8137B2BF8AE2}|ProgGrafica_2024\\ProgGrafica_2024.vcxproj|solutionrelative:ProgGrafica_2024\\lib\\Map.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\include\\vector||{3B902123-F8A7-4915-9F01-361F908088D0}|"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{7A041F2C-DE93-458A-8308-8137B2BF8AE2}|ProgGrafica_2024\\ProgGrafica_2024.vcxproj|C:\\Users\\juanl\\Desktop\\proyecto-portals\\ProgGrafica_2024\\Main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{7A041F2C-DE93-458A-8308-8137B2BF8AE2}|ProgGrafica_2024\\ProgGrafica_2024.vcxproj|solutionrelative:ProgGrafica_2024\\Main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7A041F2C-DE93-458A-8308-8137B2BF8AE2}|ProgGrafica_2024\\ProgGrafica_2024.vcxproj|C:\\Users\\juanl\\Desktop\\proyecto-portals\\ProgGrafica_2024\\lib\\Map.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{7A041F2C-DE93-458A-8308-8137B2BF8AE2}|ProgGrafica_2024\\ProgGrafica_2024.vcxproj|solutionrelative:ProgGrafica_2024\\lib\\Map.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{7A041F2C-DE93-458A-8308-8137B2BF8AE2}|ProgGrafica_2024\\ProgGrafica_2024.vcxproj|C:\\Users\\juanl\\Desktop\\proyecto-portals\\ProgGrafica_2024\\lib\\Map.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{7A041F2C-DE93-458A-8308-8137B2BF8AE2}|ProgGrafica_2024\\ProgGrafica_2024.vcxproj|solutionrelative:ProgGrafica_2024\\lib\\Map.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7A041F2C-DE93-458A-8308-8137B2BF8AE2}|ProgGrafica_2024\\ProgGrafica_2024.vcxproj|C:\\Users\\juanl\\Desktop\\proyecto-portals\\ProgGrafica_2024\\lib\\Camera.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{7A041F2C-DE93-458A-8308-8137B2BF8AE2}|ProgGrafica_2024\\ProgGrafica_2024.vcxproj|solutionrelative:ProgGrafica_2024\\lib\\Camera.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7A041F2C-DE93-458A-8308-8137B2BF8AE2}|ProgGrafica_2024\\ProgGrafica_2024.vcxproj|C:\\Users\\juanl\\Desktop\\proyecto-portals\\ProgGrafica_2024\\data\\cube.trs||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{7A041F2C-DE93-458A-8308-8137B2BF8AE2}|ProgGrafica_2024\\ProgGrafica_2024.vcxproj|solutionrelative:ProgGrafica_2024\\data\\cube.trs||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\include\\vector||{3B902123-F8A7-4915-9F01-361F908088D0}|"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7A041F2C-DE93-458A-8308-8137B2BF8AE2}|ProgGrafica_2024\\ProgGrafica_2024.vcxproj|C:\\Users\\juanl\\Desktop\\proyecto-portals\\ProgGrafica_2024\\lib\\Object.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -30,16 +34,8 @@
       "RelativeMoniker": "D:0:0:{7A041F2C-DE93-458A-8308-8137B2BF8AE2}|ProgGrafica_2024\\ProgGrafica_2024.vcxproj|solutionrelative:ProgGrafica_2024\\lib\\Render.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7A041F2C-DE93-458A-8308-8137B2BF8AE2}|ProgGrafica_2024\\ProgGrafica_2024.vcxproj|C:\\Users\\juanl\\Desktop\\proyecto-portals\\ProgGrafica_2024\\lib\\Camera.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{7A041F2C-DE93-458A-8308-8137B2BF8AE2}|ProgGrafica_2024\\ProgGrafica_2024.vcxproj|solutionrelative:ProgGrafica_2024\\lib\\Camera.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{7A041F2C-DE93-458A-8308-8137B2BF8AE2}|ProgGrafica_2024\\ProgGrafica_2024.vcxproj|C:\\Users\\juanl\\Desktop\\proyecto-portals\\ProgGrafica_2024\\lib\\Object.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{7A041F2C-DE93-458A-8308-8137B2BF8AE2}|ProgGrafica_2024\\ProgGrafica_2024.vcxproj|solutionrelative:ProgGrafica_2024\\lib\\Object.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7A041F2C-DE93-458A-8308-8137B2BF8AE2}|ProgGrafica_2024\\ProgGrafica_2024.vcxproj|C:\\Users\\juanl\\Desktop\\proyecto-portals\\ProgGrafica_2024\\lib\\Common.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{7A041F2C-DE93-458A-8308-8137B2BF8AE2}|ProgGrafica_2024\\ProgGrafica_2024.vcxproj|solutionrelative:ProgGrafica_2024\\lib\\Common.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7A041F2C-DE93-458A-8308-8137B2BF8AE2}|ProgGrafica_2024\\ProgGrafica_2024.vcxproj|C:\\Users\\juanl\\Desktop\\proyecto-portals\\ProgGrafica_2024\\data\\shader.frag||{8B382828-6202-11D1-8870-0000F87579D2}",
@@ -77,17 +73,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 439,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "Main.cpp",
               "DocumentMoniker": "C:\\Users\\juanl\\Desktop\\proyecto-portals\\ProgGrafica_2024\\Main.cpp",
               "RelativeDocumentMoniker": "ProgGrafica_2024\\Main.cpp",
               "ToolTip": "C:\\Users\\juanl\\Desktop\\proyecto-portals\\ProgGrafica_2024\\Main.cpp",
               "RelativeToolTip": "ProgGrafica_2024\\Main.cpp",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAABUAAAAuAAAA",
+              "ViewState": "AQIAABsAAAAAAAAAAAAAACgAAAA0AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-11-03T18:29:32.827Z",
               "IsPinned": true,
@@ -95,21 +91,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Map.cpp",
               "DocumentMoniker": "C:\\Users\\juanl\\Desktop\\proyecto-portals\\ProgGrafica_2024\\lib\\Map.cpp",
               "RelativeDocumentMoniker": "ProgGrafica_2024\\lib\\Map.cpp",
               "ToolTip": "C:\\Users\\juanl\\Desktop\\proyecto-portals\\ProgGrafica_2024\\lib\\Map.cpp",
               "RelativeToolTip": "ProgGrafica_2024\\lib\\Map.cpp",
-              "ViewState": "AQIAAC0AAAAAAAAAAAAtwD4AAAAAAAAA",
+              "ViewState": "AQIAAM0AAAAAAAAAAAAAABsBAAAVAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-12-19T15:24:55.124Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "Object.h",
               "DocumentMoniker": "C:\\Users\\juanl\\Desktop\\proyecto-portals\\ProgGrafica_2024\\lib\\Object.h",
               "RelativeDocumentMoniker": "ProgGrafica_2024\\lib\\Object.h",
@@ -118,35 +113,19 @@
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-11-04T22:06:20.83Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "Map.h",
-              "DocumentMoniker": "C:\\Users\\juanl\\Desktop\\proyecto-portals\\ProgGrafica_2024\\lib\\Map.h",
-              "RelativeDocumentMoniker": "ProgGrafica_2024\\lib\\Map.h",
-              "ToolTip": "C:\\Users\\juanl\\Desktop\\proyecto-portals\\ProgGrafica_2024\\lib\\Map.h",
-              "RelativeToolTip": "ProgGrafica_2024\\lib\\Map.h",
-              "ViewState": "AQIAACIAAAAAAAAAAAAIwDEAAAA1AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-12-27T15:29:57.353Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "vector",
-              "DocumentMoniker": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\include\\vector",
-              "RelativeDocumentMoniker": "..\\..\\..\\..\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\include\\vector",
-              "ToolTip": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\include\\vector",
-              "RelativeToolTip": "..\\..\\..\\..\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\include\\vector",
-              "ViewState": "AQIAAFEHAAAAAAAAAAAtwGQHAAAAAAAA",
+              "Title": "cube.trs",
+              "DocumentMoniker": "C:\\Users\\juanl\\Desktop\\proyecto-portals\\ProgGrafica_2024\\data\\cube.trs",
+              "RelativeDocumentMoniker": "ProgGrafica_2024\\data\\cube.trs",
+              "ToolTip": "C:\\Users\\juanl\\Desktop\\proyecto-portals\\ProgGrafica_2024\\data\\cube.trs",
+              "RelativeToolTip": "ProgGrafica_2024\\data\\cube.trs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2024-12-19T17:54:02.833Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-30T15:13:01.986Z"
             },
             {
               "$type": "Document",
@@ -162,7 +141,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 15,
               "Title": "matrix_clip_space.inl",
               "DocumentMoniker": "C:\\Users\\juanl\\Desktop\\proyecto-portals\\externalLibs\\glm\\inc\\glm\\ext\\matrix_clip_space.inl",
               "RelativeDocumentMoniker": "externalLibs\\glm\\inc\\glm\\ext\\matrix_clip_space.inl",
@@ -174,19 +153,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "Common.h",
-              "DocumentMoniker": "C:\\Users\\juanl\\Desktop\\proyecto-portals\\ProgGrafica_2024\\lib\\Common.h",
-              "RelativeDocumentMoniker": "ProgGrafica_2024\\lib\\Common.h",
-              "ToolTip": "C:\\Users\\juanl\\Desktop\\proyecto-portals\\ProgGrafica_2024\\lib\\Common.h",
-              "RelativeToolTip": "ProgGrafica_2024\\lib\\Common.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAAAWAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-11-21T16:14:45.527Z"
+              "DocumentIndex": 4,
+              "Title": "vector",
+              "DocumentMoniker": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\include\\vector",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\include\\vector",
+              "ToolTip": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\include\\vector",
+              "RelativeToolTip": "..\\..\\..\\..\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\include\\vector",
+              "ViewState": "AQIAAFYHAAAAAAAAAAAawGQHAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-12-19T17:54:02.833Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 9,
               "Title": "shader.frag",
               "DocumentMoniker": "C:\\Users\\juanl\\Desktop\\proyecto-portals\\ProgGrafica_2024\\data\\shader.frag",
               "RelativeDocumentMoniker": "ProgGrafica_2024\\data\\shader.frag",
@@ -198,7 +177,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 11,
               "Title": "ground.trs",
               "DocumentMoniker": "C:\\Users\\juanl\\Desktop\\proyecto-portals\\ProgGrafica_2024\\data\\ground.trs",
               "RelativeDocumentMoniker": "ProgGrafica_2024\\data\\ground.trs",
@@ -210,7 +189,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "Camera.h",
               "DocumentMoniker": "C:\\Users\\juanl\\Desktop\\proyecto-portals\\ProgGrafica_2024\\lib\\Camera.h",
               "RelativeDocumentMoniker": "ProgGrafica_2024\\lib\\Camera.h",
@@ -222,7 +201,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 13,
               "Title": "InputManager.cpp",
               "DocumentMoniker": "C:\\Users\\juanl\\Desktop\\proyecto-portals\\ProgGrafica_2024\\lib\\InputManager.cpp",
               "RelativeDocumentMoniker": "ProgGrafica_2024\\lib\\InputManager.cpp",
@@ -234,7 +213,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 10,
               "Title": "shader.vert",
               "DocumentMoniker": "C:\\Users\\juanl\\Desktop\\proyecto-portals\\ProgGrafica_2024\\data\\shader.vert",
               "RelativeDocumentMoniker": "ProgGrafica_2024\\data\\shader.vert",
@@ -246,7 +225,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 12,
               "Title": "Render.h",
               "DocumentMoniker": "C:\\Users\\juanl\\Desktop\\proyecto-portals\\ProgGrafica_2024\\lib\\Render.h",
               "RelativeDocumentMoniker": "ProgGrafica_2024\\lib\\Render.h",
@@ -258,19 +237,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 2,
               "Title": "Camera.cpp",
               "DocumentMoniker": "C:\\Users\\juanl\\Desktop\\proyecto-portals\\ProgGrafica_2024\\lib\\Camera.cpp",
               "RelativeDocumentMoniker": "ProgGrafica_2024\\lib\\Camera.cpp",
               "ToolTip": "C:\\Users\\juanl\\Desktop\\proyecto-portals\\ProgGrafica_2024\\lib\\Camera.cpp",
               "RelativeToolTip": "ProgGrafica_2024\\lib\\Camera.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAOAAAA",
+              "ViewState": "AQIAABIAAAAAAAAAAAAAACQAAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-11-04T21:50:14.804Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "Render.cpp",
               "DocumentMoniker": "C:\\Users\\juanl\\Desktop\\proyecto-portals\\ProgGrafica_2024\\lib\\Render.cpp",
               "RelativeDocumentMoniker": "ProgGrafica_2024\\lib\\Render.cpp",
@@ -282,7 +261,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 14,
               "Title": "InputManager.h",
               "DocumentMoniker": "C:\\Users\\juanl\\Desktop\\proyecto-portals\\ProgGrafica_2024\\lib\\InputManager.h",
               "RelativeDocumentMoniker": "ProgGrafica_2024\\lib\\InputManager.h",

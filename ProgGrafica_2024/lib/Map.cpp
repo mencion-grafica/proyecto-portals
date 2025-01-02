@@ -13,7 +13,7 @@ Map::Map(std::string filename) {
 }
 
 void Map::leerArchivo(std::string filename) {
-	std::cout << "Leyendo desde fichero: " + filename + "\n";
+	//std::cout << "Leyendo desde fichero: " + filename + "\n";
 
 	std::string line;
 	std::string key;
@@ -51,27 +51,32 @@ void Map::leerArchivo(std::string filename) {
 }
 
 void Map::pushVertices(Solid_t& solidList) {
-	//Vert = vertice / Abj = abajo / Arr = arriba / Der = derecha / Izq = izquierda / Atras = atras / Alan = Alante
-	glm::vec3 vertAbjIzqAtras = getVertices(solidList.sideList[4].plane, solidList.sideList[0].plane, solidList.sideList[2].plane);
-	solidList.vertexList.push_back(vertAbjIzqAtras);
-	glm::vec3 vertAbjIzqAlan = getVertices(solidList.sideList[4].plane, solidList.sideList[0].plane, solidList.sideList[3].plane);
-	solidList.vertexList.push_back(vertAbjIzqAlan);
-	glm::vec3 vertAbjDerAtras = getVertices(solidList.sideList[4].plane, solidList.sideList[1].plane, solidList.sideList[2].plane);
-	solidList.vertexList.push_back(vertAbjDerAtras);
-	glm::vec3 vertAbjDerAlan = getVertices(solidList.sideList[4].plane, solidList.sideList[1].plane, solidList.sideList[3].plane);
-	solidList.vertexList.push_back(vertAbjDerAlan);
+	if (solidList.sideList.size() > 5) {
+		//Vert = vertice / Abj = abajo / Arr = arriba / Der = derecha / Izq = izquierda / Atras = atras / Alan = Alante
+		glm::vec3 vertAbjIzqAtras = getVertices(solidList.sideList[4].plane, solidList.sideList[0].plane, solidList.sideList[2].plane);
+		solidList.vertexList.push_back(vertAbjIzqAtras);
+		glm::vec3 vertAbjIzqAlan = getVertices(solidList.sideList[4].plane, solidList.sideList[0].plane, solidList.sideList[3].plane);
+		solidList.vertexList.push_back(vertAbjIzqAlan);
+		glm::vec3 vertAbjDerAtras = getVertices(solidList.sideList[4].plane, solidList.sideList[1].plane, solidList.sideList[2].plane);
+		solidList.vertexList.push_back(vertAbjDerAtras);
+		glm::vec3 vertAbjDerAlan = getVertices(solidList.sideList[4].plane, solidList.sideList[1].plane, solidList.sideList[3].plane);
+		solidList.vertexList.push_back(vertAbjDerAlan);
 
 
-	glm::vec3 vertArrIzqAtras = getVertices(solidList.sideList[5].plane, solidList.sideList[0].plane, solidList.sideList[2].plane);
-	solidList.vertexList.push_back(vertArrIzqAtras);
-	glm::vec3 vertArrIzqAlan = getVertices(solidList.sideList[5].plane, solidList.sideList[0].plane, solidList.sideList[3].plane);
-	solidList.vertexList.push_back(vertArrIzqAlan);
-	glm::vec3 vertArrDerAtras = getVertices(solidList.sideList[5].plane, solidList.sideList[1].plane, solidList.sideList[2].plane);
-	solidList.vertexList.push_back(vertArrDerAtras);
-	glm::vec3 vertArrDerAlan = getVertices(solidList.sideList[5].plane, solidList.sideList[1].plane, solidList.sideList[3].plane);
-	solidList.vertexList.push_back(vertArrDerAlan);
+		glm::vec3 vertArrIzqAtras = getVertices(solidList.sideList[5].plane, solidList.sideList[0].plane, solidList.sideList[2].plane);
+		solidList.vertexList.push_back(vertArrIzqAtras);
+		glm::vec3 vertArrIzqAlan = getVertices(solidList.sideList[5].plane, solidList.sideList[0].plane, solidList.sideList[3].plane);
+		solidList.vertexList.push_back(vertArrIzqAlan);
+		glm::vec3 vertArrDerAtras = getVertices(solidList.sideList[5].plane, solidList.sideList[1].plane, solidList.sideList[2].plane);
+		solidList.vertexList.push_back(vertArrDerAtras);
+		glm::vec3 vertArrDerAlan = getVertices(solidList.sideList[5].plane, solidList.sideList[1].plane, solidList.sideList[3].plane);
+		solidList.vertexList.push_back(vertArrDerAlan);
 
-	solidList.center = getCenter(solidList);
+		solidList.center = getCenter(solidList);
+	}
+	else {
+		std::cout << "No se puede calcular los vertices de un solid con menos de 6 lados" << std::endl;
+	}
 }
 
 World_t Map::leerWorld(std::ifstream& f, std::string line) {
@@ -90,9 +95,9 @@ World_t Map::leerWorld(std::ifstream& f, std::string line) {
 		str >> key;
 
 		if (key == "id") {
-			std::cout << "Leyendo Id del Wordl" << std::endl;
+			//std::cout << "Leyendo Id del Wordl" << std::endl;
 			str >> currentWorld.id;
-			std::cout << currentWorld.id << std::endl;
+			//std::cout << currentWorld.id << std::endl;
 		}
 		else if (key == "solid") {
 			currentWorld.solidList.push_back(leerSolid(f, lineIn));
@@ -120,9 +125,9 @@ Solid_t Map::leerSolid(std::ifstream& f, std::string line) {
 		str >> key;
 
 		if (key == "id") {
-			std::cout << "Leyendo ID del solid..." << std::endl;
+			//std::cout << "Leyendo ID del solid..." << std::endl;
 			str >> currentSolid.id;
-			std::cout << currentSolid.id << std::endl;
+			//std::cout << currentSolid.id << std::endl;
 		}
 		else if (key == "side") {
 			currentSolid.sideList.push_back(leerSide(f, lineIn));
@@ -134,7 +139,7 @@ Solid_t Map::leerSolid(std::ifstream& f, std::string line) {
 
 Side_t Map::leerSide(std::ifstream& f, std::string line) {
 
-	Side_t currentSide;
+	Side_t currentSide{0};
 	std::string key;
 
 	do {
@@ -149,7 +154,7 @@ Side_t Map::leerSide(std::ifstream& f, std::string line) {
 		str >> key;
 
 		if (key == "id") {
-			std::cout << "Leyendo ID del side..." << std::endl;
+			//std::cout << "Leyendo ID del side..." << std::endl;
 			str >> currentSide.id;
 		}
 		else if (key == "plane") {
@@ -180,19 +185,19 @@ Plane_t Map::leerPlane(std::string line) {
 		str >> res.point1.y;
 		str >> res.point1.z;
 
-		std::cout << "Punto 1: " << res.point1.x << "x " << res.point1.y << "y " << res.point1.z << "z " << std::endl;
+		//std::cout << "Punto 1: " << res.point1.x << "x " << res.point1.y << "y " << res.point1.z << "z " << std::endl;
 
 		str >> res.point2.x;
 		str >> res.point2.y;
 		str >> res.point2.z;
 
-		std::cout << "Punto 2: " << res.point2.x << "x " << res.point2.y << "y " << res.point2.z << "z " << std::endl;
+		//std::cout << "Punto 2: " << res.point2.x << "x " << res.point2.y << "y " << res.point2.z << "z " << std::endl;
 
 		str >> res.point3.x;
 		str >> res.point3.y;
 		str >> res.point3.z;
 
-		std::cout << "Punto 3: " << res.point3.x << "x " << res.point3.y << "y " << res.point3.z << "z " << std::endl;
+		//std::cout << "Punto 3: " << res.point3.x << "x " << res.point3.y << "y " << res.point3.z << "z " << std::endl;
 	}
 
 	return res;
@@ -215,7 +220,7 @@ void Map::getPlane(Solid_t& solidList) {
 			+ s.plane.b * s.plane.point1.y
 			+ s.plane.c * s.plane.point1.z);
 
-		std::cout << "Plano" << s.id << ": " << s.plane.a << "X " << s.plane.b << "Y " << s.plane.c << "Z " << s.plane.d << std::endl;
+		//std::cout << "Plano" << s.id << ": " << s.plane.a << "X " << s.plane.b << "Y " << s.plane.c << "Z " << s.plane.d << std::endl;
 	}
 }
 
@@ -238,7 +243,7 @@ glm::vec3 Map::getVertices(Plane_t p1, Plane_t p2, Plane_t p3) {
 	float z = determinantZ / determinantOriginal;
 
 	glm::vec3 point = glm::vec3(x, y, z);
-	std::cout << "Vertice: " << x << "X " << y << "Y " << z << "Z " << std::endl;
+	//std::cout << "Vertice: " << x << "X " << y << "Y " << z << "Z " << std::endl;
 	return point;
 }
 
@@ -251,32 +256,32 @@ glm::vec3 Map::getCenter(Solid_t& solid) {
 		pY += s.y;
 		pZ += s.z;
 	}
-	std::cout << "Suma: " << pX << "X " << pY << "Y " << pZ << "Z " << std::endl;
+	//std::cout << "Suma: " << pX << "X " << pY << "Y " << pZ << "Z " << std::endl;
 	pX = pX / 8;
 	pY = pY / 8;
 	pZ = pZ / 8;
-	std::cout << "Centro: " << pX << "X " << pY << "Y " << pZ << "Z " << std::endl;
+	//std::cout << "Centro: " << pX << "X " << pY << "Y " << pZ << "Z " << std::endl;
 
 	return glm::vec3(pX, pY, pZ);
 }
 
 void Map::writeTRSFile(std::string filename) {
 	filename += ".trs";
-	std::cout << "Escribiendo en fichero: " + filename + "\n";
-	std::fstream f(filename, std::ios::in);
+	//Hay que crear el directorio con anterioridad o modificar la ruta a donde cada usuario quiera
+	std::string path = "data/Map/";
+	//std::cout << "Escribiendo en fichero: "+ path + filename + "\n";
+	std::fstream f(path+filename, std::ios::in);
 
 	if (!f.is_open()) {
-		std::cout << "Creando archivo:" << filename << std::endl;
-		f.open(filename, std::ios::out);
+		f.open(path+filename, std::ios::out);
 	}
 	else {
-		std::cout << "Archivo ya existe, escribiendo al final del archivo..." << std::endl;
-		f.open(filename, std::ios::app);
+		f.open(path+filename, std::ios::app);
 	}
 
 	for (auto& s : worldMap.solidList[id].vertexList) {
 		f << "vert " << s.x << " " << s.y << " " << s.z << std::endl;
-		f << "color 1 1 1 1" << std::endl;
+		f << "color 0 0 0 0" << std::endl;
 	}
 	f << "face 0 1 3" << std::endl;
 	f << "face 2 0 3" << std::endl;
