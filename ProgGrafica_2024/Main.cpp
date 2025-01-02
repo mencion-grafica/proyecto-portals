@@ -5,6 +5,7 @@
 #include "lib/Object.h"
 #include "lib/Camera.h"
 #include "lib/Map.h"
+#include "lib/Player.h"
 
 int main(int argc, char** argv)
 {
@@ -43,6 +44,10 @@ int main(int argc, char** argv)
 		object->scale = glm::vec4(0.1f, 0.1f, 0.1f, 1.0f);
 		render->putObject(object);
 	}
+	
+	Player* player = new Player("./data/model.dae");
+	player->position = glm::vec4(0, 0, 0, 1);
+	render->putObject(player);
 
 	Camera* camera = new Camera();
 	camera->position = glm::vec3(0, 0, 0);

@@ -87,6 +87,7 @@ void Render::initGL(const char* windowName, int sizeX, int sizeY)
 	InputManager::initInputManager(window);
 
 	glEnable(GL_DEPTH_TEST);
+	//glEnable(GL_CULL_FACE);
 }
 
 void Render::drawObjects()
@@ -131,9 +132,25 @@ void Render::drawGL(int id)
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, bo.edgeBufferID);
 
 	this->objectList[id]->prg->setMVP(MVP);
-	this->objectList[id]->prg->setVertexAttribute("vPos", 4, GL_FLOAT, sizeof(vertex_t), (void*)offsetof(vertex_t, vertexPos));
-	this->objectList[id]->prg->setVertexAttribute("vColor", 4, GL_FLOAT, sizeof(vertex_t), (void*)offsetof(vertex_t, vertexColor));
-	this->objectList[id]->prg->setVertexAttribute("vNormal", 4, GL_FLOAT, sizeof(vertex_t), (void*)offsetof(vertex_t, vertexNormal));
+	this->objectList[id]->prg->setMatrix("M", M);
+	//for para array de transforms del shader
+	this->objectList[id]->prg->setVertexAttribute("vPos", 4, GL_FLOAT, sizeof(vertex_t), (void*) offsetof(vertex_t, vertexPos));
+	this->objectList[id]->prg->setVertexAttribute("vColor", 4, GL_FLOAT, sizeof(vertex_t), (void*) offsetof(vertex_t, vertexColor));
+	this->objectList[id]->prg->setVertexAttribute("vNormal", 4, GL_FLOAT, sizeof(vertex_t), (void*) offsetof(vertex_t, vertexNormal));
+	this->objectList[id]->prg->setVertexAttribute("jointIndex", 4, GL_INT, sizeof(vertex_t), (void*)offsetof(vertex_t, idJoints));
+	this->objectList[id]->prg->setVertexAttribute("weightJoints", 4, GL_INT, sizeof(vertex_t), (void*)offsetof(vertex_t, weightJoints));
+	this->objectList[id]->prg->setVertexAttribute("vUv", 4, GL_FLOAT, sizeof(vertex_t), (void*) offsetof(vertex_t, vertexUv));
+
+	this->objectList[id]->prg->setInteger("textureColor", 0);
+	if (this->objectList[id]->texture != nullptr) 
+	{
+		this->objectList[id]->prg->setInteger("material.textureEnabled", 1);
+		this->objectList[id]->texture->bind(0);
+	}
+	else 
+	{
+		this->objectList[id]->prg->setInteger("material.textureEnabled", 0);
+	}
 
 	glDrawElements(GL_TRIANGLES, this->objectList[id]->idList.size(), GL_UNSIGNED_INT, nullptr);
 }

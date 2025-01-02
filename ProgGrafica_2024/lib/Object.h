@@ -4,10 +4,16 @@
 #include "vertex.h"
 #include "InputManager.h"
 #include "RenderProgram.h"
+#include "tinyxml2.h"
+#include "Joint.h"
+#include "Texture.h"
+#include "Animator.h"
+
+using namespace tinyxml2;
 
 class Object
 {
-private:
+protected:
 	static inline int idCounter = 0;
 public:
 	int id = 0;
@@ -16,22 +22,22 @@ public:
 	glm::vec4 rotation;
 	glm::vec4 scale;
 
+	Program* prg = new Program();
+	material_t material = { 1.0f, 1.0f, 1.0f, 70 };
+	Texture* texture = nullptr;
+
 	std::vector<vertex_t> vertexList;
 	std::vector<int> idList;
 
 	glm::mat4 modelMatrix;
 
-	Program* prg = new Program();
-
 	Object();
 
 	Object(std::string fileName);
 
-	//Object();
-
 	void createTriangle();
 
-	void move(double deltaTime);
+	virtual void move(double deltaTime);
 
 	void updateModelMatrix();
 };
