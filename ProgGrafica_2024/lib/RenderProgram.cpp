@@ -145,6 +145,13 @@ void Program::setMVP(glm::mat4 mvp)
 	}
 }
 
+void Program::setTransformsArray(glm::mat4* transforms)
+{
+	if (varList.find("jointTransforms[0]") != varList.end()) {
+		//glUniformMatrix4fv(varList["jointTransforms"], sizeof(transforms), GL_FALSE, transforms);
+	}
+}
+
 void Program::setMatrix(std::string name, glm::mat4 m)
 {
 	if (varList.find(name) != varList.end()) 

@@ -40,7 +40,7 @@ Animation::Animation(const char* fileName, Joint rootJoint)
 	}
 
 	std::vector<Keyframe> listKeyframes;
-	std::vector<glm::mat4> transformationMatrixs;
+	glm::mat4 transformationMatrix;
 	std::vector<JointTransform> jointTransforms;
 	XMLElement* currentJointAnimation = doc.FirstChildElement("COLLADA")->FirstChildElement("library_animations")->FirstChildElement("animation");
 	int index = 0;
@@ -51,6 +51,12 @@ Animation::Animation(const char* fileName, Joint rootJoint)
 
 	std::cout << rootJoint.idCounter << std::endl;
 
+	for (int i = 0; i < keyframesTime.size(); i++) {
+		listKeyframes.push_back(Keyframe(keyframesTime[i]));
+	}
+
+	this->duration = keyframesTime[keyframesTime.size() - 1];
+
 	for (int j = 0; j < rootJoint.idCounter; j++) {
 		if (j != 0) {
 			currentJointAnimation = currentJointAnimation->NextSiblingElement("animation");
@@ -58,7 +64,6 @@ Animation::Animation(const char* fileName, Joint rootJoint)
 
 		matrixElements = currentJointAnimation->FirstChildElement("source")->NextSiblingElement("source")->FirstChildElement("float_array")->GetText();
 		std::stringstream ss2(matrixElements);
-		std::cout << j << std::endl;
 
 		while (getline(ss2, auxString, ' ')) {
 			stringMatrixElements.push_back(auxString);
@@ -70,23 +75,35 @@ Animation::Animation(const char* fileName, Joint rootJoint)
 		}
 
 		for (int i = 0; i < keyframesTime.size(); i++) {
-			listKeyframes.push_back(Keyframe(keyframesTime[i]));
+			transformationMatrix = glm::mat4{ floatMatrixElements[0 + index], floatMatrixElements[1 + index], floatMatrixElements[2 + index], floatMatrixElements[3 + index], floatMatrixElements[4 + index], floatMatrixElements[5 + index], floatMatrixElements[6 + index], floatMatrixElements[7 + index], floatMatrixElements[8 + index], floatMatrixElements[9 + index], floatMatrixElements[10 + index], floatMatrixElements[11 + index], floatMatrixElements[12 + index], floatMatrixElements[13 + index], floatMatrixElements[14 + index], floatMatrixElements[15 + index] };
 
-			transformationMatrixs.push_back(glm::mat4{ floatMatrixElements[0 + index], floatMatrixElements[1 + index], floatMatrixElements[2 + index], floatMatrixElements[3 + index], floatMatrixElements[4 + index], floatMatrixElements[5 + index], floatMatrixElements[6 + index], floatMatrixElements[7 + index], floatMatrixElements[8 + index], floatMatrixElements[9 + index], floatMatrixElements[10 + index], floatMatrixElements[11 + index], floatMatrixElements[12 + index], floatMatrixElements[13 + index], floatMatrixElements[14 + index], floatMatrixElements[15 + index] });
-
-			glm::vec4 position = { floatMatrixElements[3 + index], floatMatrixElements[7 + index], floatMatrixElements[11 + index], floatMatrixElements[15 + index] };
-			glm::mat3 rotation = glm::mat3(transformationMatrixs[i]);
+			glm::vec3 position = glm::vec3{ floatMatrixElements[3 + index], floatMatrixElements[7 + index], floatMatrixElements[11 + index] };
+			glm::mat3 rotation = glm::mat3(transformationMatrix);
 			glm::quat quatRotation = glm::quat(rotation);
 
-			jointTransforms.push_back(JointTransform(position, rotation));
+			//jointTransforms.push_back(JointTransform(position, rotation));
+
+			listKeyframes[i].AddJointKeyframe(JointTransform(position, rotation));
 
 			index += 16;
 		}
+
+		index = 0;
+
+		stringMatrixElements.clear();
+		floatMatrixElements.clear();
 	}
+
+	this->keyframes = listKeyframes;
 	//Por cada hijo del rootJoint pasar al siguiente hermano en el archivo y cargar los datos en el keyframe
 }
 
 float Animation::GetDuration()
 {
 	return duration;
+}
+
+std::vector<Keyframe> Animation::GetKeyframes()
+{
+	return this->keyframes;
 }

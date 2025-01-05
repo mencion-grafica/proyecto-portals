@@ -31,6 +31,7 @@ public:
 	void readVarList();
 
 	void setMVP(glm::mat4 mvp);
+	void setTransformsArray(glm::mat4* transforms);
 	void setMatrix(std::string name, glm::mat4 m);
 
 	void setInteger(std::string name, int data);

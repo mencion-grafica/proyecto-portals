@@ -25,4 +25,10 @@ public:
 	void move(double deltaTime) override;
 
 	void StartNewAnimation(Animation animation);
+
+	std::vector<glm::mat4> GetJointTransforms();
+
+	void AddJointsToList(Joint joint, std::vector<glm::mat4>& list);
+
+	int GetJointCount();
 };

@@ -1,5 +1,8 @@
 #include "Render.h"
 #include "InputManager.h"
+#include "Player.h";
+
+const int MAX_JOINTS = 50;
 
 Render::Render()
 {
@@ -134,12 +137,19 @@ void Render::drawGL(int id)
 	this->objectList[id]->prg->setMVP(MVP);
 	this->objectList[id]->prg->setMatrix("M", M);
 	//for para array de transforms del shader
+	if (typeid(*this->objectList[id]) == typeid(Player)) {
+		Player* player = dynamic_cast<Player*> (this->objectList[id]);
+		std::vector<glm::mat4> list = player->GetJointTransforms();
+		for (int i = 0; i < list.size(); i++){
+			this->objectList[id]->prg->setMatrix("jointTransforms[0]", list[i]);
+		}
+	}
 	this->objectList[id]->prg->setVertexAttribute("vPos", 4, GL_FLOAT, sizeof(vertex_t), (void*) offsetof(vertex_t, vertexPos));
 	this->objectList[id]->prg->setVertexAttribute("vColor", 4, GL_FLOAT, sizeof(vertex_t), (void*) offsetof(vertex_t, vertexColor));
 	this->objectList[id]->prg->setVertexAttribute("vNormal", 4, GL_FLOAT, sizeof(vertex_t), (void*) offsetof(vertex_t, vertexNormal));
+	this->objectList[id]->prg->setVertexAttribute("vUv", 4, GL_FLOAT, sizeof(vertex_t), (void*)offsetof(vertex_t, vertexUv));
 	this->objectList[id]->prg->setVertexAttribute("jointIndex", 4, GL_INT, sizeof(vertex_t), (void*)offsetof(vertex_t, idJoints));
-	this->objectList[id]->prg->setVertexAttribute("weightJoints", 4, GL_INT, sizeof(vertex_t), (void*)offsetof(vertex_t, weightJoints));
-	this->objectList[id]->prg->setVertexAttribute("vUv", 4, GL_FLOAT, sizeof(vertex_t), (void*) offsetof(vertex_t, vertexUv));
+	this->objectList[id]->prg->setVertexAttribute("weightJoints", 4, GL_FLOAT, sizeof(vertex_t), (void*)offsetof(vertex_t, weightJoints));
 
 	this->objectList[id]->prg->setInteger("textureColor", 0);
 	if (this->objectList[id]->texture != nullptr) 

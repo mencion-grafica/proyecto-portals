@@ -141,16 +141,12 @@ void Player::loadDaeFile(const char* fileName) {
 			savedJoints = intNumJoints.at(i);
 		}
 
-		//joints[0]
 		for (int j = 0; j < savedJoints; j++) {
 			vert.idJoints[j] = intlistIdJointsWeights[counterNum];
 			counterNum++;
 			vert.weightJoints[j] = intlistIdJointsWeights[counterNum];
 			counterNum++;
 		}
-		//Por cada joint que afecte al vertice
-			//vert.idJoints[j] = valorQueSea
-			//vert.weightJoints[j] = buscar el peso en la lista de pesos
 
 		vertexList.push_back(vert);
 	}
@@ -185,11 +181,13 @@ void Player::loadDaeFile(const char* fileName) {
 	std::string route = "data/" + stringTexture;
 	this->texture = new Texture(route);*/
 
+	Animation animation = Animation(fileName, rootJoint);
+	this->animator = Animator(animation);
+	StartNewAnimation(animation);
+
 	//Aplicar shader
 	prg->addShader("data/playerShader.vert");
 	prg->addShader("data/shader.frag");
-
-	Animation animation = Animation(fileName, rootJoint);
 
 	prg->link();
 	//printData(*this);
@@ -198,11 +196,32 @@ void Player::loadDaeFile(const char* fileName) {
 
 void Player::move(double deltaTime)
 {
-	Object::move(deltaTime);
-	animator.Update(deltaTime);
+	animator.Update(deltaTime, this->rootJoint);
 }
 
 void Player::StartNewAnimation(Animation animation)
 {
 	animator.StartNewAnimation(animation);
+}
+
+std::vector<glm::mat4> Player::GetJointTransforms()
+{
+	std::vector<glm::mat4> jointMatrices;
+	AddJointsToList(rootJoint, jointMatrices);
+
+	return jointMatrices;
+}
+
+void Player::AddJointsToList(Joint joint, std::vector<glm::mat4>& list)
+{
+	list.push_back(joint.GetTransformationMatrix());
+
+	for (Joint child : joint.children) {
+		AddJointsToList(child, list);
+	}
+}
+
+int Player::GetJointCount()
+{
+	return jointCount;
 }

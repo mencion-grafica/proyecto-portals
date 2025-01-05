@@ -17,5 +17,6 @@ public:
 	Animation(std::string fileName);
 	Animation(const char* fileName, Joint rootJoint);
 	float GetDuration();
+	std::vector<Keyframe> GetKeyframes();
 };
 

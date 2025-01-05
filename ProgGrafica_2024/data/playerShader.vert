@@ -20,19 +20,26 @@ out vec3 fNormal;
 out vec2 fUv;
 
 void main() {
+	vec4 totalLocalPos = vec4(0.0);
+	vec4 totalNormal = vec4(0.0);
+
 	for(int i = 0; i < MAX_WEIGHTS; i++){
 		if(jointIndex[i] != -1){
 			mat4 jointTransform = jointTransforms[jointIndex[i]];
 			vec4 posePosition = jointTransform * vPos;
+			totalLocalPos += posePosition * weightJoints[i];
+
+			mat4 normalMatrix = transpose(inverse(jointTransform));
+            vec4 worldNormal = normalMatrix * vec4(vNormal.xyz, 0.0);
+            totalNormal += worldNormal * weightJoints[i];
 		}
 	}
 
-	fPos = (M * vPos).xyz;
-	fNormal = (inverse(transpose(M)) * vNormal).xyz;
-	fNormal = normalize(fNormal);
+	fPos = (M * totalLocalPos).xyz;
+	fNormal = normalize((inverse(transpose(M)) * totalNormal).xyz);
 	
 	fColor = vColor;
 	fUv = vUv.xy;
 
-	gl_Position = MVP * vPos;
+	gl_Position = MVP * totalLocalPos;
 }

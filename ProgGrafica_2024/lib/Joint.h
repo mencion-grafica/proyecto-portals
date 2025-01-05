@@ -30,6 +30,10 @@ public:
 
 	void SetTransformMatrix(glm::mat4 matrix);
 
+	glm::mat4 GetTransformationMatrix();
+
 	Joint GetJointById(int id);
+
+	int GetJointId();
 };
 
