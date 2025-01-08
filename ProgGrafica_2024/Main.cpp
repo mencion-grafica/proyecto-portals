@@ -4,6 +4,7 @@
 #include "lib/Render.h"
 #include "lib/Object.h"
 #include "lib/Camera.h"
+#include "lib/Player.h"
 
 int main(int argc, char** argv)
 {
