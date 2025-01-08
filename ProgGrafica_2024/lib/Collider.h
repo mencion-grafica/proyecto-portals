@@ -5,20 +5,15 @@
 
 class Collider {
 public:
-    glm::vec3 minBounds;
-    glm::vec3 maxBounds;
-    std::vector<Collider*> subColliders;
+	int id;
+	glm::vec3 minBounds;
+	glm::vec3 maxBounds;
+	
+	Collider();
 
-    Collider();
-    Collider(glm::vec3 minBounds, glm::vec3 maxBounds);
+	bool checkCollision(Collider* other);
+	bool checkCollision(glm::vec4 position);
+	void computeBounds(const glm::mat4& modelMatrix, const std::vector<vertex_t>& vertexList);
 
-    void updateBounds(glm::mat4 modelMatrix);
-
-    void subdivide(int levels);
-
-    bool checkCollision(Collider* other);
-
-    bool checkCollisionWithSubColliders(Collider* other);
-
-	void draw(glm::vec3 position);
+	void draw();
 };

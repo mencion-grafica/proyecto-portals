@@ -1,5 +1,7 @@
 #include "Object.h"
 
+#include "Render.h"
+
 void printData(Object obj) 
 {
 	std::cout << "Object ID: " << obj.id << std::endl;
@@ -28,6 +30,11 @@ Object::Object()
 	this->rotation = glm::vec4(0.0f, 0.0f, 0.0f, 1.0f);
 	this->scale = glm::vec4(1.0f);
 	this->modelMatrix = glm::mat4(1.0f);
+
+	prg->addShader("data/shader.vert");
+	prg->addShader("data/shader.frag");
+
+	prg->link();
 }
 
 Object::Object(std::string fileName) 
@@ -37,7 +44,7 @@ Object::Object(std::string fileName)
 	this->scale = glm::vec4(1.0f);
 	this->modelMatrix = glm::mat4(1.0f);
 
-	std::cout << "Leyendo desde fichero\n";
+	//std::cout << "Leyendo desde fichero\n";
 
 	id = idCounter++;
 	std::string line;
@@ -104,7 +111,7 @@ Object::Object(std::string fileName)
 			{
 				std::string fileName;
 				str >> fileName;
-				std::cout << "Reading texture: " << fileName << std::endl;
+				//std::cout << "Reading texture: " << fileName << std::endl;
 				this->texture = new Texture(fileName);
 			}
 		}
@@ -112,29 +119,7 @@ Object::Object(std::string fileName)
 
 	prg->link();
 
-	printData(*this);
-}
-
-void Object::initializeCollider(int levels)
-{
-	//Calculate minimum and maximum bounds of the object based on the position, rotation and scale
-	glm::vec3 minBounds = glm::vec3(FLT_MAX);
-	glm::vec3 maxBounds = glm::vec3(-FLT_MAX);
-
-	for (auto& vertex : this->vertexList)
-	{
-		minBounds.x = std::min(minBounds.x, vertex.vertexPos.x);
-		minBounds.y = std::min(minBounds.y, vertex.vertexPos.y);
-		minBounds.z = std::min(minBounds.z, vertex.vertexPos.z);
-		maxBounds.x = std::max(maxBounds.x, vertex.vertexPos.x);
-		maxBounds.y = std::max(maxBounds.y, vertex.vertexPos.y);
-		maxBounds.z = std::max(maxBounds.z, vertex.vertexPos.z);
-	}
-	
-	if (this->collider == nullptr) this->collider = new Collider(minBounds, maxBounds);
-	else this->collider->updateBounds(this->modelMatrix);
-	
-	this->collider->subdivide(levels);
+	//printData(*this);
 }
 
 void Object::createTriangle()
@@ -164,23 +149,43 @@ void Object::createTriangle()
 
 	this->idList = { 1, 0, 2 };
 	this->modelMatrix = glm::mat4(1.0f);
-
+	
 	this->prg->link();
 }
 
 void Object::move(double deltaTime)
 {
+	if (this->id == 1) // Id del player en el main
+    {
+		if (Render::r->checkCollisions(this->collider)) return; // Aqui puede saltar por chocar con un objeto
+        this->rotation += glm::vec4(45.0f * deltaTime, 45.0f * deltaTime, 0.0f, 1.0f);
+		this->position += glm::vec4(0.0f, 0.0f, 1.0f * deltaTime, 1.0f);
+    }
+
 	updateModelMatrix();
+}
+
+void Object::initializeCollider()
+{
+	updateModelMatrix();
+	if (this->collider == nullptr) this->collider = new Collider();
+	this->collider->id = this->id;
+	this->collider->computeBounds(this->modelMatrix, this->vertexList);
 }
 
 void Object::updateModelMatrix()
 {
-	glm::mat4 translate = glm::translate(glm::mat4(1.0f), glm::vec3(position));
-	glm::mat4 rotate = glm::rotate(glm::mat4(1.0f), rotation.y, glm::vec3(0.0f, 1.0f, 0.0f));
-	glm::mat4 scale = glm::scale(glm::mat4(1.0f), glm::vec3(this->scale));
+	glm::mat4 translate = glm::mat4(1.0f);
+	glm::mat4 rotate = glm::mat4(1.0f);
+	glm::mat4 newScale = glm::mat4(1.0f);
 
-	this->modelMatrix = translate * rotate * scale;
-	if (this->collider != nullptr) this->collider->updateBounds(this->modelMatrix);
+	translate = glm::translate(translate, glm::vec3(this->position));
+	rotate = glm::rotate(rotate, glm::radians(this->rotation.x), glm::vec3(1.0f, 0.0f, 0.0f));
+	rotate = glm::rotate(rotate, glm::radians(this->rotation.y), glm::vec3(0.0f, 1.0f, 0.0f));
+	rotate = glm::rotate(rotate, glm::radians(this->rotation.z), glm::vec3(0.0f, 0.0f, 1.0f));
+	newScale = glm::scale(newScale, glm::vec3(this->scale));
+
+	this->modelMatrix = translate * rotate * newScale;
 }
 
 Player::Player(std::string fileName, glm::vec4 pos) {
@@ -198,7 +203,7 @@ void Player::loadDaeFile(const char* fileName) {
 
 	title = idText->Value();
 
-	printf("Mesh: %s \n", title);
+	//printf("Mesh: %s \n", title);
 
 	title = doc.FirstChildElement("COLLADA")->FirstChildElement("library_geometries")->FirstChildElement("geometry")->FirstChildElement("mesh")->FirstChildElement("source")->FirstChildElement("float_array")->GetText();
 

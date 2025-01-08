@@ -35,13 +35,13 @@ public:
 	Object();
 
 	Object(std::string fileName);
-
-	void initializeCollider(int levels);
 	
 	void createTriangle();
 
 	void move(double deltaTime);
 
+	void initializeCollider();
+	
 	void updateModelMatrix();
 };
 

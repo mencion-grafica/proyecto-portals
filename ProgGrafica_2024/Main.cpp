@@ -12,24 +12,26 @@ int main(int argc, char** argv)
 
 	Object* ground = new Object("data/ground.trs");
 	ground->scale = glm::vec4(100.0f, 1.0f, 100.0f, 0.0f);
+	ground->initializeCollider();
 	render->putObject(ground);
 
 	Object* object = new Object("data/cubeBL.trs");
-	object->position = glm::vec4(0, 0, 0, 1);
-	object->initializeCollider(1);
-	//object->texture = new Texture("data/front.png");
+	object->position = glm::vec4(0, 3, -10, 1);
+	object->initializeCollider();
 	render->putObject(object);
 
-	Player* player = new Player("./data/player.dae", glm::vec4(0, 0, 0, 1));
-	player->initializeCollider(3);
+	Player* player = new Player("./data/player.dae", glm::vec4(0, 3, 0, 1));
+	player->initializeCollider();
 	render->putObject(player);
 
+	// Necesario para que el render no se cague encima ¯\_(ツ)_/¯
+	Object* triangle = new Object();
+	render->putObject(triangle);
+	
 	Camera* camera = new Camera();
 	render->putCamera(camera);
-	
-	if (player->collider->checkCollisionWithSubColliders(object->collider)) std::cout << "Collision detected!\n";
-	else std::cout << "No collision detected!\n";
-	
+
+	render->renderColliders = true;
 	render->mainLoop();
 
 	return 0;
