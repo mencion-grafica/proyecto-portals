@@ -100,7 +100,6 @@ Object::Object(std::string fileName)
 				vertex_t& v = vertexList.back();
 				str >> v.vertexUv.x >> v.vertexUv.y;
 			}
-			/*
 			else if (key == "texture")
 			{
 				std::string fileName;
@@ -108,7 +107,6 @@ Object::Object(std::string fileName)
 				std::cout << "Reading texture: " << fileName << std::endl;
 				this->texture = new Texture(fileName);
 			}
-			*/
 		}
 	}
 

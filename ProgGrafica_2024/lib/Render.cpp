@@ -99,6 +99,24 @@ void Render::drawObjects()
 	}
 }
 
+void Render::drawObjects(glm::vec4 position, glm::vec4 direction)
+{
+	for (auto& obj : this->objectList)
+	{
+		if(obj->alwaysRender)
+		{
+			drawGL(obj->id);
+			continue;
+		}
+		glm::vec4 toObject = obj->position - position;
+		if (glm::dot(toObject, direction) > 0)
+		{
+			drawGL(obj->id);
+		}
+	}
+}
+
+
 void Render::setupObject(Object* object)
 {
 	bufferObject_t bo;
@@ -164,7 +182,6 @@ void Render::putCamera(Camera* camera)
 }
 
 
-
 void Render::move(double deltaTime)
 {
 	for (auto& obj : this->objectList)
@@ -199,7 +216,7 @@ void Render::mainLoop()
     		glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
     		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     		
-    		drawObjects();
+    		drawObjects(activeCamera->pivotPosition, glm::vec4(activeCamera->front.x, activeCamera->front.y, activeCamera->front.z, 1.0f));
     	}
     	objectList[3]->texture->GLId = cameraList[0]->fbt->GLId; 
     	activeCamera=cameraList[1];

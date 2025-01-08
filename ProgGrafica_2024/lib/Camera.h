@@ -23,6 +23,9 @@ public:
 
 	FrameBufferTexture *fbt;
 	Camera* followCamera = nullptr;
+	float yawOffset = 0.0f;
+	glm::vec3 portalPosition = glm::vec3(0.0f, 0.0f, 0.0f);
+	glm::vec4 pivotPosition = glm::vec4(0.0f, 0.0f, 0.0f, 1.0f);
 	
 	Camera();
 	
@@ -35,4 +38,6 @@ public:
 	glm::mat4 computeProjectionMatrix();
 	
 	virtual void move(double deltaTime);
+
+	
 };

@@ -21,11 +21,11 @@ public:
 	glm::vec4 position;
 	glm::vec4 rotation;
 	glm::vec4 scale;
-
 	Camera* camera = nullptr;
 	Program* prg = new Program();
 	material_t material = { 1.0f, 1.0f, 1.0f, 70 };
 	Texture* texture = nullptr;
+	bool alwaysRender = false;
 
 	std::vector<vertex_t> vertexList;
 	std::vector<int> idList;
