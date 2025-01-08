@@ -36,6 +36,7 @@ Object::Object(std::string fileName)
 	this->rotation = glm::vec4(0.0f, 0.0f, 0.0f, 1.0f);
 	this->scale = glm::vec4(1.0f);
 	this->modelMatrix = glm::mat4(1.0f);
+	this->activeGravity = false;
 
 	std::cout << "Leyendo desde fichero\n";
 
