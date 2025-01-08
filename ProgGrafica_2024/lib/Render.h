@@ -46,7 +46,7 @@ class Render
 
 		void drawObjects();
 
-		void drawObjects(glm::vec4 position, glm::vec4 direction);
+		void drawObjects(glm::vec4 position, glm::vec4 direction, Object* portal);
 
 		void initGL(const char* windowName, int sizeX, int sizeY);
 

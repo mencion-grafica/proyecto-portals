@@ -19,7 +19,7 @@ void mouse_callback(GLFWwindow* window, double xPosIn, double yPosIn)
 	float xPos = static_cast<float>(xPosIn);
 	float yPos = static_cast<float>(yPosIn);
 
-	Camera* cam = Render::r->cameraList[1];
+	Camera* cam = Render::r->cameraList[0];
 
 	if (cam->firstMouse)
 	{
@@ -99,10 +99,14 @@ void Render::drawObjects()
 	}
 }
 
-void Render::drawObjects(glm::vec4 position, glm::vec4 direction)
+void Render::drawObjects(glm::vec4 position, glm::vec4 direction, Object* portal)
 {
 	for (auto& obj : this->objectList)
 	{
+		if(obj == portal)
+		{
+			continue;
+		}
 		if(obj->alwaysRender)
 		{
 			drawGL(obj->id);
@@ -205,21 +209,30 @@ void Render::mainLoop()
     	move(deltaTime);
 
     	//for(int i=cameraList.size()-1;i>=0;i--)
-    	activeCamera=cameraList[0];
+    	activeCamera=cameraList[1];
     	activeCamera->fbt->Bind();
     	activeCamera->move(deltaTime);
     	{
-    		//auto cam=(*Render::r->cameraList.begin()+i);
-    	
-    		//cam->move(deltaTime);
-
     		glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
     		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     		
-    		drawObjects(activeCamera->pivotPosition, glm::vec4(activeCamera->front.x, activeCamera->front.y, activeCamera->front.z, 1.0f));
+    		drawObjects(activeCamera->pivotPosition, glm::vec4(activeCamera->front.x, activeCamera->front.y, activeCamera->front.z, 1.0f), objectList[5]);
     	}
-    	objectList[3]->texture->GLId = cameraList[0]->fbt->GLId; 
-    	activeCamera=cameraList[1];
+    	objectList[3]->texture->GLId = cameraList[1]->fbt->GLId;
+
+    	activeCamera=cameraList[2];
+    	activeCamera->fbt->Bind();
+    	activeCamera->move(deltaTime);
+	    {
+			glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    		
+			drawObjects(activeCamera->pivotPosition, glm::vec4(activeCamera->front.x, activeCamera->front.y, activeCamera->front.z, 1.0f), objectList[3]);
+	    }
+    	objectList[5]->texture->GLId = cameraList[2]->fbt->GLId;
+
+    	
+    	activeCamera=cameraList[0];
     	activeCamera->move(deltaTime);
     	glBindFramebuffer(GL_FRAMEBUFFER, 0);
 
