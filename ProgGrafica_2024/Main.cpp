@@ -15,8 +15,8 @@ int main(int argc, char** argv)
 	ground->scale = glm::vec4(100.0f, 1.0f, 100.0f, 0.0f);
 	render->putObject(ground);
 
-	Object* object = new Object("data/cubeBL.trs");
-	object->position = glm::vec4(0, 0, 0, 1);
+	Object* object = new Object("data/cubeBL.trs", true);
+	object->position = glm::vec4(0, 20, 0, 1);
 	object->texture = new Texture("data/front.png");
 	render->putObject(object);
 
