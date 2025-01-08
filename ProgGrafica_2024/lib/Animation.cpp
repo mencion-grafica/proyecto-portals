@@ -13,7 +13,7 @@ Animation::Animation(std::string fileName)
 	doc.LoadFile(fileNameChar);
 }
 
-Animation::Animation(const char* fileName, Joint rootJoint)
+Animation::Animation(const char* fileName, Joint* rootJoint)
 {
 	//Aqui iria toda la lectura del archivo y guardar los datos
 	XMLDocument doc;
@@ -39,6 +39,8 @@ Animation::Animation(const char* fileName, Joint rootJoint)
 		keyframesTime.push_back(stof(str));
 	}
 
+	this->duration = keyframesTime[keyframesTime.size() - 1];
+
 	std::vector<Keyframe> listKeyframes;
 	glm::mat4 transformationMatrix;
 	std::vector<JointTransform> jointTransforms;
@@ -49,7 +51,7 @@ Animation::Animation(const char* fileName, Joint rootJoint)
 	std::vector<std::string> stringMatrixElements;
 	std::vector<float> floatMatrixElements;
 
-	std::cout << rootJoint.idCounter << std::endl;
+	std::cout << rootJoint->idCounter << std::endl;
 
 	for (int i = 0; i < keyframesTime.size(); i++) {
 		listKeyframes.push_back(Keyframe(keyframesTime[i]));
@@ -57,7 +59,7 @@ Animation::Animation(const char* fileName, Joint rootJoint)
 
 	this->duration = keyframesTime[keyframesTime.size() - 1];
 
-	for (int j = 0; j < rootJoint.idCounter; j++) {
+	for (int j = 0; j < rootJoint->idCounter; j++) {
 		if (j != 0) {
 			currentJointAnimation = currentJointAnimation->NextSiblingElement("animation");
 		}
@@ -77,13 +79,21 @@ Animation::Animation(const char* fileName, Joint rootJoint)
 		for (int i = 0; i < keyframesTime.size(); i++) {
 			transformationMatrix = glm::mat4{ floatMatrixElements[0 + index], floatMatrixElements[1 + index], floatMatrixElements[2 + index], floatMatrixElements[3 + index], floatMatrixElements[4 + index], floatMatrixElements[5 + index], floatMatrixElements[6 + index], floatMatrixElements[7 + index], floatMatrixElements[8 + index], floatMatrixElements[9 + index], floatMatrixElements[10 + index], floatMatrixElements[11 + index], floatMatrixElements[12 + index], floatMatrixElements[13 + index], floatMatrixElements[14 + index], floatMatrixElements[15 + index] };
 
-			glm::vec3 position = glm::vec3{ floatMatrixElements[3 + index], floatMatrixElements[7 + index], floatMatrixElements[11 + index] };
-			glm::mat3 rotation = glm::mat3(transformationMatrix);
-			glm::quat quatRotation = glm::quat(rotation);
+			glm::vec3 position = glm::vec3(transformationMatrix[0][0], transformationMatrix[0][1], transformationMatrix[0][2]);
+
+			glm::mat3 rotationMatrix = glm::mat3(
+				glm::normalize(glm::vec3(transformationMatrix[0][0], transformationMatrix[0][1], transformationMatrix[0][2])),
+				glm::normalize(glm::vec3(transformationMatrix[1][0], transformationMatrix[1][1], transformationMatrix[1][2])),
+				glm::normalize(glm::vec3(transformationMatrix[2][0], transformationMatrix[2][1], transformationMatrix[2][2]))
+			);
+
+			glm::quat quatRotation = glm::quat_cast(rotationMatrix);
+
+			quatRotation = glm::normalize(quatRotation);
 
 			//jointTransforms.push_back(JointTransform(position, rotation));
 
-			listKeyframes[i].AddJointKeyframe(JointTransform(position, rotation));
+			listKeyframes[i].AddJointKeyframe(JointTransform(position, quatRotation));
 
 			index += 16;
 		}

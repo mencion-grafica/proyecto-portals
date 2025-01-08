@@ -99,25 +99,32 @@ int Joint::GetIdCounter()
 	return idCounter;
 }
 
-void Joint::CalcInverseBindTransform(glm::mat4 parentBindTransform)
-{
-	glm::mat4 bindTransform = parentBindTransform * localBindTransform;
+void Joint::CalcInverseBindTransform(glm::mat4 parentTransform) {
+	// Rotación de ajuste para alinear sistemas de coordenadas
+	glm::mat4 adjustCoordSystem = glm::rotate(glm::mat4(1.0f), glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
 
-	this->inverseBindTransform = glm::inverse(bindTransform);
+	glm::mat4 globalTransform = parentTransform * adjustCoordSystem * this->localBindTransform;
 
-	for (Joint child : children) {
-		child.CalcInverseBindTransform(bindTransform);
+	//std::cout << "Joint " << id << " Matrix:\n" << glm::to_string(globalTransform) << "\n";
+
+	this->inverseBindTransform = glm::inverse(globalTransform);
+
+	for (Joint& child : this->children) {
+		child.CalcInverseBindTransform(globalTransform);
 	}
 }
 
+
 void Joint::SetTransformMatrix(glm::mat4 matrix)
 {
-	transformationMatrix = matrix;
+	this->transformationMatrix = matrix;
+	//std::cout << "SetTransformMatrix de Joint " << id << " Matrix:\n" << glm::to_string(this->transformationMatrix) << "\n";
 }
 
 glm::mat4 Joint::GetTransformationMatrix()
 {
-	return transformationMatrix;
+	//std::cout << "GetTransformMatrix de Joint " << id << " Matrix:\n" << glm::to_string(this->transformationMatrix) << "\n";
+	return this->transformationMatrix;
 }
 
 Joint Joint::GetJointById(int id)

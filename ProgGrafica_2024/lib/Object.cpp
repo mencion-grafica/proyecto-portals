@@ -51,6 +51,7 @@ Object::Object(std::string fileName)
 	}
 
 	bool existsNormal = false;
+	isAnimated = false;
 	while (std::getline(f, line, '\n')) 
 	{
 		std::istringstream str(line);

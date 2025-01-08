@@ -15,7 +15,7 @@ private:
 public:
 	Animation();
 	Animation(std::string fileName);
-	Animation(const char* fileName, Joint rootJoint);
+	Animation(const char* fileName, Joint* rootJoint);
 	float GetDuration();
 	std::vector<Keyframe> GetKeyframes();
 };

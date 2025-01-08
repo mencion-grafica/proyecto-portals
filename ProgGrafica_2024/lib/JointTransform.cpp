@@ -15,6 +15,8 @@ JointTransform JointTransform::Interpolate(JointTransform frame1, JointTransform
 	glm::vec3 newPosition = glm::mix(frame1.position, frame2.position, progress);
 	glm::quat newRotation = glm::slerp(frame1.rotation, frame2.rotation, progress);
 
+	//std::cout << progress << std::endl;
+
 	JointTransform newJointTransform = JointTransform(newPosition, newRotation);
 
 	return newJointTransform;

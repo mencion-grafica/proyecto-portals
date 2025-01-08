@@ -126,6 +126,7 @@ void Program::readVarList()
 		unsigned int location = 0;
 
 		glGetActiveUniform(programID, (GLuint) idx, buffSize, &length, &size, &type, name);
+
 		location = glGetUniformLocation(programID, name);
 
 		std::cout << "Uniform: " << name << " Location: " << location << std::endl;
@@ -145,22 +146,16 @@ void Program::setMVP(glm::mat4 mvp)
 	}
 }
 
-void Program::setTransformsArray(glm::mat4* transforms)
+void Program::setTransformsArray(const std::vector<glm::mat4>& transforms, int i)
 {
-	if (varList.find("jointTransforms[0]") != varList.end()) {
-		//glUniformMatrix4fv(varList["jointTransforms"], sizeof(transforms), GL_FALSE, transforms);
-	}
+	//glUniformMatrix4fv(glGetUniformLocation(programID, "jointTransforms[" + std::to_string(i) + "]"), 1, false, transforms[i]);
 }
 
 void Program::setMatrix(std::string name, glm::mat4 m)
 {
-	if (varList.find(name) != varList.end()) 
-	{
+	if (varList.find(name) != varList.end()) {
+		//GLint location = varList["jointTransforms"];
 		glUniformMatrix4fv(varList[name], 1, GL_FALSE, &m[0][0]);
-	}
-	else 
-	{
-		//std::cout << "ERROR: " << __FILE__ << ":" << __LINE__ << " " << __FUNCTION__ << ". Trying to set " << name << std::endl;
 	}
 }
 

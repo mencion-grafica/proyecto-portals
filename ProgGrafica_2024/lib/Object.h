@@ -31,6 +31,8 @@ public:
 
 	glm::mat4 modelMatrix;
 
+	bool isAnimated;
+
 	Object();
 
 	Object(std::string fileName);

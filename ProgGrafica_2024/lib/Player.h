@@ -9,9 +9,10 @@
 class Player : public Object
 {
 private:
-	Joint rootJoint;
+	Joint* rootJoint;
 	int jointCount;
 	Animator animator;
+	std::vector<glm::vec4> originalPositions;
 
 public:
 	Player();
@@ -24,11 +25,13 @@ public:
 
 	void move(double deltaTime) override;
 
-	void StartNewAnimation(Animation animation);
+	void StartNewAnimation(Animation* animation);
 
 	std::vector<glm::mat4> GetJointTransforms();
 
 	void AddJointsToList(Joint joint, std::vector<glm::mat4>& list);
 
 	int GetJointCount();
+
+	void UpdateVertex();
 };

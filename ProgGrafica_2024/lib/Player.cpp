@@ -1,5 +1,7 @@
 #include "Player.h"
 
+const int MAX_WEIGHTS = 4;
+
 Player::Player()
 {
 }
@@ -69,7 +71,7 @@ void Player::loadDaeFile(const char* fileName) {
 	int numVertex = count->IntValue();
 
 	//Joints
-	rootJoint = Joint(fileName);
+	this->rootJoint = new Joint(fileName);
 
 	const char* numJointsList;
 	std::vector<std::string> stringNumJoints;
@@ -101,6 +103,21 @@ void Player::loadDaeFile(const char* fileName) {
 		intlistIdJointsWeights.push_back(stoi(str));
 	}
 
+	const char* listWeights;
+	std::vector<std::string> stringlistWeights;
+	std::vector<float> floatlistWeights;
+
+	listWeights = doc.FirstChildElement("COLLADA")->FirstChildElement("library_controllers")->FirstChildElement("controller")->FirstChildElement("skin")->FirstChildElement("source")->NextSiblingElement("source")->NextSiblingElement("source")->FirstChildElement("float_array")->GetText();
+	std::stringstream ss6(listWeights);
+
+	while (getline(ss6, auxString, ' ')) {
+		stringlistWeights.push_back(auxString);
+	}
+
+	for (std::string str : stringlistWeights) {
+		floatlistWeights.push_back(stof(str));
+	}
+
 	int counterNum = 0;
 
 	//Por cada vértice en el .dae, que eso lo sacamos del count del accesor
@@ -112,6 +129,14 @@ void Player::loadDaeFile(const char* fileName) {
 		pos.z = floatPositions.at(0);
 		floatPositions.erase(floatPositions.begin());
 		pos.w = 1.0f;
+
+		glm::mat4 adjustCoordSystem = glm::rotate(glm::mat4(1.0f), glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+		glm::vec4 adjustedPos = adjustCoordSystem * glm::vec4(pos.x, pos.y, pos.z, 1.0f);
+
+		pos.x = adjustedPos.x;
+		pos.y = adjustedPos.y;
+		pos.z = adjustedPos.z;
+
 
 		vert.vertexPos = pos;
 
@@ -130,7 +155,7 @@ void Player::loadDaeFile(const char* fileName) {
 
 		glm::ivec4 joints = glm::ivec4{ -1, -1, -1, -1 };
 		vert.idJoints = joints;
-		glm::vec4 weights = glm::vec4{ -1.0f, -1.0f, -1.0f, -1.0f };
+		glm::vec4 weights = glm::vec4{ 0.0f, 0.0f, 0.0f, 0.0f };
 		vert.weightJoints = weights;
 
 		int savedJoints = 0;
@@ -144,9 +169,11 @@ void Player::loadDaeFile(const char* fileName) {
 		for (int j = 0; j < savedJoints; j++) {
 			vert.idJoints[j] = intlistIdJointsWeights[counterNum];
 			counterNum++;
-			vert.weightJoints[j] = intlistIdJointsWeights[counterNum];
+			vert.weightJoints[j] = floatlistWeights[intlistIdJointsWeights[counterNum]];
 			counterNum++;
 		}
+
+		vert.weightJoints = glm::normalize(vert.weightJoints);
 
 		vertexList.push_back(vert);
 	}
@@ -170,9 +197,9 @@ void Player::loadDaeFile(const char* fileName) {
 
 	glm::mat4 empty(1.0f);
 
-	rootJoint.CalcInverseBindTransform(empty);
+	this->rootJoint->CalcInverseBindTransform(empty);
 
-	jointCount = rootJoint.GetIdCounter();
+	jointCount = rootJoint->GetIdCounter();
 
 	//Textura
 	//TODO: Faltan las UVs
@@ -181,7 +208,13 @@ void Player::loadDaeFile(const char* fileName) {
 	std::string route = "data/" + stringTexture;
 	this->texture = new Texture(route);*/
 
-	Animation animation = Animation(fileName, rootJoint);
+	isAnimated = true;
+
+	for (int i = 0; i < vertexList.size(); i++) {
+		this->originalPositions.push_back(vertexList[i].vertexPos);
+	}
+
+	Animation* animation = new Animation(fileName, rootJoint);
 	this->animator = Animator(animation);
 	StartNewAnimation(animation);
 
@@ -196,10 +229,12 @@ void Player::loadDaeFile(const char* fileName) {
 
 void Player::move(double deltaTime)
 {
+	updateModelMatrix();
 	animator.Update(deltaTime, this->rootJoint);
+	//UpdateVertex();
 }
 
-void Player::StartNewAnimation(Animation animation)
+void Player::StartNewAnimation(Animation* animation)
 {
 	animator.StartNewAnimation(animation);
 }
@@ -207,7 +242,7 @@ void Player::StartNewAnimation(Animation animation)
 std::vector<glm::mat4> Player::GetJointTransforms()
 {
 	std::vector<glm::mat4> jointMatrices;
-	AddJointsToList(rootJoint, jointMatrices);
+	AddJointsToList(*rootJoint, jointMatrices);
 
 	return jointMatrices;
 }
@@ -215,6 +250,8 @@ std::vector<glm::mat4> Player::GetJointTransforms()
 void Player::AddJointsToList(Joint joint, std::vector<glm::mat4>& list)
 {
 	list.push_back(joint.GetTransformationMatrix());
+
+	//std::cout << "TransformationMatrix obtenida de Joint " << joint.id << " Matrix:\n" << glm::to_string(list.back()) << "\n";
 
 	for (Joint child : joint.children) {
 		AddJointsToList(child, list);
@@ -225,3 +262,29 @@ int Player::GetJointCount()
 {
 	return jointCount;
 }
+
+void Player::UpdateVertex()
+{
+	std::vector<glm::mat4> list = GetJointTransforms();
+	for (int j = 0; j < vertexList.size(); j++) {
+		glm::vec4 totalPos{0.0f};
+		glm::vec3 totalNormal{0.0f};
+
+		for (int i = 0; i < MAX_WEIGHTS; i++) {
+			if (vertexList[j].idJoints[i] != -1) {
+				glm::vec4 localPos = list[vertexList[j].idJoints[i]] * vertexList[j].vertexPos;
+				totalPos += localPos * vertexList[j].weightJoints[i];
+
+				glm::mat3 normalMatrix = glm::mat3{ list[vertexList[j].idJoints[i]] };
+				glm::vec3 localNormal = glm::normalize(normalMatrix * vertexList[j].vertexNormal);
+				totalNormal += localNormal * vertexList[j].weightJoints[i];
+			}
+		}
+
+		vertexList[j].vertexPos = this->modelMatrix * totalPos;
+		vertexList[j].vertexNormal = glm::vec4{ normalize(glm::mat3(glm::inverse(glm::transpose(this->modelMatrix))) * totalNormal), 1.0f };
+	}
+	
+}
+
+
