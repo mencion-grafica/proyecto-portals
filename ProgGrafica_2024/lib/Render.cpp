@@ -136,7 +136,7 @@ void Render::drawGL(int id)
 
 	this->objectList[id]->prg->setMVP(MVP);
 	this->objectList[id]->prg->setMatrix("M", M);
-	//for para array de transforms del shader
+
 	if (typeid(*this->objectList[id]) == typeid(Player)) {
 		Player* player = dynamic_cast<Player*> (this->objectList[id]);
 

@@ -6,7 +6,6 @@ Animation::Animation()
 
 Animation::Animation(std::string fileName)
 {
-	//Aqui iria toda la lectura del archivo y guardar los datos
 	const char* fileNameChar = fileName.c_str();
 	XMLDocument doc;
 
@@ -15,7 +14,6 @@ Animation::Animation(std::string fileName)
 
 Animation::Animation(const char* fileName, Joint* rootJoint)
 {
-	//Aqui iria toda la lectura del archivo y guardar los datos
 	XMLDocument doc;
 
 	doc.LoadFile(fileName);
@@ -105,7 +103,6 @@ Animation::Animation(const char* fileName, Joint* rootJoint)
 	}
 
 	this->keyframes = listKeyframes;
-	//Por cada hijo del rootJoint pasar al siguiente hermano en el archivo y cargar los datos en el keyframe
 }
 
 float Animation::GetDuration()
