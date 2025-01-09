@@ -38,9 +38,9 @@ int main(int argc, char** argv)
 		}
 	}
 
-	for (int i = 0; i < 35; i++) {
+	for (int i = 0; i < 297; i++) {
 		Object* object = new Object(filenames[i]);
-		object->scale = glm::vec4(0.1f, 0.1f, 0.1f, 1.0f);
+		//object->scale = glm::vec4(0.1f, 0.1f, 0.1f, 1.0f);
 		render->putObject(object);
 	}
 
