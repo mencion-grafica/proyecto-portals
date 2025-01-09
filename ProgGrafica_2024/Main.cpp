@@ -21,8 +21,8 @@ int main(int argc, char** argv)
 	ground->initializeCollider();
 	render->putObject(ground);
 
-	Object* object = new Object("data/cubeBL.trs");
-	object->position = glm::vec4(0, 3, -10, 1);
+	Object* object = new Object("data/cubeBL.trs", true);
+	object->position = glm::vec4(0, 20, -10, 1);
 	object->initializeCollider();
 	render->putObject(object);
 
