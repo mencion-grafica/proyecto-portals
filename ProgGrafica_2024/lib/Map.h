@@ -55,7 +55,7 @@ private:
 	glm::vec3 getCenter(Solid_t& solid);
 
 
-	void writeTRSFile(std::string filenam);
+	void writeTRSFile(std::vector<Solid_t> solidList);
 
 	std::vector<vertex_t> vertexList;
 	std::vector<int> idList;

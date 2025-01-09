@@ -2,18 +2,16 @@
 
 Map::Map()
 {
-
 }
 
 Map::Map(std::string filename) {
 	leerArchivo(filename);
 
-	for (auto& s : worldMap.solidList)
-		writeTRSFile(std::to_string(s.id));
+	writeTRSFile(worldMap.solidList);
 }
 
 void Map::leerArchivo(std::string filename) {
-	//std::cout << "Leyendo desde fichero: " + filename + "\n";
+	std::cout << "Leyendo desde fichero: " + filename + "\n";
 
 	std::string line;
 	std::string key;
@@ -45,6 +43,7 @@ void Map::leerArchivo(std::string filename) {
 	}
 
 	for (auto& s : worldMap.solidList) {
+		//std::cout << s.id << std::endl;
 		getPlane(s);
 		pushVertices(s);
 	}
@@ -265,44 +264,51 @@ glm::vec3 Map::getCenter(Solid_t& solid) {
 	return glm::vec3(pX, pY, pZ);
 }
 
-void Map::writeTRSFile(std::string filename) {
-	filename += ".trs";
+void Map::writeTRSFile(std::vector<Solid_t>solidList) {
 	//Hay que crear el directorio con anterioridad o modificar la ruta a donde cada usuario quiera
 	std::string path = "data/Map/";
-	//std::cout << "Escribiendo en fichero: "+ path + filename + "\n";
-	std::fstream f(path+filename, std::ios::in);
+	std::string filename;
+	for (auto& s : solidList) {
+		filename = std::to_string(s.id);
+		filename += ".trs";
+		std::cout << "Escribiendo en fichero: " + path + filename + "\n";
+		std::fstream f(path + filename, std::ios::in);
 
-	if (!f.is_open()) {
-		f.open(path+filename, std::ios::out);
+		if (!f.is_open()) {
+			f.open(path + filename, std::ios::out);
+		}
+		else {
+			f.open(path + filename, std::ios::app);
+		}
+
+		for (auto& i : s.vertexList) {
+			std::cout << s.id << std::endl;
+			f << "vert " << i.x << " " << i.y << " " << i.z << std::endl;
+			std::cout << i.x << " " << i.y << " " << i.z << std::endl;
+			f << "color 0 0 0 0" << std::endl;
+		}
+
+		f << "face 0 1 3" << std::endl;
+		f << "face 2 0 3" << std::endl;
+
+		f << "face 4 7 5" << std::endl;
+		f << "face 6 7 4" << std::endl;
+
+		f << "face 4 0 2" << std::endl;
+		f << "face 6 4 2" << std::endl;
+
+		f << "face 1 5 7" << std::endl;
+		f << "face 3 1 7" << std::endl;
+
+		f << "face 2 3 7" << std::endl;
+		f << "face 6 2 7" << std::endl;
+
+		f << "face 4 5 1" << std::endl;
+		f << "face 0 4 1" << std::endl;
+
+		f << "svert data/shader.vert" << std::endl;
+		f << "sfrag data/shader.frag" << std::endl;
+
+		f.close();
 	}
-	else {
-		f.open(path+filename, std::ios::app);
-	}
-
-	for (auto& s : worldMap.solidList[id].vertexList) {
-		f << "vert " << s.x << " " << s.y << " " << s.z << std::endl;
-		f << "color 0 0 0 0" << std::endl;
-	}
-	f << "face 0 1 3" << std::endl;
-	f << "face 2 0 3" << std::endl;
-
-	f << "face 4 7 5" << std::endl;
-	f << "face 6 7 4" << std::endl;
-
-	f << "face 4 0 2" << std::endl;
-	f << "face 6 4 2" << std::endl;
-
-	f << "face 1 5 7" << std::endl;
-	f << "face 3 1 7" << std::endl;
-
-	f << "face 2 3 7" << std::endl;
-	f << "face 6 2 7" << std::endl;
-
-	f << "face 4 5 1" << std::endl;
-	f << "face 0 4 1" << std::endl;
-
-	f << "svert data/shader.vert" << std::endl;
-	f << "sfrag data/shader.frag" << std::endl;
-
-	f.close();
 }

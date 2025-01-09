@@ -15,6 +15,7 @@
     <ClCompile Include="lib\Keyframe.cpp" />
     <ClCompile Include="lib\Player.cpp" />
     <ClCompile Include="lib\tinyxml2.cpp" />
+    <ClCompile Include="lib\Texture.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="lib\Camera.h" />
@@ -32,6 +33,8 @@
     <ClInclude Include="lib\Keyframe.h" />
     <ClInclude Include="lib\Player.h" />
     <ClInclude Include="lib\tinyxml2.h" />
+    <ClInclude Include="lib\stb_image.h" />
+    <ClInclude Include="lib\Texture.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="data\cube.trs" />

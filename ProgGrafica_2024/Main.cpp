@@ -18,9 +18,9 @@ int main(int argc, char** argv)
 
 	/*Object* ground = new Object("./data/ground.trs");
 	ground->scale = glm::vec4(100.0f, 1.0f, 100.0f, 0.0f);
-	render->putObject(ground);*/
+	render->putObject(ground);
 
-	/*Object* object = new Object("./data/cube.trs");
+	Object* object = new Object("./data/cube.trs");
 	object->position = glm::vec4(0, 0, 0, 1);
 	render->putObject(object);*/
 
@@ -38,12 +38,24 @@ int main(int argc, char** argv)
 		}
 	}
 
-	for (auto& f : filenames) {
+	for (int i = 0; i < 35; i++) {
+		Object* object = new Object(filenames[i]);
+		object->scale = glm::vec4(0.1f, 0.1f, 0.1f, 1.0f);
+		render->putObject(object);
+	}
+
+	/*for (int i = 35; i < 70; i++) {
+		Object* object = new Object(filenames[i]);
+		object->scale = glm::vec4(0.1f, 0.1f, 0.1f, 1.0f);
+		render->putObject(object);
+	}*/
+
+	/*for (auto& f : filenames) {
 		std::cout << "Leyendo archivo: " + f << std::endl;
 		Object* object = new Object(f);
 		object->scale = glm::vec4(0.1f, 0.1f, 0.1f, 1.0f);
 		render->putObject(object);
-	}
+	}*/
 	
 	/*Player* player = new Player("./data/model.dae");
 	player->position = glm::vec4(0, 0, 0, 1);

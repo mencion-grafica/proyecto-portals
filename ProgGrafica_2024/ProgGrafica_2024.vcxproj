@@ -31,6 +31,7 @@
     <ClCompile Include="lib\Player.cpp" />
     <ClCompile Include="lib\Render.cpp" />
     <ClCompile Include="lib\RenderProgram.cpp" />
+    <ClCompile Include="lib\Texture.cpp" />
     <ClCompile Include="lib\tinyxml2.cpp" />
     <ClCompile Include="Main.cpp" />
   </ItemGroup>
@@ -48,6 +49,8 @@
     <ClInclude Include="lib\Player.h" />
     <ClInclude Include="lib\Render.h" />
     <ClInclude Include="lib\RenderProgram.h" />
+    <ClInclude Include="lib\stb_image.h" />
+    <ClInclude Include="lib\Texture.h" />
     <ClInclude Include="lib\tinyxml2.h" />
     <ClInclude Include="lib\vertex.h" />
   </ItemGroup>
