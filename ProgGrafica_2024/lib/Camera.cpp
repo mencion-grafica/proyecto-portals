@@ -1,5 +1,7 @@
 #include "Camera.h"
 
+#include "Render.h"
+
 Camera::Camera()
 {
 
@@ -41,6 +43,7 @@ void Camera::move(float deltaTime)
 	if (InputManager::keysState[GLFW_KEY_A]) this->position -= glm::normalize(glm::cross(this->front, this->up)) * speed;
 	if (InputManager::keysState[GLFW_KEY_D]) this->position += glm::normalize(glm::cross(this->front, this->up)) * speed;
 
+	if (Render::r->checkCollisions(glm::vec4(this->position, 1.0f))) this->position += speed * this->up;
 	if (InputManager::keysState[GLFW_KEY_E]) this->position += speed * this->up;
 	if (InputManager::keysState[GLFW_KEY_Q]) this->position -= speed * this->up;
 }

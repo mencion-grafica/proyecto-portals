@@ -6,8 +6,8 @@
 #include "RenderProgram.h"
 #include "tinyxml2.h"
 #include "Joint.h"
+#include "Collider.h"
 #include "Texture.h"
-#include "Animator.h"
 
 using namespace tinyxml2;
 
@@ -25,6 +25,7 @@ public:
 	Program* prg = new Program();
 	material_t material = { 1.0f, 1.0f, 1.0f, 70 };
 	Texture* texture = nullptr;
+	Collider* collider = nullptr;
 
 	std::vector<vertex_t> vertexList;
 	std::vector<int> idList;
@@ -34,10 +35,12 @@ public:
 	Object();
 
 	Object(std::string fileName);
-
+	
 	void createTriangle();
 
 	virtual void move(double deltaTime);
 
+	void initializeCollider();
+	
 	void updateModelMatrix();
 };

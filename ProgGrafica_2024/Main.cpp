@@ -9,25 +9,34 @@
 int main(int argc, char** argv)
 {
 	Render* render = new Render();
-	render->initGL("Proyecto Portal", 800, 600);
+	render->initGL("Proyecto Portal", 1200, 800);
 
 	Object* ground = new Object("data/ground.trs");
 	ground->scale = glm::vec4(100.0f, 1.0f, 100.0f, 0.0f);
+	ground->initializeCollider();
 	render->putObject(ground);
 
 	Object* object = new Object("data/cubeBL.trs");
-	object->position = glm::vec4(0, 0, 0, 1);
-	object->texture = new Texture("data/front.png");
+	object->position = glm::vec4(0, 3, -10, 1);
+	object->initializeCollider();
 	render->putObject(object);
 
-	Player* player = new Player("./data/model.dae");
-	player->position = glm::vec4(0, 0, 0, 1);
+	Player* player = new Player("./data/model.dae", glm::vec4(0, 3, 0, 1));
+	player->initializeCollider();
 	render->putObject(player);
 
+	// Necesario para que el render no se cague encima ¯\_(ツ)_/¯
+	Object* triangle = new Object();
+	render->putObject(triangle);
+	triangle->prg->addShader("data/shader.vert");
+	triangle->prg->addShader("data/shader.frag");
+	triangle->prg->link();
+	
 	Camera* camera = new Camera();
 	render->putCamera(camera);
-	
-	render->mainLoop();
 
+	render->renderColliders = true;
+	render->mainLoop();
+	
 	return 0;
 }

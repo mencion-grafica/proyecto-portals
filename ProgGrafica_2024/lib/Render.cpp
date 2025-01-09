@@ -87,7 +87,7 @@ void Render::initGL(const char* windowName, int sizeX, int sizeY)
 	InputManager::initInputManager(window);
 
 	glEnable(GL_DEPTH_TEST);
-	//glEnable(GL_CULL_FACE);
+	glEnable(GL_CULL_FACE);
 }
 
 void Render::drawObjects()
@@ -171,7 +171,28 @@ void Render::move(float deltaTime)
 	for (auto& obj : this->objectList)
 	{
 		obj->move(deltaTime);
+		if (obj->collider != nullptr) obj->collider->computeBounds(obj->modelMatrix, obj->vertexList);
 	}
+}
+
+bool Render::checkCollisions(Collider* collider)
+{
+	for (auto& obj : this->objectList)
+	{
+		if (obj->collider == nullptr || obj->collider == collider) continue;
+		if (obj->collider->checkCollision(collider)) return true;
+	}
+	return false;
+}
+
+bool Render::checkCollisions(glm::vec4 position)
+{
+	for (auto& obj : this->objectList)
+	{
+		if (obj->collider == nullptr) continue;
+		if (obj->collider->checkCollision(position)) return true;
+	}
+	return false;
 }
 
 void Render::mainLoop() 
@@ -191,8 +212,19 @@ void Render::mainLoop()
 
 		this->camera->move(deltaTime);
 		move(deltaTime);
-
+    	
 		drawObjects();
+
+    	if (this->renderColliders)
+    	{
+    		// Debugging: Draw colliders
+			glPolygonMode(GL_FRONT_AND_BACK, GL_LINE); // Enable wireframe mode
+			//glDisable(GL_CULL_FACE);                            // Optional: Disable face culling to see inside
+			glColor3f(1.0f, 0.0f, 0.0f);           // Red color for debugging
+    		glLineWidth(5.0f);					          // Line width for debugging
+			for (auto& obj : this->objectList) if (obj->collider != nullptr) obj->collider->draw();
+			glPolygonMode(GL_FRONT_AND_BACK, GL_FILL); // Reset to fill mode
+    	}
 		
         glfwPollEvents();
         glfwSwapBuffers(window);

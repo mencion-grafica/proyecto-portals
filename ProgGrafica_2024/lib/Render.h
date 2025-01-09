@@ -20,6 +20,8 @@ class Render
 		int width;
 		int height;
 
+		bool renderColliders = false;
+
 		std::vector<Object*> objectList;
 
 		typedef struct {
@@ -42,6 +44,9 @@ class Render
 
 		void move(float deltaTime);
 
+		bool checkCollisions(Collider* collider);
+		bool checkCollisions(glm::vec4 position);
+	
 		void drawObjects();
 
 		void initGL(const char* windowName, int sizeX, int sizeY);
