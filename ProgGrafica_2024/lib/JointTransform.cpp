@@ -25,7 +25,7 @@ JointTransform JointTransform::Interpolate(JointTransform frame1, JointTransform
 glm::mat4 JointTransform::GetLocalTransform()
 {
 	glm::mat4 matrix = glm::mat4(1.0f);
-	glm::translate(matrix, position);
+	matrix = glm::translate(matrix, position);
 	matrix *= glm::mat4_cast(rotation);
 
 	return matrix;

@@ -72,10 +72,14 @@ Joint::Joint(int id, XMLElement* joint) {
 		floatElements.push_back(stof(str));
 	}
 
+	//glm::mat4 adjustCoordSystem = glm::rotate(glm::mat4(1.0f), glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+
 	this->localBindTransform = glm::mat4(floatElements[0], floatElements[1], floatElements[2], floatElements[3]
 									, floatElements[4], floatElements[5], floatElements[6], floatElements[7]
 									, floatElements[8], floatElements[9], floatElements[10], floatElements[11]
 									, floatElements[12], floatElements[13], floatElements[14], floatElements[15]);
+
+	//this->localBindTransform *= adjustCoordSystem;
 
 	if (joint->FirstChildElement("node") != NULL) {
 		XMLElement* currentJoint = joint->FirstChildElement("node");
@@ -113,7 +117,6 @@ void Joint::CalcInverseBindTransform(glm::mat4 parentTransform) {
 		child.CalcInverseBindTransform(globalTransform);
 	}
 }
-
 
 void Joint::SetTransformMatrix(glm::mat4 matrix)
 {

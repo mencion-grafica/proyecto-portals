@@ -144,12 +144,19 @@ void Render::drawGL(int id)
 
 		std::vector<glm::mat4> list = player->GetJointTransforms();
 
-		GLint jointTransformsLocation = glGetUniformLocation(this->objectList[id]->prg->programID, "jointTransforms");
-		glUniformMatrix4fv(jointTransformsLocation, list.size(), GL_FALSE, &list[0][0][0]);
+		//this->objectList[id]->prg->setMatrix("jointTransforms", &list[0][0][0]);
 
-		/*for (int i = 0; i < list.size(); i++) {
-			this->objectList[id]->prg->setMatrix("jointTransforms[" + std::to_string(i) + "]", list[i]);
+		/*GLint jointTransformsLocation = glGetUniformLocation(this->objectList[id]->prg->programID, "jointTransforms");
+		if (jointTransformsLocation != -1) {
+			glUniformMatrix4fv(jointTransformsLocation, list.size(), GL_FALSE, &list[0][0][0]);
+		}
+		else {
+			std::cerr << "Error: jointTransforms uniform not found in shader!" << std::endl;
 		}*/
+
+		for (int i = 0; i < list.size(); i++) {
+			this->objectList[id]->prg->setMatrix("jointTransforms[" + std::to_string(i) + "]", list[i]);
+		}
 	}
 	this->objectList[id]->prg->setVertexAttribute("vPos", 4, GL_FLOAT, sizeof(vertex_t), (void*) offsetof(vertex_t, vertexPos));
 	this->objectList[id]->prg->setVertexAttribute("vColor", 4, GL_FLOAT, sizeof(vertex_t), (void*) offsetof(vertex_t, vertexColor));

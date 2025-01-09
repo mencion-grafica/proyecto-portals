@@ -242,6 +242,7 @@ void Player::StartNewAnimation(Animation* animation)
 std::vector<glm::mat4> Player::GetJointTransforms()
 {
 	std::vector<glm::mat4> jointMatrices;
+
 	AddJointsToList(*rootJoint, jointMatrices);
 
 	return jointMatrices;
@@ -284,7 +285,7 @@ void Player::UpdateVertex()
 		vertexList[j].vertexPos = this->modelMatrix * totalPos;
 		vertexList[j].vertexNormal = glm::vec4{ normalize(glm::mat3(glm::inverse(glm::transpose(this->modelMatrix))) * totalNormal), 1.0f };
 	}
-	
+	updateModelMatrix();
 }
 
 

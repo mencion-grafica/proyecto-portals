@@ -154,10 +154,16 @@ void Object::move(double deltaTime)
 
 void Object::updateModelMatrix()
 {
-	glm::mat4 translate = glm::translate(glm::mat4(1.0f), glm::vec3(position));
-	glm::mat4 rotate = glm::rotate(glm::mat4(1.0f), rotation.y, glm::vec3(0.0f, 1.0f, 0.0f));
-	glm::mat4 scale = glm::scale(glm::mat4(1.0f), glm::vec3(this->scale));
+	glm::mat4 translate = glm::mat4(1.0f);
+	glm::mat4 rotate = glm::mat4(1.0f);
+	glm::mat4 newScale = glm::mat4(1.0f);
 
-	this->modelMatrix = translate * rotate * scale;
+	translate = glm::translate(translate, glm::vec3(this->position));
+	rotate = glm::rotate(rotate, glm::radians(this->rotation.x), glm::vec3(1.0f, 0.0f, 0.0f));
+	rotate = glm::rotate(rotate, glm::radians(this->rotation.y), glm::vec3(0.0f, 1.0f, 0.0f));
+	rotate = glm::rotate(rotate, glm::radians(this->rotation.z), glm::vec3(0.0f, 0.0f, 1.0f));
+	newScale = glm::scale(newScale, glm::vec3(this->scale));
+
+	this->modelMatrix = translate * rotate * newScale;
 }
 
