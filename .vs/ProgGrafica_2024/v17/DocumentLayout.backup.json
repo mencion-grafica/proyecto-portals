@@ -3,12 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\samce\\Desktop\\Uni_4\\Proyectos4Grafica\\proyecto-portals\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{7A041F2C-DE93-458A-8308-8137B2BF8AE2}|ProgGrafica_2024\\ProgGrafica_2024.vcxproj|C:\\Users\\samce\\Desktop\\Uni_4\\Proyectos4Grafica\\proyecto-portals\\ProgGrafica_2024\\lib\\Render.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{7A041F2C-DE93-458A-8308-8137B2BF8AE2}|ProgGrafica_2024\\ProgGrafica_2024.vcxproj|solutionrelative:ProgGrafica_2024\\lib\\Render.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{7A041F2C-DE93-458A-8308-8137B2BF8AE2}|ProgGrafica_2024\\ProgGrafica_2024.vcxproj|C:\\Users\\samce\\Desktop\\Uni_4\\Proyectos4Grafica\\proyecto-portals\\ProgGrafica_2024\\lib\\Player.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{7A041F2C-DE93-458A-8308-8137B2BF8AE2}|ProgGrafica_2024\\ProgGrafica_2024.vcxproj|solutionrelative:ProgGrafica_2024\\lib\\Player.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7A041F2C-DE93-458A-8308-8137B2BF8AE2}|ProgGrafica_2024\\ProgGrafica_2024.vcxproj|C:\\Users\\samce\\Desktop\\Uni_4\\Proyectos4Grafica\\proyecto-portals\\ProgGrafica_2024\\lib\\Render.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{7A041F2C-DE93-458A-8308-8137B2BF8AE2}|ProgGrafica_2024\\ProgGrafica_2024.vcxproj|solutionrelative:ProgGrafica_2024\\lib\\Render.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{7A041F2C-DE93-458A-8308-8137B2BF8AE2}|ProgGrafica_2024\\ProgGrafica_2024.vcxproj|C:\\Users\\samce\\Desktop\\Uni_4\\Proyectos4Grafica\\proyecto-portals\\ProgGrafica_2024\\Main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{7A041F2C-DE93-458A-8308-8137B2BF8AE2}|ProgGrafica_2024\\ProgGrafica_2024.vcxproj|solutionrelative:ProgGrafica_2024\\Main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7A041F2C-DE93-458A-8308-8137B2BF8AE2}|ProgGrafica_2024\\ProgGrafica_2024.vcxproj|C:\\Users\\samce\\Desktop\\Uni_4\\Proyectos4Grafica\\proyecto-portals\\ProgGrafica_2024\\data\\playerShader.vert||{8B382828-6202-11D1-8870-0000F87579D2}",
@@ -37,10 +41,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{7A041F2C-DE93-458A-8308-8137B2BF8AE2}|ProgGrafica_2024\\ProgGrafica_2024.vcxproj|C:\\Users\\samce\\Desktop\\Uni_4\\Proyectos4Grafica\\proyecto-portals\\ProgGrafica_2024\\lib\\JointTransform.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{7A041F2C-DE93-458A-8308-8137B2BF8AE2}|ProgGrafica_2024\\ProgGrafica_2024.vcxproj|solutionrelative:ProgGrafica_2024\\lib\\JointTransform.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7A041F2C-DE93-458A-8308-8137B2BF8AE2}|ProgGrafica_2024\\ProgGrafica_2024.vcxproj|C:\\Users\\samce\\Desktop\\Uni_4\\Proyectos4Grafica\\proyecto-portals\\ProgGrafica_2024\\Main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{7A041F2C-DE93-458A-8308-8137B2BF8AE2}|ProgGrafica_2024\\ProgGrafica_2024.vcxproj|solutionrelative:ProgGrafica_2024\\Main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7A041F2C-DE93-458A-8308-8137B2BF8AE2}|ProgGrafica_2024\\ProgGrafica_2024.vcxproj|C:\\Users\\samce\\Desktop\\Uni_4\\Proyectos4Grafica\\proyecto-portals\\ProgGrafica_2024\\lib\\Keyframe.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -126,7 +126,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
@@ -178,20 +178,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Render.cpp",
               "DocumentMoniker": "C:\\Users\\samce\\Desktop\\Uni_4\\Proyectos4Grafica\\proyecto-portals\\ProgGrafica_2024\\lib\\Render.cpp",
               "RelativeDocumentMoniker": "ProgGrafica_2024\\lib\\Render.cpp",
               "ToolTip": "C:\\Users\\samce\\Desktop\\Uni_4\\Proyectos4Grafica\\proyecto-portals\\ProgGrafica_2024\\lib\\Render.cpp",
               "RelativeToolTip": "ProgGrafica_2024\\lib\\Render.cpp",
-              "ViewState": "AgIAAIUAAAAAAAAAAAAQwJAAAAA6AAAAAAAAAA==",
+              "ViewState": "AgIAAIgAAAAAAAAAAAAQwJcAAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-11-03T19:03:46.753Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "Joint.cpp",
               "DocumentMoniker": "C:\\Users\\samce\\Desktop\\Uni_4\\Proyectos4Grafica\\proyecto-portals\\ProgGrafica_2024\\lib\\Joint.cpp",
               "RelativeDocumentMoniker": "ProgGrafica_2024\\lib\\Joint.cpp",
@@ -199,38 +199,37 @@
               "RelativeToolTip": "ProgGrafica_2024\\lib\\Joint.cpp",
               "ViewState": "AgIAAGAAAAAAAAAAAAAAAG0AAABAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-12-06T14:57:35.054Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-06T14:57:35.054Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Player.cpp",
               "DocumentMoniker": "C:\\Users\\samce\\Desktop\\Uni_4\\Proyectos4Grafica\\proyecto-portals\\ProgGrafica_2024\\lib\\Player.cpp",
               "RelativeDocumentMoniker": "ProgGrafica_2024\\lib\\Player.cpp",
               "ToolTip": "C:\\Users\\samce\\Desktop\\Uni_4\\Proyectos4Grafica\\proyecto-portals\\ProgGrafica_2024\\lib\\Player.cpp",
               "RelativeToolTip": "ProgGrafica_2024\\lib\\Player.cpp",
-              "ViewState": "AgIAAOgAAAAAAAAAAAAmwPYAAAAyAAAAAAAAAA==",
+              "ViewState": "AgIAALsAAAAAAAAAAAAmwNgAAAA7AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-01-08T20:49:42.945Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 2,
               "Title": "Main.cpp",
               "DocumentMoniker": "C:\\Users\\samce\\Desktop\\Uni_4\\Proyectos4Grafica\\proyecto-portals\\ProgGrafica_2024\\Main.cpp",
               "RelativeDocumentMoniker": "ProgGrafica_2024\\Main.cpp",
               "ToolTip": "C:\\Users\\samce\\Desktop\\Uni_4\\Proyectos4Grafica\\proyecto-portals\\ProgGrafica_2024\\Main.cpp",
               "RelativeToolTip": "ProgGrafica_2024\\Main.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-11-03T18:29:32.827Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "JointTransform.cpp",
               "DocumentMoniker": "C:\\Users\\samce\\Desktop\\Uni_4\\Proyectos4Grafica\\proyecto-portals\\ProgGrafica_2024\\lib\\JointTransform.cpp",
               "RelativeDocumentMoniker": "ProgGrafica_2024\\lib\\JointTransform.cpp",
@@ -238,25 +237,24 @@
               "RelativeToolTip": "ProgGrafica_2024\\lib\\JointTransform.cpp",
               "ViewState": "AgIAAAYAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-12-17T11:40:55.031Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-17T11:40:55.031Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "playerShader.vert",
               "DocumentMoniker": "C:\\Users\\samce\\Desktop\\Uni_4\\Proyectos4Grafica\\proyecto-portals\\ProgGrafica_2024\\data\\playerShader.vert",
               "RelativeDocumentMoniker": "ProgGrafica_2024\\data\\playerShader.vert",
               "ToolTip": "C:\\Users\\samce\\Desktop\\Uni_4\\Proyectos4Grafica\\proyecto-portals\\ProgGrafica_2024\\data\\playerShader.vert",
               "RelativeToolTip": "ProgGrafica_2024\\data\\playerShader.vert",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADIAAAAeAAAAAAAAAA==",
+              "ViewState": "AgIAABoAAAAAAAAAAAAQwBoAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
               "WhenOpened": "2024-12-06T14:44:24.712Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "Animator.h",
               "DocumentMoniker": "C:\\Users\\samce\\Desktop\\Uni_4\\Proyectos4Grafica\\proyecto-portals\\ProgGrafica_2024\\lib\\Animator.h",
               "RelativeDocumentMoniker": "ProgGrafica_2024\\lib\\Animator.h",
@@ -264,12 +262,11 @@
               "RelativeToolTip": "ProgGrafica_2024\\lib\\Animator.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-12-17T10:12:35.368Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-17T10:12:35.368Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "Object.cpp",
               "DocumentMoniker": "C:\\Users\\samce\\Desktop\\Uni_4\\Proyectos4Grafica\\proyecto-portals\\ProgGrafica_2024\\lib\\Object.cpp",
               "RelativeDocumentMoniker": "ProgGrafica_2024\\lib\\Object.cpp",
@@ -277,12 +274,11 @@
               "RelativeToolTip": "ProgGrafica_2024\\lib\\Object.cpp",
               "ViewState": "AgIAAIsAAAAAAAAAAAAmwKYAAAAzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-11-03T18:42:37.17Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-03T18:42:37.17Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Animator.cpp",
               "DocumentMoniker": "C:\\Users\\samce\\Desktop\\Uni_4\\Proyectos4Grafica\\proyecto-portals\\ProgGrafica_2024\\lib\\Animator.cpp",
               "RelativeDocumentMoniker": "ProgGrafica_2024\\lib\\Animator.cpp",
@@ -290,12 +286,11 @@
               "RelativeToolTip": "ProgGrafica_2024\\lib\\Animator.cpp",
               "ViewState": "AgIAAE8AAAAAAAAAAAAmwGEAAAB0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-12-17T10:14:53.182Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-17T10:14:53.182Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "RenderProgram.cpp",
               "DocumentMoniker": "C:\\Users\\samce\\Desktop\\Uni_4\\Proyectos4Grafica\\proyecto-portals\\ProgGrafica_2024\\lib\\RenderProgram.cpp",
               "RelativeDocumentMoniker": "ProgGrafica_2024\\lib\\RenderProgram.cpp",
@@ -303,8 +298,7 @@
               "RelativeToolTip": "ProgGrafica_2024\\lib\\RenderProgram.cpp",
               "ViewState": "AgIAAKMAAAAAAAAAAAAQwLYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-12-10T20:01:16.405Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-10T20:01:16.405Z"
             },
             {
               "$type": "Document",
@@ -328,8 +322,7 @@
               "RelativeToolTip": "ProgGrafica_2024\\lib\\Keyframe.cpp",
               "ViewState": "AgIAAAwAAAAAAAAAAAAAAAkAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-12-17T11:02:24.396Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-17T11:02:24.396Z"
             },
             {
               "$type": "Document",
