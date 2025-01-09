@@ -22,6 +22,7 @@
     <ClCompile Include="lib\Animation.cpp" />
     <ClCompile Include="lib\Animator.cpp" />
     <ClCompile Include="lib\Camera.cpp" />
+    <ClCompile Include="lib\Collider.cpp" />
     <ClCompile Include="lib\InputManager.cpp" />
     <ClCompile Include="lib\Joint.cpp" />
     <ClCompile Include="lib\JointTransform.cpp" />
@@ -39,6 +40,7 @@
     <ClInclude Include="lib\Animation.h" />
     <ClInclude Include="lib\Animator.h" />
     <ClInclude Include="lib\Camera.h" />
+    <ClInclude Include="lib\Collider.h" />
     <ClInclude Include="lib\Common.h" />
     <ClInclude Include="lib\InputManager.h" />
     <ClInclude Include="lib\Joint.h" />

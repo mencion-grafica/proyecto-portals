@@ -16,7 +16,7 @@ int main(int argc, char** argv)
 	Render* render = new Render();
 	render->initGL("Proyecto Portal", 1200, 800);
 
-	/*Object* ground = new Object("./data/ground.trs");
+	Object* ground = new Object("./data/ground.trs");
 	ground->scale = glm::vec4(100.0f, 1.0f, 100.0f, 0.0f);
 	ground->initializeCollider();
 	render->putObject(ground);
@@ -44,24 +44,19 @@ int main(int argc, char** argv)
 		}
 	}
 
-	for (int i = 0; i < 297; i++) {
+	/*for (int i = 0; i < 297; i++) {
 		Object* object = new Object(filenames[i]);
 		//object->scale = glm::vec4(0.1f, 0.1f, 0.1f, 1.0f);
 		render->putObject(object);
-	}
-
-	/*for (int i = 35; i < 70; i++) {
-		Object* object = new Object(filenames[i]);
-		object->scale = glm::vec4(0.1f, 0.1f, 0.1f, 1.0f);
-		render->putObject(object);
 	}*/
 
-	/*for (auto& f : filenames) {
+	for (auto& f : filenames) {
 		std::cout << "Leyendo archivo: " + f << std::endl;
 		Object* object = new Object(f);
 		object->scale = glm::vec4(0.1f, 0.1f, 0.1f, 1.0f);
+		object->initializeCollider();
 		render->putObject(object);
-	}*/
+	}
 	
 	/*Player* player = new Player("./data/model.dae");
 	player->position = glm::vec4(0, 0, 0, 1);
