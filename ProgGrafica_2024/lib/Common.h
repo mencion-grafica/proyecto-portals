@@ -15,6 +15,7 @@
 #include <string>
 #include <fstream>
 #include <sstream>
+#include <filesystem>
 
 #include <glad/gl.h>
 #include <GLFW/glfw3.h>

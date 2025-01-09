@@ -8,14 +8,14 @@
     <ClCompile Include="lib\Object.cpp" />
     <ClCompile Include="lib\Render.cpp" />
     <ClCompile Include="lib\RenderProgram.cpp" />
-    <ClCompile Include="lib\tinyxml2.cpp" />
-    <ClCompile Include="lib\Texture.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="lib\Animation.cpp" />
     <ClCompile Include="lib\Animator.cpp" />
     <ClCompile Include="lib\JointTransform.cpp" />
     <ClCompile Include="lib\Keyframe.cpp" />
     <ClCompile Include="lib\Player.cpp" />
+    <ClCompile Include="lib\tinyxml2.cpp" />
+    <ClCompile Include="lib\Texture.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="lib\Camera.h" />
@@ -26,14 +26,15 @@
     <ClInclude Include="lib\Object.h" />
     <ClInclude Include="lib\Render.h" />
     <ClInclude Include="lib\RenderProgram.h" />
-    <ClInclude Include="lib\tinyxml2.h" />
-    <ClInclude Include="lib\Texture.h" />
     <ClInclude Include="lib\vertex.h" />
     <ClInclude Include="lib\Animation.h" />
     <ClInclude Include="lib\Animator.h" />
     <ClInclude Include="lib\JointTransform.h" />
     <ClInclude Include="lib\Keyframe.h" />
     <ClInclude Include="lib\Player.h" />
+    <ClInclude Include="lib\tinyxml2.h" />
+    <ClInclude Include="lib\stb_image.h" />
+    <ClInclude Include="lib\Texture.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="data\cube.trs" />
@@ -41,7 +42,6 @@
     <None Include="data\shader.frag" />
     <None Include="data\shader.vert" />
     <None Include="data\triangle.trs" />
-    <None Include="data\triangulated.dae" />
     <None Include="data\playerShader.vert" />
   </ItemGroup>
 </Project>

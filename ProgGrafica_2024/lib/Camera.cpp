@@ -36,7 +36,7 @@ glm::mat4 Camera::computeProjectionMatrix()
 
 void Camera::move(float deltaTime)
 {
-	float speed = 1.5f * deltaTime;
+	float speed = 50.0f * deltaTime;
 
 	if (InputManager::keysState[GLFW_KEY_W]) this->position += speed * this->front;
 	if (InputManager::keysState[GLFW_KEY_S]) this->position -= speed * this->front;
