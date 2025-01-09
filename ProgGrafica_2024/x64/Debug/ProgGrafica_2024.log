@@ -1,14 +1,50 @@
-﻿  Map.cpp
+﻿  Animation.cpp
+  Animator.cpp
+  Camera.cpp
+  Collider.cpp
+  InputManager.cpp
+  Joint.cpp
+  JointTransform.cpp
+  Keyframe.cpp
+  Map.cpp
   Object.cpp
+  Player.cpp
+C:\Users\juanl\Desktop\proyecto-portals\ProgGrafica_2024\lib\Player.cpp(86,30): warning C4244: 'argumento': conversión de 'int' a '_Ty'; posible pérdida de datos
+C:\Users\juanl\Desktop\proyecto-portals\ProgGrafica_2024\lib\Player.cpp(86,30): warning C4244:         with
+C:\Users\juanl\Desktop\proyecto-portals\ProgGrafica_2024\lib\Player.cpp(86,30): warning C4244:         [
+C:\Users\juanl\Desktop\proyecto-portals\ProgGrafica_2024\lib\Player.cpp(86,30): warning C4244:             _Ty=float
+C:\Users\juanl\Desktop\proyecto-portals\ProgGrafica_2024\lib\Player.cpp(86,30): warning C4244:         ]
+C:\Users\juanl\Desktop\proyecto-portals\ProgGrafica_2024\lib\Player.cpp(101,40): warning C4244: 'argumento': conversión de 'int' a '_Ty'; posible pérdida de datos
+C:\Users\juanl\Desktop\proyecto-portals\ProgGrafica_2024\lib\Player.cpp(101,40): warning C4244:         with
+C:\Users\juanl\Desktop\proyecto-portals\ProgGrafica_2024\lib\Player.cpp(101,40): warning C4244:         [
+C:\Users\juanl\Desktop\proyecto-portals\ProgGrafica_2024\lib\Player.cpp(101,40): warning C4244:             _Ty=float
+C:\Users\juanl\Desktop\proyecto-portals\ProgGrafica_2024\lib\Player.cpp(101,40): warning C4244:         ]
+C:\Users\juanl\Desktop\proyecto-portals\ProgGrafica_2024\lib\Player.cpp(141,33): warning C4244: '=': conversión de '_Ty' a 'int'; posible pérdida de datos
+C:\Users\juanl\Desktop\proyecto-portals\ProgGrafica_2024\lib\Player.cpp(141,33): warning C4244:         with
+C:\Users\juanl\Desktop\proyecto-portals\ProgGrafica_2024\lib\Player.cpp(141,33): warning C4244:         [
+C:\Users\juanl\Desktop\proyecto-portals\ProgGrafica_2024\lib\Player.cpp(141,33): warning C4244:             _Ty=float
+C:\Users\juanl\Desktop\proyecto-portals\ProgGrafica_2024\lib\Player.cpp(141,33): warning C4244:         ]
+C:\Users\juanl\Desktop\proyecto-portals\ProgGrafica_2024\lib\Player.cpp(146,56): warning C4244: '=': conversión de '_Ty' a 'T'; posible pérdida de datos
+C:\Users\juanl\Desktop\proyecto-portals\ProgGrafica_2024\lib\Player.cpp(146,56): warning C4244:         with
+C:\Users\juanl\Desktop\proyecto-portals\ProgGrafica_2024\lib\Player.cpp(146,56): warning C4244:         [
+C:\Users\juanl\Desktop\proyecto-portals\ProgGrafica_2024\lib\Player.cpp(146,56): warning C4244:             _Ty=float
+C:\Users\juanl\Desktop\proyecto-portals\ProgGrafica_2024\lib\Player.cpp(146,56): warning C4244:         ]
+C:\Users\juanl\Desktop\proyecto-portals\ProgGrafica_2024\lib\Player.cpp(146,56): warning C4244:         and
+C:\Users\juanl\Desktop\proyecto-portals\ProgGrafica_2024\lib\Player.cpp(146,56): warning C4244:         [
+C:\Users\juanl\Desktop\proyecto-portals\ProgGrafica_2024\lib\Player.cpp(146,56): warning C4244:             T=int
+C:\Users\juanl\Desktop\proyecto-portals\ProgGrafica_2024\lib\Player.cpp(146,56): warning C4244:         ]
+C:\Users\juanl\Desktop\proyecto-portals\ProgGrafica_2024\lib\Player.cpp(202,18): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
   Render.cpp
-C:\Users\samce\Desktop\Uni 4\Proyectos4Grafica\proyecto-portals\ProgGrafica_2024\lib\Render.cpp(152,64): warning C4267: 'argumento': conversión de 'size_t' a 'GLsizei'; posible pérdida de datos
-C:\Users\samce\Desktop\Uni 4\Proyectos4Grafica\proyecto-portals\ProgGrafica_2024\lib\Render.cpp(184,14): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\juanl\Desktop\proyecto-portals\ProgGrafica_2024\lib\Render.cpp(156,64): warning C4267: 'argumento': conversión de 'size_t' a 'GLsizei'; posible pérdida de datos
+C:\Users\juanl\Desktop\proyecto-portals\ProgGrafica_2024\lib\Render.cpp(209,14): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
   RenderProgram.cpp
-C:\Users\samce\Desktop\Uni 4\Proyectos4Grafica\proyecto-portals\ProgGrafica_2024\lib\RenderProgram.cpp(47,7): warning C4101: 'errorLog': variable local sin referencia
-C:\Users\samce\Desktop\Uni 4\Proyectos4Grafica\proyecto-portals\ProgGrafica_2024\lib\RenderProgram.cpp(46,8): warning C4101: 'retCode': variable local sin referencia
-C:\Users\samce\Desktop\Uni 4\Proyectos4Grafica\proyecto-portals\ProgGrafica_2024\lib\RenderProgram.cpp(181,58): warning C4267: 'argumento': conversión de 'size_t' a 'GLsizei'; posible pérdida de datos
+C:\Users\juanl\Desktop\proyecto-portals\ProgGrafica_2024\lib\RenderProgram.cpp(47,7): warning C4101: 'errorLog': variable local sin referencia
+C:\Users\juanl\Desktop\proyecto-portals\ProgGrafica_2024\lib\RenderProgram.cpp(46,8): warning C4101: 'retCode': variable local sin referencia
+C:\Users\juanl\Desktop\proyecto-portals\ProgGrafica_2024\lib\RenderProgram.cpp(181,58): warning C4267: 'argumento': conversión de 'size_t' a 'GLsizei'; posible pérdida de datos
   Texture.cpp
+  tinyxml2.cpp
   Main.cpp
   Generando código...
+C:\Users\juanl\Desktop\proyecto-portals\ProgGrafica_2024\lib\Joint.cpp(131,1): warning C4715: 'Joint::GetJointById': no todas las rutas de acceso de control devuelven un valor
 LINK : warning LNK4098: la biblioteca predeterminada'MSVCRT' entra en conflicto con otras bibliotecas; use la biblioteca /NODEFAULTLIB:biblioteca
-  ProgGrafica_2024.vcxproj -> C:\Users\samce\Desktop\Uni 4\Proyectos4Grafica\proyecto-portals\x64\Debug\ProgGrafica_2024.exe
+  ProgGrafica_2024.vcxproj -> C:\Users\juanl\Desktop\proyecto-portals\x64\Debug\ProgGrafica_2024.exe

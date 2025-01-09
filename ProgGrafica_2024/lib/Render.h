@@ -22,6 +22,8 @@ class Render
 		int width;
 		int height;
 
+		bool renderColliders = false;
+
 		std::vector<Object*> objectList;
 		Camera* activeCamera=NULL;
 		typedef struct {
@@ -44,6 +46,9 @@ class Render
 
 		void move(double deltaTime);
 
+		bool checkCollisions(Collider* collider);
+		bool checkCollisions(glm::vec4 position);
+	
 		void drawObjects();
 
 		void drawObjects(glm::vec4 position, glm::vec4 direction, Object* portal);

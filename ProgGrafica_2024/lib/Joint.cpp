@@ -30,7 +30,7 @@ Joint::Joint(const char* fileName) {
 		floatElements.push_back(stof(str));
 	}
 
-	transformationMatrix = glm::mat4(floatElements[0], floatElements[1], floatElements[2], floatElements[3]
+	localBindTransform = glm::mat4(floatElements[0], floatElements[1], floatElements[2], floatElements[3]
 									, floatElements[4], floatElements[5], floatElements[6], floatElements[7]
 									, floatElements[8], floatElements[9], floatElements[10], floatElements[11]
 									, floatElements[12], floatElements[13], floatElements[14], floatElements[15]);
@@ -93,3 +93,42 @@ Joint::Joint(int id, XMLElement* joint) {
 		}
 	}
 }
+
+int Joint::GetIdCounter()
+{
+	return idCounter;
+}
+
+void Joint::CalcInverseBindTransform(glm::mat4 parentBindTransform)
+{
+	glm::mat4 bindTransform = parentBindTransform * localBindTransform;
+
+	this->inverseBindTransform = glm::inverse(bindTransform);
+
+	for (Joint child : children) {
+		child.CalcInverseBindTransform(bindTransform);
+	}
+}
+
+void Joint::SetTransformMatrix(glm::mat4 matrix)
+{
+	transformationMatrix = matrix;
+}
+
+Joint Joint::GetJointById(int id)
+{
+	if (children.size() != 0) {
+		for (int i = 0; i < children.size(); i++) {
+			if (children[i].id == id) {
+				return children[i];
+			}
+			else {
+				children[i].GetJointById(id);
+			}
+		}
+	}
+	else return NULL;
+}
+
+
+

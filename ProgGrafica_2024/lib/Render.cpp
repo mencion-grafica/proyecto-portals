@@ -6,6 +6,7 @@ Render::Render()
 	Render::r = this;
 	this->objectList = std::vector<Object*>();
 	this->cameraList = std::vector<Camera*>();
+	this->objectList.reserve(300);
 }
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height)
@@ -89,6 +90,7 @@ void Render::initGL(const char* windowName, int sizeX, int sizeY)
 	InputManager::initInputManager(window);
 
 	glEnable(GL_DEPTH_TEST);
+	glEnable(GL_CULL_FACE);
 }
 
 void Render::drawObjects()
@@ -155,9 +157,13 @@ void Render::drawGL(int id)
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, bo.edgeBufferID);
 
 	this->objectList[id]->prg->setMVP(MVP);
-	this->objectList[id]->prg->setVertexAttribute("vPos", 4, GL_FLOAT, sizeof(vertex_t), (void*)offsetof(vertex_t, vertexPos));
-	this->objectList[id]->prg->setVertexAttribute("vColor", 4, GL_FLOAT, sizeof(vertex_t), (void*)offsetof(vertex_t, vertexColor));
-	this->objectList[id]->prg->setVertexAttribute("vNormal", 4, GL_FLOAT, sizeof(vertex_t), (void*)offsetof(vertex_t, vertexNormal));
+	this->objectList[id]->prg->setMatrix("M", M);
+	//for para array de transforms del shader
+	this->objectList[id]->prg->setVertexAttribute("vPos", 4, GL_FLOAT, sizeof(vertex_t), (void*) offsetof(vertex_t, vertexPos));
+	this->objectList[id]->prg->setVertexAttribute("vColor", 4, GL_FLOAT, sizeof(vertex_t), (void*) offsetof(vertex_t, vertexColor));
+	this->objectList[id]->prg->setVertexAttribute("vNormal", 4, GL_FLOAT, sizeof(vertex_t), (void*) offsetof(vertex_t, vertexNormal));
+	this->objectList[id]->prg->setVertexAttribute("jointIndex", 4, GL_INT, sizeof(vertex_t), (void*)offsetof(vertex_t, idJoints));
+	this->objectList[id]->prg->setVertexAttribute("weightJoints", 4, GL_INT, sizeof(vertex_t), (void*)offsetof(vertex_t, weightJoints));
 	this->objectList[id]->prg->setVertexAttribute("vUv", 4, GL_FLOAT, sizeof(vertex_t), (void*) offsetof(vertex_t, vertexUv));
 
 	this->objectList[id]->prg->setInteger("textureColor", 0);
@@ -191,7 +197,28 @@ void Render::move(double deltaTime)
 	for (auto& obj : this->objectList)
 	{
 		obj->move(deltaTime);
+		if (obj->collider != nullptr) obj->collider->computeBounds(obj->modelMatrix, obj->vertexList);
 	}
+}
+
+bool Render::checkCollisions(Collider* collider)
+{
+	for (auto& obj : this->objectList)
+	{
+		if (obj->collider == nullptr || obj->collider == collider) continue;
+		if (obj->collider->checkCollision(collider)) return true;
+	}
+	return false;
+}
+
+bool Render::checkCollisions(glm::vec4 position)
+{
+	for (auto& obj : this->objectList)
+	{
+		if (obj->collider == nullptr) continue;
+		if (obj->collider->checkCollision(position)) return true;
+	}
+	return false;
 }
 
 void Render::mainLoop() 
@@ -238,8 +265,18 @@ void Render::mainLoop()
 
     	glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
     	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    		
+    	move(deltaTime);
     	drawObjects();
+    	if (this->renderColliders)
+    	{
+    		// Debugging: Draw colliders
+    		glPolygonMode(GL_FRONT_AND_BACK, GL_LINE); // Enable wireframe mode
+    		//glDisable(GL_CULL_FACE);                            // Optional: Disable face culling to see inside
+    		glColor3f(1.0f, 0.0f, 0.0f);           // Red color for debugging
+    		glLineWidth(5.0f);					          // Line width for debugging
+    		for (auto& obj : this->objectList) if (obj->collider != nullptr) obj->collider->draw();
+    		glPolygonMode(GL_FRONT_AND_BACK, GL_FILL); // Reset to fill mode
+    	}
         glfwPollEvents();
         glfwSwapBuffers(window);
     }
