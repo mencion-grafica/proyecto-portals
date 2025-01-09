@@ -36,8 +36,9 @@ glm::mat4 Camera::computeProjectionMatrix()
 
 void Camera::jump()
 {
-	if (this->position.y <= 0.1f) {
-		this->velocity.y = 5.0f;
+	if (this->position.y <= 0.1f || canJump) {
+		this->velocity.y = 6.0f;
+		canJump = false;
 	}
 }
 
@@ -59,13 +60,6 @@ void Camera::move(float deltaTime)
 	}
 
 	this->velocity.y += gravity * deltaTime;
-	this->position += this->velocity * deltaTime;  // Mueve la cámara basándose en la velocidad actual
-
-	// Comprobar si la cámara ha "golpeado el suelo"
-	if (this->position.y < 0) {
-		this->position.y = 0;
-		this->velocity.y = 0;
-	}
 
 	/*if (InputManager::keysState[GLFW_KEY_W]) this->position += speed * this->front;
 	if (InputManager::keysState[GLFW_KEY_S]) this->position -= speed * this->front;
@@ -76,7 +70,14 @@ void Camera::move(float deltaTime)
 	if (InputManager::keysState[GLFW_KEY_A]) this->position -= glm::normalize(glm::cross(this->front, this->up)) * speed;
 	if (InputManager::keysState[GLFW_KEY_D]) this->position += glm::normalize(glm::cross(this->front, this->up)) * speed;
 
-	if (Render::r->checkCollisions(glm::vec4(this->position, 1.0f))) this->position += speed * this->up;
+	if (!Render::r->checkCollisions(glm::vec4(this->position, 1.0f))) this->position += this->velocity * deltaTime;
+	else canJump = true;
 	if (InputManager::keysState[GLFW_KEY_E]) this->position += speed * this->up;
 	if (InputManager::keysState[GLFW_KEY_Q]) this->position -= speed * this->up;
+
+	// Comprobar si la cámara ha "golpeado el suelo"
+	if (this->position.y < 0) {
+		this->position.y = 0;
+		this->velocity.y = 0;
+	}
 }
