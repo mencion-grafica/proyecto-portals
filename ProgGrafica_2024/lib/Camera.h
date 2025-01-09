@@ -19,7 +19,7 @@ public:
 	float lastY = 600.0 / 2.0;
 	float fov = 45.0f;
 	float zNear = 0.1f;
-	float zFar = 100.0f;
+	float zFar = 10000.0f;
 	float aspectRatio = 800.0f / 600.0f;
 	bool firstMouse = true;
 

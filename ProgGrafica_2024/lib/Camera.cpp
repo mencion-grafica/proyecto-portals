@@ -49,7 +49,7 @@ void Camera::portal()
 
 void Camera::move(float deltaTime)
 {
-	float speed = 1.5f * deltaTime;
+	float speed = 50.0f * deltaTime;
 
 	if (InputManager::keysState[GLFW_KEY_Q]) {
 		portal();

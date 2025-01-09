@@ -5,6 +5,7 @@ Render::Render()
 {
 	Render::r = this;
 	this->objectList = std::vector<Object*>();
+	this->objectList.reserve(300);
 }
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height)
