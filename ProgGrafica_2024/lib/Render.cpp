@@ -88,7 +88,7 @@ void Render::initGL(const char* windowName, int sizeX, int sizeY)
 	InputManager::initInputManager(window);
 
 	glEnable(GL_DEPTH_TEST);
-	glEnable(GL_CULL_FACE);
+	//glEnable(GL_CULL_FACE);
 }
 
 void Render::drawObjects()
@@ -139,7 +139,7 @@ void Render::drawGL(int id)
 	this->objectList[id]->prg->setVertexAttribute("vColor", 4, GL_FLOAT, sizeof(vertex_t), (void*) offsetof(vertex_t, vertexColor));
 	this->objectList[id]->prg->setVertexAttribute("vNormal", 4, GL_FLOAT, sizeof(vertex_t), (void*) offsetof(vertex_t, vertexNormal));
 	this->objectList[id]->prg->setVertexAttribute("jointIndex", 4, GL_INT, sizeof(vertex_t), (void*)offsetof(vertex_t, idJoints));
-	this->objectList[id]->prg->setVertexAttribute("weightJoints", 4, GL_INT, sizeof(vertex_t), (void*)offsetof(vertex_t, weightJoints));
+	this->objectList[id]->prg->setVertexAttribute("weightJoints", 4, GL_INT, sizeof(vertex_t), (void*) offsetof(vertex_t, weightJoints));
 	this->objectList[id]->prg->setVertexAttribute("vUv", 4, GL_FLOAT, sizeof(vertex_t), (void*) offsetof(vertex_t, vertexUv));
 
 	this->objectList[id]->prg->setInteger("textureColor", 0);

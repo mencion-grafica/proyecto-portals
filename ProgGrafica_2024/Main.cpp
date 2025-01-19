@@ -30,9 +30,7 @@ int main(int argc, char** argv)
 	player->initializeCollider();
 	render->putObject(player);
 
-
-	Map* map = new Map(path+file);
-
+	Map* map = new Map(path + file);
 	if (!std::filesystem::exists(path)) {
 		std::cout << "No existe el directorio" << std::endl;
 		return 1;
@@ -44,30 +42,26 @@ int main(int argc, char** argv)
 		}
 	}
 
-	/*for (int i = 0; i < 297; i++) {
-		Object* object = new Object(filenames[i]);
-		//object->scale = glm::vec4(0.1f, 0.1f, 0.1f, 1.0f);
-		render->putObject(object);
-	}*/
-
-	for (auto& f : filenames) {
-		std::cout << "Leyendo archivo: " + f << std::endl;
-		Object* object = new Object(f);
-		object->scale = glm::vec4(0.1f, 0.1f, 0.1f, 1.0f);
-		object->initializeCollider();
-		render->putObject(object);
+	for (int i = 0; i < 35; i++) {
+		Object* object1 = new Object(filenames[i]);
+		//object1->scale = glm::vec4(0.1f, 0.1f, 0.1f, 1.0f);
+		render->putObject(object1);
 	}
-	
-	/*Player* player = new Player("./data/model.dae");
-	player->position = glm::vec4(0, 0, 0, 1);
-	render->putObject(player);*/
+
+	/*for (auto& f : filenames) {
+		std::cout << "Leyendo archivo: " + f << std::endl;
+		Object* object1 = new Object(f);
+		object1->scale = glm::vec4(0.1f, 0.1f, 0.1f, 1.0f);
+		object1->initializeCollider();
+		render->putObject(object1);
+	}*/
 
 	// Necesario para que el render no se cague encima ¯\_(ツ)_/¯
 	Object* triangle = new Object();
-	render->putObject(triangle);
 	triangle->prg->addShader("data/shader.vert");
 	triangle->prg->addShader("data/shader.frag");
 	triangle->prg->link();
+	render->putObject(triangle);
 	
 	Camera* camera = new Camera();
 	camera->position = glm::vec3(0, 0, 0);
