@@ -95,7 +95,9 @@ void Render::drawObjects()
 {
 	for (auto& obj : this->objectList)
 	{
-		drawGL(obj->id);
+		std::vector<int> activeLights;
+		for (int lightId = 0; lightId < this->lightList.size(); lightId++) if (this->lightList[lightId]->enable) activeLights.push_back(lightId);
+		drawGL(obj->id, activeLights);
 	}
 }
 
@@ -118,7 +120,7 @@ void Render::setupObject(Object* object)
 	bufferObjectList[object->id] = bo;
 }
 
-void Render::drawGL(int id)
+void Render::drawGL(int id, const std::vector<int>& lightIds)
 {
 	glm::mat4 M = this->objectList[id]->modelMatrix;
 	glm::mat4 V = this->camera->computeViewMatrix();
@@ -134,6 +136,25 @@ void Render::drawGL(int id)
 
 	this->objectList[id]->prg->setMVP(MVP);
 	this->objectList[id]->prg->setMatrix("M", M);
+
+	this->objectList[id]->prg->setFloat("material.Ka", this->objectList[id]->material.Ka);
+	this->objectList[id]->prg->setFloat("material.Kd", this->objectList[id]->material.Kd);
+	this->objectList[id]->prg->setFloat("material.Ks", this->objectList[id]->material.Ks);
+	this->objectList[id]->prg->setInteger("material.shiny", this->objectList[id]->material.shiny);
+
+	for (int i = 0; i < lightIds.size(); i++)
+	{
+		int lightId = lightIds[i];
+		this->objectList[id]->prg->setVec4("light.position", this->lightList[lightId]->position);
+		this->objectList[id]->prg->setVec4("light.color", this->lightList[lightId]->color);
+		this->objectList[id]->prg->setVec4("light.direction", this->lightList[lightId]->direction);
+		this->objectList[id]->prg->setFloat("light.Ia", this->lightList[lightId]->Ia);
+		this->objectList[id]->prg->setFloat("light.Id", this->lightList[lightId]->Id);
+		this->objectList[id]->prg->setFloat("light.Is", this->lightList[lightId]->Is);
+		this->objectList[id]->prg->setInteger("light.type", (int)this->lightList[lightId]->type);
+		this->objectList[id]->prg->setInteger("light.enable", this->lightList[lightId]->enable);
+	}
+	
 	//for para array de transforms del shader
 	this->objectList[id]->prg->setVertexAttribute("vPos", 4, GL_FLOAT, sizeof(vertex_t), (void*) offsetof(vertex_t, vertexPos));
 	this->objectList[id]->prg->setVertexAttribute("vColor", 4, GL_FLOAT, sizeof(vertex_t), (void*) offsetof(vertex_t, vertexColor));
@@ -162,6 +183,11 @@ void Render::putObject(Object* object)
 	setupObject(object);
 }
 
+void Render::putLight(Light* light)
+{
+	this->lightList.push_back(light);
+}
+
 void Render::putCamera(Camera* camera)
 {
 	this->camera = camera;
@@ -175,6 +201,12 @@ void Render::move(float deltaTime)
 		if (obj->collider != nullptr) obj->collider->computeBounds(obj->modelMatrix, obj->vertexList);
 	}
 }
+
+void Render::moveLights(float deltaTime)
+{
+	for (auto& light : this->lightList) light->move(deltaTime);
+}
+
 
 bool Render::checkCollisions(Collider* collider)
 {
@@ -212,6 +244,7 @@ void Render::mainLoop()
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 		this->camera->move(deltaTime);
+    	moveLights(deltaTime);
 		move(deltaTime);
     	
 		drawObjects();

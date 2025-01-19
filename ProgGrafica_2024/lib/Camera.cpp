@@ -49,7 +49,7 @@ void Camera::portal()
 
 void Camera::move(float deltaTime)
 {
-	float speed = 50.0f * deltaTime;
+	float speed = 1.5f * deltaTime;
 
 	if (InputManager::keysState[GLFW_KEY_Q]) {
 		portal();
@@ -75,7 +75,7 @@ void Camera::move(float deltaTime)
 	if (InputManager::keysState[GLFW_KEY_E]) this->position += speed * this->up;
 	if (InputManager::keysState[GLFW_KEY_Q]) this->position -= speed * this->up;
 
-	// Comprobar si la cámara ha "golpeado el suelo"
+	// Comprobar si la camara ha "golpeado el suelo"
 	if (this->position.y < 0) {
 		this->position.y = 0;
 		this->velocity.y = 0;
