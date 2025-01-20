@@ -36,7 +36,8 @@ glm::mat4 Camera::computeProjectionMatrix()
 
 void Camera::jump()
 {
-	if (this->position.y <= 0.1f || canJump) {
+	if (this->position.y <= 0.1f || canJump)
+	{
 		this->velocity.y = 6.0f;
 		canJump = false;
 	}
@@ -49,35 +50,57 @@ void Camera::portal()
 
 void Camera::move(float deltaTime)
 {
-	float speed = 50.0f * deltaTime;
+    float speed = 1.5f * deltaTime;
 
-	if (InputManager::keysState[GLFW_KEY_Q]) {
-		portal();
-	}
+    if (InputManager::keysState[GLFW_KEY_SPACE] && canJump)
+    {
+        jump();
+        canJump = false;
+    }
 
-	if (InputManager::keysState[GLFW_KEY_SPACE]) {
-		jump();
-	}
+    this->velocity.y += gravity * deltaTime;
 
-	this->velocity.y += gravity * deltaTime;
+    glm::vec3 moveDirection(0.0f);
+    if (InputManager::keysState[GLFW_KEY_W]) moveDirection += glm::vec3(this->front.x, 0, this->front.z);
+    if (InputManager::keysState[GLFW_KEY_S]) moveDirection -= glm::vec3(this->front.x, 0, this->front.z);
+    if (InputManager::keysState[GLFW_KEY_A]) moveDirection -= glm::normalize(glm::cross(this->front, this->up));
+    if (InputManager::keysState[GLFW_KEY_D]) moveDirection += glm::normalize(glm::cross(this->front, this->up));
 
-	/*if (InputManager::keysState[GLFW_KEY_W]) this->position += speed * this->front;
-	if (InputManager::keysState[GLFW_KEY_S]) this->position -= speed * this->front;
-	if (InputManager::keysState[GLFW_KEY_A]) this->position -= glm::normalize(glm::cross(this->front, this->up)) * speed;
-	if (InputManager::keysState[GLFW_KEY_D]) this->position += glm::normalize(glm::cross(this->front, this->up)) * speed;*/
-	if (InputManager::keysState[GLFW_KEY_W]) this->position += glm::vec3(this->front.x, 0, this->front.z) * speed;
-	if (InputManager::keysState[GLFW_KEY_S]) this->position -= glm::vec3(this->front.x, 0, this->front.z) * speed;
-	if (InputManager::keysState[GLFW_KEY_A]) this->position -= glm::normalize(glm::cross(this->front, this->up)) * speed;
-	if (InputManager::keysState[GLFW_KEY_D]) this->position += glm::normalize(glm::cross(this->front, this->up)) * speed;
+    if (glm::length(moveDirection) > 0.0f) moveDirection = glm::normalize(moveDirection) * speed;
 
-	if (!Render::r->checkCollisions(glm::vec4(this->position, 1.0f))) this->position += this->velocity * deltaTime;
-	else canJump = true;
-	if (InputManager::keysState[GLFW_KEY_E]) this->position += speed * this->up;
-	if (InputManager::keysState[GLFW_KEY_Q]) this->position -= speed * this->up;
+    if (InputManager::keysState[GLFW_KEY_E]) moveDirection += speed * this->up;
+    if (InputManager::keysState[GLFW_KEY_Q]) moveDirection -= speed * this->up;
 
-	// Comprobar si la cámara ha "golpeado el suelo"
-	if (this->position.y < 0) {
-		this->position.y = 0;
-		this->velocity.y = 0;
-	}
+    glm::vec3 predictedPosition = this->position + moveDirection + this->velocity * deltaTime;
+
+    glm::vec3 resolvedPosition = this->position;
+
+    glm::vec3 tempPositionX = resolvedPosition;
+    tempPositionX.x = predictedPosition.x;
+    if (!Render::r->checkCollisions(glm::vec4(tempPositionX, 1.0f))) resolvedPosition.x = tempPositionX.x;
+
+    glm::vec3 tempPositionY = resolvedPosition;
+    tempPositionY.y = predictedPosition.y;
+    if (!Render::r->checkCollisions(glm::vec4(tempPositionY, 1.0f)))
+    {
+        resolvedPosition.y = tempPositionY.y;
+        canJump = false;
+    }
+	else if (this->velocity.y < 0)
+    {
+        this->velocity.y = 0;
+        canJump = true;
+    }
+
+    glm::vec3 tempPositionZ = resolvedPosition;
+    tempPositionZ.z = predictedPosition.z;
+    if (!Render::r->checkCollisions(glm::vec4(tempPositionZ, 1.0f))) resolvedPosition.z = tempPositionZ.z;
+
+    this->position = resolvedPosition;
+
+    if (this->position.y < 0) {
+        this->position.y = 0;
+        this->velocity.y = 0;
+        canJump = true;
+    }
 }

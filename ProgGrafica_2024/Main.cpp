@@ -26,13 +26,13 @@ int main(int argc, char** argv)
 	object->initializeCollider();
 	render->putObject(object);
 
-	Player* player = new Player("./data/model.dae", glm::vec4(0, 3, 0, 1));
-	player->initializeCollider();
-	render->putObject(player);
+	// Player* player = new Player("./data/model.dae", glm::vec4(0, 3, 0, 1));
+	// player->initializeCollider();
+	// render->putObject(player);
 
 	Map* map = new Map(path + file);
 	if (!std::filesystem::exists(path)) {
-		std::cout << "No existe el directorio" << std::endl;
+		std::cout << "No existe el directorio\n";
 		return 1;
 	}
 
@@ -56,6 +56,13 @@ int main(int argc, char** argv)
 		render->putObject(object1);
 	}*/
 
+	// Light source
+	Light* light = new Light(glm::vec4(0.0f, 20.0f, 0.0f, 1.0f), point);
+	light->setScale(glm::vec4(100.0f, 100.0f, 100.0f, 0.0f));
+	light->setPosition(glm::vec4(0.0f, 0.0f, 0.0f, 1.0f));
+	light->setColor(glm::vec4(1.0f, 1.0f, 1.0f, 1.0f));
+	render->putLight(light);
+	
 	// Necesario para que el render no se cague encima ¯\_(ツ)_/¯
 	Object* triangle = new Object();
 	triangle->prg->addShader("data/shader.vert");
@@ -64,7 +71,7 @@ int main(int argc, char** argv)
 	render->putObject(triangle);
 	
 	Camera* camera = new Camera();
-	camera->position = glm::vec3(0, 0, 0);
+	camera->position = glm::vec3(0);
 	render->putCamera(camera);
 
 	render->renderColliders = true;
