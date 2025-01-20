@@ -1,6 +1,6 @@
 #include "Render.h"
 #include "InputManager.h"
-#include "Player.h";
+#include "Player.h"
 
 const int MAX_JOINTS = 50;
 

@@ -31,6 +31,7 @@
     <ClCompile Include="lib\Player.cpp" />
     <ClCompile Include="lib\Render.cpp" />
     <ClCompile Include="lib\RenderProgram.cpp" />
+    <ClCompile Include="lib\skeletal_animation.cpp" />
     <ClCompile Include="lib\tinyxml2.cpp" />
     <ClCompile Include="lib\Texture.cpp" />
     <ClCompile Include="Main.cpp" />

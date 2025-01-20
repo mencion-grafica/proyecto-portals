@@ -1,55 +1,41 @@
 #version 330 core
 
-const int MAX_JOINTS = 50;
-const int MAX_WEIGHTS = 4;
+layout(location = 0) in vec3 pos;
+layout(location = 1) in vec3 norm;
+layout(location = 2) in vec2 tex;
+layout(location = 3) in vec3 tangent;
+layout(location = 4) in vec3 bitangent;
+layout(location = 5) in ivec4 boneIds; 
+layout(location = 6) in vec4 weights;
 
-uniform mat4 MVP;
-uniform mat4 M;
-uniform mat4 jointTransforms[MAX_JOINTS];
+uniform mat4 projection;
+uniform mat4 view;
+uniform mat4 model;
 
-in vec4 vPos;          
-in vec4 vColor;        
-in vec4 vNormal;       
-in vec4 vUv;           
-in ivec4 jointIndex;   
-in vec4 weightJoints;  
+const int MAX_BONES = 100;
+const int MAX_BONE_INFLUENCE = 4;
+uniform mat4 finalBonesMatrices[MAX_BONES];
 
-out vec4 fColor;
-out vec3 fPos;
-out vec3 fNormal;
-out vec2 fUv;
+out vec2 TexCoords;
 
-void main() {
-    vec4 totalPos = vec4(0.0);
-    vec3 totalNormal = vec3(0.0);
-    mat4 boneMatrix = mat4(1.0f);
-
-    for (int i = 0; i < MAX_WEIGHTS; i++) {
-        if (jointIndex[i] == -1) {
+void main()
+{
+    vec4 totalPosition = vec4(0.0f);
+    for(int i = 0 ; i < MAX_BONE_INFLUENCE ; i++)
+    {
+        if(boneIds[i] == -1) 
             continue;
-        }
-        if (jointIndex[i] >= MAX_JOINTS) {
-            totalPos = vPos;
+        if(boneIds[i] >=MAX_BONES) 
+        {
+            totalPosition = vec4(pos,1.0f);
             break;
         }
-
-        //boneMatrix += jointTransforms[jointIndex[i]] * weightJoints[i];
-
-        vec4 localPosition = (jointTransforms[jointIndex[i]] * vPos);
-        totalPos += localPosition * weightJoints[i];
-
-        mat3 normalMatrix = mat3(jointTransforms[jointIndex[i]]);
-        vec3 localNormal = normalize(normalMatrix * vNormal.xyz);
-        totalNormal += localNormal * weightJoints[i];
-    }
-    //totalPos = boneMatrix * vPos;
-
-    fPos = (M * totalPos).xyz;
-    fNormal = (inverse(transpose(M)) * vNormal).xyz;
-	fNormal = normalize(fNormal);
-
-    fColor = vec4(totalPos.xyz, 1.0);
-    fUv = vUv.xy;
-
-    gl_Position = MVP * totalPos;
+        vec4 localPosition = finalBonesMatrices[boneIds[i]] * vec4(pos,1.0f);
+        totalPosition += localPosition * weights[i];
+        vec3 localNormal = mat3(finalBonesMatrices[boneIds[i]]) * norm;
+   }
+	
+    mat4 viewModel = view * model;
+    gl_Position =  projection * viewModel * totalPosition;
+	TexCoords = tex;
 }

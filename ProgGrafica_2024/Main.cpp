@@ -5,6 +5,7 @@
 #include "lib/Object.h"
 #include "lib/Camera.h"
 #include "lib/Player.h"
+#include <../../assimp/scene.h>
 
 int main(int argc, char** argv)
 {
