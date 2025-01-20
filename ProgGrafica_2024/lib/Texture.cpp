@@ -20,7 +20,7 @@ Texture::Texture(int w, int h, pixel_t color) {
 }
 
 Texture::Texture(std::string fileName) {
-    std::cout << "Trying to construct the texture: " << fileName << std::endl;
+	//std::cout << "Trying to construct the texture: " << fileName << std::endl;
 
     int numComps = 0;
     pixel_t* datos = (pixel_t*) stbi_load(fileName.c_str(), &this->w, &this->h, &numComps, 4);

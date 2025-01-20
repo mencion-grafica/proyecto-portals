@@ -95,7 +95,7 @@ void Program::readVarList()
 	int count = 0;
 
 	glGetProgramiv(programID, GL_ACTIVE_ATTRIBUTES, &count);
-	std::cout << "Active Attributes: " << count << std::endl;
+	//std::cout << "Active Attributes: " << count << std::endl;
 	
 	for (int i = 0; i < count; i++) 
 	{
@@ -110,7 +110,7 @@ void Program::readVarList()
 		glGetActiveAttrib(programID, (GLuint)idx, buffSize, &length, &size, &type, name);
 		location = glGetAttribLocation(programID, name);
 
-		std::cout << "Attribute: " << name << " Location: " << location << std::endl;
+		//std::cout << "Attribute: " << name << " Location: " << location << std::endl;
 		varList[name] = location;
 	}
 
@@ -128,7 +128,7 @@ void Program::readVarList()
 		glGetActiveUniform(programID, (GLuint) idx, buffSize, &length, &size, &type, name);
 		location = glGetUniformLocation(programID, name);
 
-		std::cout << "Uniform: " << name << " Location: " << location << std::endl;
+		//std::cout << "Uniform: " << name << " Location: " << location << std::endl;
 		varList[name] = location;
 	}
 }

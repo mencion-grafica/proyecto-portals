@@ -142,21 +142,24 @@ vert -1.000000 1.000000 1.000000
 color 0.800000 0.800000 0.800000 1.000000
 normal 0.000000 0.000000 1.000000 0
 uv 0 1
+
 #num faces: 12
 #num vertices: 36
 
-face 34 27 20 
-face 25 13 29 
-face 6 8 11 
-face 15 7 9 
-face 19 3 16 
-face 4 1 5 
-face 33 23 26 
-face 28 22 12 
-face 24 32 10 
-face 17 30 14 
-face 21 2 31 
-face 35 0 18 
+face 20 27 34
+face 29 13 25
+face 11 8 6 
+face 9 7 15 
+face 16 3 19 
+face 5 1 4 
+face 26 23 33 
+face 12 22 28 
+face 10 32 24 
+face 14 30 17 
+face 31 2 21 
+face 18 0 35 
+
 svert data/shader.vert
 sfrag data/shader.frag
+
 texture data/front.png

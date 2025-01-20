@@ -5,6 +5,7 @@
 #include "Common.h"
 #include "Object.h"
 #include "Camera.h"
+#include "Light.h"
 
 /**
  * @class Render
@@ -22,8 +23,12 @@ class Render
 		int width;
 		int height;
 
+		bool renderColliders = false;
+
 		std::vector<Object*> objectList;
 		Camera* activeCamera=NULL;
+		std::vector<Light*> lightList;
+
 		typedef struct {
 			unsigned int bufferID;
 			unsigned int vertexBufferID;
@@ -40,17 +45,24 @@ class Render
 
 		void putCamera(Camera* camera);
 
+		void putLight(Light* light);
+	
 		void setupObject(Object* object);
 
 		void move(double deltaTime);
 
+		void moveLights(float deltaTime);
+
+		bool checkCollisions(Collider* collider);
+		bool checkCollisions(glm::vec4 position);
+	
 		void drawObjects();
 
 		void drawObjects(glm::vec4 position, glm::vec4 direction, Object* portal);
 
 		void initGL(const char* windowName, int sizeX, int sizeY);
 
-		void drawGL(int id);
+		void drawGL(int id, const std::vector<int>& lightIds);
 
 		void mainLoop();
 

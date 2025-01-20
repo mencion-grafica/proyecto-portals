@@ -1,5 +1,7 @@
 #include "Camera.h"
 
+#include "Render.h"
+
 Camera::Camera()
 {
 	this->fbt = new FrameBufferTexture(1024, 768);
@@ -33,18 +35,75 @@ glm::mat4 Camera::computeProjectionMatrix()
 	return glm::perspective(glm::radians(this->fov), this->aspectRatio, this->zNear, this->zFar);
 }
 
-void Camera::move(double deltaTime)
+void Camera::jump()
 {
-	float speed = deltaTime * 1.5f;
+	if (this->position.y <= 0.1f || canJump)
+	{
+		this->velocity.y = 6.0f;
+		canJump = false;
+	}
+}
 
+void Camera::portal()
+{
+	return;
+}
+
+void Camera::move(float deltaTime)
+{
+    float speed = 1.5f * deltaTime;
 	if(this->followCamera == nullptr){
-		if (InputManager::keysState[GLFW_KEY_W]) this->position += speed * this->front;
-		if (InputManager::keysState[GLFW_KEY_S]) this->position -= speed * this->front;
-		if (InputManager::keysState[GLFW_KEY_A]) this->position -= glm::normalize(glm::cross(this->front, this->up)) * speed;
-		if (InputManager::keysState[GLFW_KEY_D]) this->position += glm::normalize(glm::cross(this->front, this->up)) * speed;
+    if (InputManager::keysState[GLFW_KEY_SPACE] && canJump)
+    {
+        jump();
+        canJump = false;
+    }
 
-		if (InputManager::keysState[GLFW_KEY_E]) this->position += speed * this->up;
-		if (InputManager::keysState[GLFW_KEY_Q]) this->position -= speed * this->up;
+    this->velocity.y += gravity * deltaTime;
+
+    glm::vec3 moveDirection(0.0f);
+    if (InputManager::keysState[GLFW_KEY_W]) moveDirection += glm::vec3(this->front.x, 0, this->front.z);
+    if (InputManager::keysState[GLFW_KEY_S]) moveDirection -= glm::vec3(this->front.x, 0, this->front.z);
+    if (InputManager::keysState[GLFW_KEY_A]) moveDirection -= glm::normalize(glm::cross(this->front, this->up));
+    if (InputManager::keysState[GLFW_KEY_D]) moveDirection += glm::normalize(glm::cross(this->front, this->up));
+
+    if (glm::length(moveDirection) > 0.0f) moveDirection = glm::normalize(moveDirection) * speed;
+
+    if (InputManager::keysState[GLFW_KEY_E]) moveDirection += speed * this->up;
+    if (InputManager::keysState[GLFW_KEY_Q]) moveDirection -= speed * this->up;
+
+    glm::vec3 predictedPosition = this->position + moveDirection + this->velocity * deltaTime;
+
+    glm::vec3 resolvedPosition = this->position;
+
+    glm::vec3 tempPositionX = resolvedPosition;
+    tempPositionX.x = predictedPosition.x;
+    if (!Render::r->checkCollisions(glm::vec4(tempPositionX, 1.0f))) resolvedPosition.x = tempPositionX.x;
+
+    glm::vec3 tempPositionY = resolvedPosition;
+    tempPositionY.y = predictedPosition.y;
+    if (!Render::r->checkCollisions(glm::vec4(tempPositionY, 1.0f)))
+    {
+        resolvedPosition.y = tempPositionY.y;
+        canJump = false;
+    }
+	else if (this->velocity.y < 0)
+    {
+        this->velocity.y = 0;
+        canJump = true;
+    }
+
+    glm::vec3 tempPositionZ = resolvedPosition;
+    tempPositionZ.z = predictedPosition.z;
+    if (!Render::r->checkCollisions(glm::vec4(tempPositionZ, 1.0f))) resolvedPosition.z = tempPositionZ.z;
+
+    this->position = resolvedPosition;
+
+    if (this->position.y < 0) {
+        this->position.y = 0;
+        this->velocity.y = 0;
+        canJump = true;
+    }
 	}
 	else
 	{
