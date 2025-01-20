@@ -33,16 +33,16 @@ void main() {
             break;
         }
 
-        //boneMatrix += jointTransforms[jointIndex[i]] * weightJoints[i];
+        boneMatrix += jointTransforms[jointIndex[i]] * weightJoints[i];
 
-        vec4 localPosition = (jointTransforms[jointIndex[i]] * vPos);
+        /*vec4 localPosition = (jointTransforms[jointIndex[i]] * vPos);
         totalPos += localPosition * weightJoints[i];
 
         mat3 normalMatrix = mat3(jointTransforms[jointIndex[i]]);
         vec3 localNormal = normalize(normalMatrix * vNormal.xyz);
-        totalNormal += localNormal * weightJoints[i];
+        totalNormal += localNormal * weightJoints[i];*/
     }
-    //totalPos = boneMatrix * vPos;
+    totalPos = boneMatrix * vPos;
 
     fPos = (M * totalPos).xyz;
     fNormal = (inverse(transpose(M)) * vNormal).xyz;

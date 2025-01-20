@@ -189,7 +189,7 @@ void Player::loadDaeFile(const char* fileName) {
 			counterNum++;
 		}
 
-		vert.weightJoints = glm::normalize(vert.weightJoints);
+		//vert.weightJoints = glm::normalize(vert.weightJoints);
 
 		vertexList.push_back(vert);
 	}
