@@ -27,6 +27,7 @@
     <ClCompile Include="lib\Joint.cpp" />
     <ClCompile Include="lib\JointTransform.cpp" />
     <ClCompile Include="lib\Keyframe.cpp" />
+    <ClCompile Include="lib\Light.cpp" />
     <ClCompile Include="lib\Map.cpp" />
     <ClCompile Include="lib\Object.cpp" />
     <ClCompile Include="lib\Player.cpp" />
@@ -46,6 +47,7 @@
     <ClInclude Include="lib\Joint.h" />
     <ClInclude Include="lib\JointTransform.h" />
     <ClInclude Include="lib\Keyframe.h" />
+    <ClInclude Include="lib\Light.h" />
     <ClInclude Include="lib\Map.h" />
     <ClInclude Include="lib\Object.h" />
     <ClInclude Include="lib\Player.h" />

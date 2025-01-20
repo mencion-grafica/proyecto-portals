@@ -26,9 +26,9 @@ int main(int argc, char** argv)
 	object->initializeCollider();
 	render->putObject(object);
 
-	Player* player = new Player("./data/model.dae", glm::vec4(0, 3, 0, 1));
-	player->initializeCollider();
-	render->putObject(player);
+	// Player* player = new Player("./data/model.dae", glm::vec4(0, 3, 0, 1));
+	// player->initializeCollider();
+	// render->putObject(player);
 
 	Map* map = new Map(path + file);
 	if (!std::filesystem::exists(path)) {
