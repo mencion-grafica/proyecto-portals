@@ -33,8 +33,7 @@ void Animator::Update(float deltaTime, Joint* rootJoint)
 void Animator::IncreaseAnimationTime(float deltaTime)
 {
 	//Sumarle deltaTime
-	float plus = 0.002;
-	currentTime += deltaTime;
+	currentTime += deltaTime / 16.0f;
 	if (currentTime > currentAnimation->GetDuration()) {
 		currentTime = std::fmod(currentTime, currentAnimation->GetDuration());
 	}
@@ -47,12 +46,10 @@ std::vector<Keyframe> Animator::GetPreviousAndNextFrame()
 	Keyframe previous = allFrames[0];
 	Keyframe next = allFrames[0];
 
-	/*for (int i = 0; i < allFrames.size(); i++) {
-		if (allFrames[i].GetTimeStamp() > currentTime) {
-			next = allFrames[i];
-			break;
-		}
-	}*/
+	if (currentTime <= allFrames[0].GetTimeStamp()) {
+		next = allFrames[1];
+		return { previous, next };
+	}
 
 	for (int i = 1; i < allFrames.size(); i++) {
 		next = allFrames[i];
@@ -62,19 +59,14 @@ std::vector<Keyframe> Animator::GetPreviousAndNextFrame()
 		previous = allFrames[i];
 	}
 
-	/*for (int i = 0; i < allFrames.size(); i++) {
-		if (allFrames[i].GetTimeStamp() >= previousTime) {
-			previous = allFrames[i];
-			break;
-		}
-	}*/
+	if (currentTime >= allFrames.back().GetTimeStamp()) {
+		previous = allFrames[allFrames.size() - 2];
+		next = allFrames.back();
+	}
 
-	std::vector<Keyframe> adjacentKeyframes;
-	adjacentKeyframes.push_back(previous);
-	adjacentKeyframes.push_back(next);
-
-	return adjacentKeyframes;
+	return { previous, next };
 }
+
 
 float Animator::CalculateKeyframeProgression(Keyframe previous, Keyframe next)
 {

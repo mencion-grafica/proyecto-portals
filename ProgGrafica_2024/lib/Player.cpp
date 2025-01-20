@@ -35,7 +35,9 @@ void Player::loadDaeFile(const char* fileName) {
 	std::stringstream ss(title);
 	std::vector<std::string> stringPositions;
 	std::vector<std::string> stringColors;
+	std::vector<std::string> stringNormals;
 	std::vector<float> floatPositions;
+	std::vector<float> floatNormals;
 	std::vector<float> floatColors;
 
 	std::string auxString;
@@ -63,6 +65,20 @@ void Player::loadDaeFile(const char* fileName) {
 	for (std::string str : stringColors) {
 		//cout << str << endl;
 		floatColors.push_back(stof(str));
+	}
+
+	const char* normals;
+	normals = doc.FirstChildElement("COLLADA")->FirstChildElement("library_geometries")->FirstChildElement("geometry")->FirstChildElement("mesh")->FirstChildElement("source")->NextSibling()->FirstChildElement("float_array")->GetText();
+
+	//Color de cada vertice
+	std::stringstream ss7(normals);
+	while (getline(ss7, auxString, ' ')) {
+		stringNormals.push_back(auxString);
+	}
+
+	for (std::string str : stringNormals) {
+		//cout << str << endl;
+		floatNormals.push_back(stof(str));
 	}
 
 	const XMLAttribute* count = doc.FirstChildElement("COLLADA")->FirstChildElement("library_geometries")->FirstChildElement("geometry")->FirstChildElement("mesh")->FirstChildElement("source")->FirstChildElement("technique_common")->FirstChildElement("accessor")->FindAttribute("count");
@@ -120,6 +136,8 @@ void Player::loadDaeFile(const char* fileName) {
 
 	int counterNum = 0;
 
+	glm::mat4 adjustCoordSystem = glm::rotate(glm::mat4(1.0f), glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+
 	//Por cada vértice en el .dae, que eso lo sacamos del count del accesor
 	for (int i = 0; i < numVertex; i++) {
 		pos.x = floatPositions.at(0);
@@ -130,13 +148,11 @@ void Player::loadDaeFile(const char* fileName) {
 		floatPositions.erase(floatPositions.begin());
 		pos.w = 1.0f;
 
-		glm::mat4 adjustCoordSystem = glm::rotate(glm::mat4(1.0f), glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
 		glm::vec4 adjustedPos = adjustCoordSystem * glm::vec4(pos.x, pos.y, pos.z, 1.0f);
 
-		pos.x = adjustedPos.x;
+		/*pos.x = adjustedPos.x;
 		pos.y = adjustedPos.y;
-		pos.z = adjustedPos.z;
-
+		pos.z = adjustedPos.z;*/
 
 		vert.vertexPos = pos;
 
@@ -191,13 +207,21 @@ void Player::loadDaeFile(const char* fileName) {
 
 	for (int i = 0; i < numTriangles * 3; i++) {
 		int id = stoi(stringVertex[i * 4]);
+		int idNormal = stoi(stringVertex[(i * 4) + 1]);
+		glm::vec4 normalVert{ floatNormals[idNormal * 3], floatNormals[(idNormal * 3) + 1], floatNormals[(idNormal * 3) + 2], 0.0f };
+		vertexList[id].vertexNormal = normalVert;
 		//cout << id << endl;
 		idList.push_back(id);
 	}
 
 	glm::mat4 empty(1.0f);
+	empty *= adjustCoordSystem;
 
-	this->rootJoint->CalcInverseBindTransform(empty);
+	//this->rootJoint->CalcInverseBindTransform(empty);
+
+	XMLElement* matrixList = doc.FirstChildElement("COLLADA")->FirstChildElement("library_controllers")->FirstChildElement("controller")->FirstChildElement("skin")->FirstChildElement("bind_shape_matrix")->NextSiblingElement("source")->NextSibling()->FirstChildElement("float_array");
+
+	this->rootJoint->GetInverseBindTransform(empty, matrixList);
 
 	jointCount = rootJoint->GetIdCounter();
 
@@ -215,6 +239,7 @@ void Player::loadDaeFile(const char* fileName) {
 	}
 
 	Animation* animation = new Animation(fileName, rootJoint);
+
 	this->animator = Animator(animation);
 	StartNewAnimation(animation);
 
@@ -262,30 +287,6 @@ void Player::AddJointsToList(Joint joint, std::vector<glm::mat4>& list)
 int Player::GetJointCount()
 {
 	return jointCount;
-}
-
-void Player::UpdateVertex()
-{
-	std::vector<glm::mat4> list = GetJointTransforms();
-	for (int j = 0; j < vertexList.size(); j++) {
-		glm::vec4 totalPos{0.0f};
-		glm::vec3 totalNormal{0.0f};
-
-		for (int i = 0; i < MAX_WEIGHTS; i++) {
-			if (vertexList[j].idJoints[i] != -1) {
-				glm::vec4 localPos = list[vertexList[j].idJoints[i]] * vertexList[j].vertexPos;
-				totalPos += localPos * vertexList[j].weightJoints[i];
-
-				glm::mat3 normalMatrix = glm::mat3{ list[vertexList[j].idJoints[i]] };
-				glm::vec3 localNormal = glm::normalize(normalMatrix * vertexList[j].vertexNormal);
-				totalNormal += localNormal * vertexList[j].weightJoints[i];
-			}
-		}
-
-		vertexList[j].vertexPos = this->modelMatrix * totalPos;
-		vertexList[j].vertexNormal = glm::vec4{ normalize(glm::mat3(glm::inverse(glm::transpose(this->modelMatrix))) * totalNormal), 1.0f };
-	}
-	updateModelMatrix();
 }
 
 

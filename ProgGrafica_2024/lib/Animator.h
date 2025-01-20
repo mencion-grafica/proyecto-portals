@@ -10,6 +10,7 @@ private:
 	float currentTime;
 	float previousTime;
 	float progress;
+	
 public:
 	Animator();
 	Animator(Animation* animation);

@@ -22,15 +22,18 @@ out vec2 fUv;
 void main() {
     vec4 totalPos = vec4(0.0);
     vec3 totalNormal = vec3(0.0);
+    mat4 boneMatrix = mat4(1.0f);
 
     for (int i = 0; i < MAX_WEIGHTS; i++) {
         if (jointIndex[i] == -1) {
-            break;
+            continue;
         }
         if (jointIndex[i] >= MAX_JOINTS) {
             totalPos = vPos;
             break;
         }
+
+        //boneMatrix += jointTransforms[jointIndex[i]] * weightJoints[i];
 
         vec4 localPosition = (jointTransforms[jointIndex[i]] * vPos);
         totalPos += localPosition * weightJoints[i];
@@ -39,9 +42,11 @@ void main() {
         vec3 localNormal = normalize(normalMatrix * vNormal.xyz);
         totalNormal += localNormal * weightJoints[i];
     }
+    //totalPos = boneMatrix * vPos;
 
     fPos = (M * totalPos).xyz;
-    fNormal = normalize(mat3(inverse(transpose(M))) * totalNormal);
+    fNormal = (inverse(transpose(M)) * vNormal).xyz;
+	fNormal = normalize(fNormal);
 
     fColor = vec4(totalPos.xyz, 1.0);
     fUv = vUv.xy;

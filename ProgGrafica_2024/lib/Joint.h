@@ -28,6 +28,8 @@ public:
 
 	void CalcInverseBindTransform(glm::mat4 parentBindTransform);
 
+	void GetInverseBindTransform(glm::mat4 parentBindTransform, XMLElement* joint);
+
 	void SetTransformMatrix(glm::mat4 matrix);
 
 	glm::mat4 GetTransformationMatrix();

@@ -22,5 +22,7 @@
 #include <glm/glm.hpp>
 #include <glm/ext.hpp>
 #include <glm/gtx/string_cast.hpp>
+#include <glm/gtx/matrix_interpolation.hpp>
+#include <glm/gtx/quaternion.hpp>
 
 #endif

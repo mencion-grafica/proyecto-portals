@@ -77,13 +77,13 @@ Animation::Animation(const char* fileName, Joint* rootJoint)
 		for (int i = 0; i < keyframesTime.size(); i++) {
 			transformationMatrix = glm::mat4{ floatMatrixElements[0 + index], floatMatrixElements[1 + index], floatMatrixElements[2 + index], floatMatrixElements[3 + index], floatMatrixElements[4 + index], floatMatrixElements[5 + index], floatMatrixElements[6 + index], floatMatrixElements[7 + index], floatMatrixElements[8 + index], floatMatrixElements[9 + index], floatMatrixElements[10 + index], floatMatrixElements[11 + index], floatMatrixElements[12 + index], floatMatrixElements[13 + index], floatMatrixElements[14 + index], floatMatrixElements[15 + index] };
 
-			glm::vec3 position = glm::vec3(transformationMatrix[0][0], transformationMatrix[0][1], transformationMatrix[0][2]);
+			//std::cout << "Local Transform Matrix Before:\n" << glm::to_string(transformationMatrix) << "\n";
 
-			glm::mat3 rotationMatrix = glm::mat3(
-				glm::normalize(glm::vec3(transformationMatrix[0][0], transformationMatrix[0][1], transformationMatrix[0][2])),
-				glm::normalize(glm::vec3(transformationMatrix[1][0], transformationMatrix[1][1], transformationMatrix[1][2])),
-				glm::normalize(glm::vec3(transformationMatrix[2][0], transformationMatrix[2][1], transformationMatrix[2][2]))
-			);
+			glm::interpolate(transformationMatrix, glm::mat4{ 1.0f }, 0.5f);
+
+			glm::vec3 position = glm::vec3(transformationMatrix[0][3], transformationMatrix[1][3], transformationMatrix[2][3]);
+
+			glm::mat3 rotationMatrix = glm::mat3(transformationMatrix);
 
 			glm::quat quatRotation = glm::quat_cast(rotationMatrix);
 

@@ -6,19 +6,19 @@
 # si tiene color empezar la linea por "color" seguida de 4 floats, formato RGBA 32Bit separados por espacios
 # Las caras empiezan la linea por "face" seguida de 3 numeros enteros
 vert -0.5 -0.5 -0.5
-color 0 1 0 1
+color 1 0 0 1
 normal 0 1 0 0
 		  
 vert 0.5 -0.5 -0.5
-color 0 1 0 1
+color 1 0 0 1
 normal 0 1 0 0
 
 vert -0.5 -0.5 0.5
-color 0 1 0 1
+color 1 0 0 1
 normal 0 1 0 0
 
 vert 0.5 -0.5 0.5
-color 0 1 0 1
+color 1 0 0 1
 normal 0 1 0 0
 
 face 2 1 0
